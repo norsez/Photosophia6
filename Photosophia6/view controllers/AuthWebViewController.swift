@@ -44,51 +44,22 @@ class AuthWebViewController: UIViewController, WKNavigationDelegate, WKUIDelegat
         
         self.authViewModel.processAuth(url: navigationAction.request.url)
         decisionHandler(.allow)
-        
-//        guard let url = navigationAction.request.url else {
-//            print("no url to decide policy for.")
-//            return
-//        }
-//
-//        if url.scheme!.hasPrefix("http") && (url.query ?? "") .contains("oauth_token") {
-//            decisionHandler(.allow)
-//        }else if url.scheme == "photosophia" && (url.query ?? "") .contains("oauth_token") {
-//            Flickr.shared.completeAuth(with: url)
-//                .observeOn(MainScheduler.instance)
-//                .subscribe(onNext: { (credentials) in
-//                print(credentials)
-//                    self.dismiss(animated: true, completion: nil)
-//            })
-//            .disposed(by: self.disposeBag)
-//            decisionHandler(.cancel)
-//        }else if url.scheme == "photosophia" {
-//
-//            self.dismiss(animated: true) {
-//                let app = UIApplication.shared.delegate as! AppDelegate
-//                _ = app.application(UIApplication.shared, open: url, options: [:])
-//            }
-//
-//            decisionHandler(.allow)
-//        }
-//        else {
-//            print(navigationAction.request)
-//            decisionHandler(.allow)
-//        }
+   
     }
     
     //MARK: ViewRxProtocol
     func createCallbacks() {
         self.authViewModel.isLoggedIn
             .skip(1)
-            .subscribe(onNext: { [weak self](login) in
-            
-            if login.userId == nil {
-                self?.alert(error: "Can't login Flickr", then: {self?.dismissSelf()})
-            }else {
-                self?.alert(message: "Welcome, \(login.userName ?? "") [\(login.fullName ?? "")]", then: {self?.dismissSelf()})
-            }
-            
-        }).disposed(by: self.disposeBag)
+            .subscribe(onNext: { [weak self] (login) in
+                
+                if login.userId == nil {
+                    self?.alert(error: "Can't login Flickr", then: {self?.dismissSelf()})
+                }else {
+                    self?.alert(message: "Welcome, \(login.userName ?? "") [\(login.fullName ?? "")]", then: {self?.dismissSelf()})
+                }
+                
+            }).disposed(by: self.disposeBag)
         
     }
     
