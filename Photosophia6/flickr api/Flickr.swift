@@ -11,10 +11,16 @@ import RxSwift
 import SwiftyJSON
 import FlickrKit
 
-struct FlickrLogin {
+struct FlickrLogin: CustomStringConvertible {
     let userId: String?
     let userName: String?
     let fullName: String?
+    
+    var description: String {
+        get {
+            return "\(userId ?? "not logged in.") (\(self.userName ?? ""))"
+        }
+    }
 }
 
 //MARK: Flikr api
@@ -181,14 +187,14 @@ extension Flickr {
         })
     }
     
-    func completeAuth(with url: URL) -> Observable<(name:String?, userId: String?, fullname: String?)> {
+    func completeAuth(with url: URL) -> Observable<FlickrLogin> {
         return Observable.create({ (observer) -> Disposable in
             
             FlickrKit.shared().completeAuth(with: url, completion: { (userName, userId, userFullname, error) in
                 if let error = error {
                     observer.onError(error)
                 }else {
-                    observer.onNext((name:userName, userId:userId, fullname:userFullname))
+                    observer.onNext(FlickrLogin(userId: userId, userName: userName, fullName: userFullname))
                     self.login = FlickrLogin(userId: userId, userName: userName, fullName: userFullname)
                     observer.onCompleted()
                 }
@@ -198,14 +204,14 @@ extension Flickr {
         })
     }
     
-    func checkAuth () -> Observable<(name:String?, userId: String?, fullname: String?)> {
+    func checkAuth () -> Observable<FlickrLogin> {
         return Observable.create({ (observer) -> Disposable in
             
             FlickrKit.shared().checkAuthorization(onCompletion: { (userName, userId, userFullname, error) in
                 if let error = error {
                     observer.onError(error)
                 }else {
-                    observer.onNext((name:userName, userId:userId, fullname:userFullname))
+                    observer.onNext(FlickrLogin(userId: userId, userName: userName, fullName: userFullname))
                     observer.onCompleted()
                 }
             })
@@ -214,22 +220,6 @@ extension Flickr {
         })
     }
     
-    func performAuth(with vc: UIViewController ) {
-        Flickr.shared.checkAuth().subscribe(onNext: { (result) in
-            if result.userId == nil {
-                
-                Flickr.shared.beginAuth()
-                    .observeOn(MainScheduler.instance)
-                    .subscribe(onNext: { (url) in
-                        let ctrl = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "auth webview") as! AuthWebViewController
-                        ctrl.launchURL = url
-                        vc.present(ctrl, animated: true, completion: nil)
-                    }).disposed(by: self.disposeBag)
-            }else {
-                print("login OK: \(result)")
-            }
-        })
-        .disposed(by: self.disposeBag)
-    }
+    
     
 }

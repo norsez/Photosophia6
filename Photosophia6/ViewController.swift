@@ -24,9 +24,14 @@ class ViewController: UIViewController {
 //        })
 //            .disposed(by: self.disposeBag)
         
-        Flickr.shared.getInterestingPhotos(in: "609782@N25").subscribe(onNext: { (photo) in
-            print(photo)
-        }).disposed(by: self.disposeBag)
+//        Flickr.shared.getInterestingPhotos(in: "609782@N25").subscribe(onNext: { (photo) in
+//            print(photo)
+//        }).disposed(by: self.disposeBag)
+        
+        AuthStatusViewModel.performAuthIfNeeded(with: self, completion: {
+            login in
+            self.alert(message: login.description)
+        })
     }
 
 

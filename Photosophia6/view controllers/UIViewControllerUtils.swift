@@ -9,6 +9,25 @@
 import UIKit
 
 extension UIViewController {
-    func alert(message: String) { print(message) }
-    func alert(error message: String) { print(message)}
+    func alert(message: String, then: (()->())? = nil) {
+        print(message)
+        let ctrl = UIAlertController(title: "Info", message: message, preferredStyle: .alert)
+        ctrl.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+            if let then = then  {
+                then ()
+            }
+        }))
+        self.present(ctrl, animated: true, completion: nil)
+    }
+    
+    func alert(error message: String, then: (()->())? = nil) {
+        print(message)
+        let ctrl = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        ctrl.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+            if let then = then  {
+                then ()
+            }
+        }))
+        self.present(ctrl, animated: true, completion: nil)   
+    }
 }

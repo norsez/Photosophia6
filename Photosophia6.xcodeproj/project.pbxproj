@@ -13,6 +13,7 @@
 		F313177F22540B4300D4ECA5 /* InterestingPhotosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F313177E22540B4300D4ECA5 /* InterestingPhotosViewModel.swift */; };
 		F313178122540B6E00D4ECA5 /* InterestingPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F313178022540B6E00D4ECA5 /* InterestingPhotosViewController.swift */; };
 		F313178322540BD600D4ECA5 /* AuthStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F313178222540BD600D4ECA5 /* AuthStatusViewModel.swift */; };
+		F31317852254124300D4ECA5 /* ViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31317842254124300D4ECA5 /* ViewProtocol.swift */; };
 		F3C400AC2251128900131E74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C400AB2251128900131E74 /* AppDelegate.swift */; };
 		F3C400AE2251128900131E74 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C400AD2251128900131E74 /* ViewController.swift */; };
 		F3C400B12251128900131E74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3C400AF2251128900131E74 /* Main.storyboard */; };
@@ -60,6 +61,7 @@
 		F313177E22540B4300D4ECA5 /* InterestingPhotosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestingPhotosViewModel.swift; sourceTree = "<group>"; };
 		F313178022540B6E00D4ECA5 /* InterestingPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestingPhotosViewController.swift; sourceTree = "<group>"; };
 		F313178222540BD600D4ECA5 /* AuthStatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStatusViewModel.swift; sourceTree = "<group>"; };
+		F31317842254124300D4ECA5 /* ViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProtocol.swift; sourceTree = "<group>"; };
 		F3C400A82251128900131E74 /* Photosophia6.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photosophia6.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3C400AB2251128900131E74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3C400AD2251128900131E74 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 				F3C400E02251850E00131E74 /* AuthWebViewController.swift */,
 				F3C400E32251859400131E74 /* UIViewControllerUtils.swift */,
 				F313178022540B6E00D4ECA5 /* InterestingPhotosViewController.swift */,
+				F31317842254124300D4ECA5 /* ViewProtocol.swift */,
 			);
 			path = "view controllers";
 			sourceTree = "<group>";
@@ -458,6 +461,7 @@
 				F3C400DF2251157300131E74 /* Flickr.swift in Sources */,
 				F3C400EA2252505C00131E74 /* Photo+Codable.swift in Sources */,
 				F3C400E12251850E00131E74 /* AuthWebViewController.swift in Sources */,
+				F31317852254124300D4ECA5 /* ViewProtocol.swift in Sources */,
 				F3C400DD225114EF00131E74 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
