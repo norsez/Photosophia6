@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A091C233D5F6624687187CE /* Pods_Photosophia6.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44117FE502ED3549404AAE5F /* Pods_Photosophia6.framework */; };
+		9D332B56F3807C07F664D38C /* Pods_Photosophia6UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1260625AFDB6AC71FFE65A3 /* Pods_Photosophia6UITests.framework */; };
+		EE8CD425E3B29AD5218D6BB8 /* Pods_Photosophia6Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADE425C886CD1DD0EC6195D0 /* Pods_Photosophia6Tests.framework */; };
+		F313177F22540B4300D4ECA5 /* InterestingPhotosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F313177E22540B4300D4ECA5 /* InterestingPhotosViewModel.swift */; };
+		F313178122540B6E00D4ECA5 /* InterestingPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F313178022540B6E00D4ECA5 /* InterestingPhotosViewController.swift */; };
+		F313178322540BD600D4ECA5 /* AuthStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F313178222540BD600D4ECA5 /* AuthStatusViewModel.swift */; };
 		F3C400AC2251128900131E74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C400AB2251128900131E74 /* AppDelegate.swift */; };
 		F3C400AE2251128900131E74 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C400AD2251128900131E74 /* ViewController.swift */; };
 		F3C400B12251128900131E74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3C400AF2251128900131E74 /* Main.storyboard */; };
@@ -14,6 +20,14 @@
 		F3C400B62251128A00131E74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3C400B42251128A00131E74 /* LaunchScreen.storyboard */; };
 		F3C400C12251128A00131E74 /* Photosophia6Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C400C02251128A00131E74 /* Photosophia6Tests.swift */; };
 		F3C400CC2251128A00131E74 /* Photosophia6UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C400CB2251128A00131E74 /* Photosophia6UITests.swift */; };
+		F3C400DA225112C800131E74 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = F3C400D9225112C800131E74 /* Podfile */; };
+		F3C400DD225114EF00131E74 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C400DC225114EF00131E74 /* Constants.swift */; };
+		F3C400DF2251157300131E74 /* Flickr.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C400DE2251157300131E74 /* Flickr.swift */; };
+		F3C400E12251850E00131E74 /* AuthWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C400E02251850E00131E74 /* AuthWebViewController.swift */; };
+		F3C400E42251859400131E74 /* UIViewControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C400E32251859400131E74 /* UIViewControllerUtils.swift */; };
+		F3C400E6225189C200131E74 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3C400E5225189C200131E74 /* WebKit.framework */; };
+		F3C400E82251B02100131E74 /* Group+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C400E72251B02100131E74 /* Group+Codable.swift */; };
+		F3C400EA2252505C00131E74 /* Photo+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C400E92252505B00131E74 /* Photo+Codable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +48,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0443B67BA5E679E311182530 /* Pods-Photosophia6Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photosophia6Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Photosophia6Tests/Pods-Photosophia6Tests.release.xcconfig"; sourceTree = "<group>"; };
+		1EE67629101F39E37435F40E /* Pods-Photosophia6.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photosophia6.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Photosophia6/Pods-Photosophia6.debug.xcconfig"; sourceTree = "<group>"; };
+		44117FE502ED3549404AAE5F /* Pods_Photosophia6.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Photosophia6.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		60E3E3C8E8505A1E521382FD /* Pods-Photosophia6Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photosophia6Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Photosophia6Tests/Pods-Photosophia6Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		6B4278B6FCE35270316904E4 /* Pods-Photosophia6.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photosophia6.release.xcconfig"; path = "Pods/Target Support Files/Pods-Photosophia6/Pods-Photosophia6.release.xcconfig"; sourceTree = "<group>"; };
+		ADE425C886CD1DD0EC6195D0 /* Pods_Photosophia6Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Photosophia6Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B952DD5B74B694CCD553EFE8 /* Pods-Photosophia6UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photosophia6UITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Photosophia6UITests/Pods-Photosophia6UITests.release.xcconfig"; sourceTree = "<group>"; };
+		D248F43DBCA8B52B60904A97 /* Pods-Photosophia6UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photosophia6UITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Photosophia6UITests/Pods-Photosophia6UITests.debug.xcconfig"; sourceTree = "<group>"; };
+		E1260625AFDB6AC71FFE65A3 /* Pods_Photosophia6UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Photosophia6UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F313177E22540B4300D4ECA5 /* InterestingPhotosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestingPhotosViewModel.swift; sourceTree = "<group>"; };
+		F313178022540B6E00D4ECA5 /* InterestingPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestingPhotosViewController.swift; sourceTree = "<group>"; };
+		F313178222540BD600D4ECA5 /* AuthStatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStatusViewModel.swift; sourceTree = "<group>"; };
 		F3C400A82251128900131E74 /* Photosophia6.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photosophia6.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3C400AB2251128900131E74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3C400AD2251128900131E74 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +73,14 @@
 		F3C400C72251128A00131E74 /* Photosophia6UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Photosophia6UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3C400CB2251128A00131E74 /* Photosophia6UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photosophia6UITests.swift; sourceTree = "<group>"; };
 		F3C400CD2251128A00131E74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F3C400D9225112C800131E74 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		F3C400DC225114EF00131E74 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F3C400DE2251157300131E74 /* Flickr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flickr.swift; sourceTree = "<group>"; };
+		F3C400E02251850E00131E74 /* AuthWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthWebViewController.swift; sourceTree = "<group>"; };
+		F3C400E32251859400131E74 /* UIViewControllerUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerUtils.swift; sourceTree = "<group>"; };
+		F3C400E5225189C200131E74 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		F3C400E72251B02100131E74 /* Group+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Group+Codable.swift"; sourceTree = "<group>"; };
+		F3C400E92252505B00131E74 /* Photo+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo+Codable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +88,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3C400E6225189C200131E74 /* WebKit.framework in Frameworks */,
+				0A091C233D5F6624687187CE /* Pods_Photosophia6.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE8CD425E3B29AD5218D6BB8 /* Pods_Photosophia6Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +105,46 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D332B56F3807C07F664D38C /* Pods_Photosophia6UITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		427BC9DE32646AF8378515EE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1EE67629101F39E37435F40E /* Pods-Photosophia6.debug.xcconfig */,
+				6B4278B6FCE35270316904E4 /* Pods-Photosophia6.release.xcconfig */,
+				60E3E3C8E8505A1E521382FD /* Pods-Photosophia6Tests.debug.xcconfig */,
+				0443B67BA5E679E311182530 /* Pods-Photosophia6Tests.release.xcconfig */,
+				D248F43DBCA8B52B60904A97 /* Pods-Photosophia6UITests.debug.xcconfig */,
+				B952DD5B74B694CCD553EFE8 /* Pods-Photosophia6UITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B6BE2F33712DE0FE95666C20 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F3C400E5225189C200131E74 /* WebKit.framework */,
+				44117FE502ED3549404AAE5F /* Pods_Photosophia6.framework */,
+				ADE425C886CD1DD0EC6195D0 /* Pods_Photosophia6Tests.framework */,
+				E1260625AFDB6AC71FFE65A3 /* Pods_Photosophia6UITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F313177B2254091400D4ECA5 /* view models */ = {
+			isa = PBXGroup;
+			children = (
+				F313177E22540B4300D4ECA5 /* InterestingPhotosViewModel.swift */,
+				F313178222540BD600D4ECA5 /* AuthStatusViewModel.swift */,
+			);
+			path = "view models";
+			sourceTree = "<group>";
+		};
 		F3C4009F2251128800131E74 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +152,9 @@
 				F3C400BF2251128A00131E74 /* Photosophia6Tests */,
 				F3C400CA2251128A00131E74 /* Photosophia6UITests */,
 				F3C400A92251128900131E74 /* Products */,
+				F3C400D9225112C800131E74 /* Podfile */,
+				427BC9DE32646AF8378515EE /* Pods */,
+				B6BE2F33712DE0FE95666C20 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,7 +171,10 @@
 		F3C400AA2251128900131E74 /* Photosophia6 */ = {
 			isa = PBXGroup;
 			children = (
+				F3C400DB2251149200131E74 /* flickr api */,
 				F3C400AB2251128900131E74 /* AppDelegate.swift */,
+				F313177B2254091400D4ECA5 /* view models */,
+				F3C400E22251851600131E74 /* view controllers */,
 				F3C400AD2251128900131E74 /* ViewController.swift */,
 				F3C400AF2251128900131E74 /* Main.storyboard */,
 				F3C400B22251128A00131E74 /* Assets.xcassets */,
@@ -125,6 +202,27 @@
 			path = Photosophia6UITests;
 			sourceTree = "<group>";
 		};
+		F3C400DB2251149200131E74 /* flickr api */ = {
+			isa = PBXGroup;
+			children = (
+				F3C400DC225114EF00131E74 /* Constants.swift */,
+				F3C400DE2251157300131E74 /* Flickr.swift */,
+				F3C400E72251B02100131E74 /* Group+Codable.swift */,
+				F3C400E92252505B00131E74 /* Photo+Codable.swift */,
+			);
+			path = "flickr api";
+			sourceTree = "<group>";
+		};
+		F3C400E22251851600131E74 /* view controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F3C400E02251850E00131E74 /* AuthWebViewController.swift */,
+				F3C400E32251859400131E74 /* UIViewControllerUtils.swift */,
+				F313178022540B6E00D4ECA5 /* InterestingPhotosViewController.swift */,
+			);
+			path = "view controllers";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +230,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F3C400D02251128A00131E74 /* Build configuration list for PBXNativeTarget "Photosophia6" */;
 			buildPhases = (
+				40DB56769E4A0FF2426512DB /* [CP] Check Pods Manifest.lock */,
 				F3C400A42251128900131E74 /* Sources */,
 				F3C400A52251128900131E74 /* Frameworks */,
 				F3C400A62251128900131E74 /* Resources */,
+				7D36477A65D1603BF944F325 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -149,6 +249,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F3C400D32251128A00131E74 /* Build configuration list for PBXNativeTarget "Photosophia6Tests" */;
 			buildPhases = (
+				871A84F4DFB2063DC5F3BB59 /* [CP] Check Pods Manifest.lock */,
 				F3C400B82251128A00131E74 /* Sources */,
 				F3C400B92251128A00131E74 /* Frameworks */,
 				F3C400BA2251128A00131E74 /* Resources */,
@@ -167,6 +268,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F3C400D62251128A00131E74 /* Build configuration list for PBXNativeTarget "Photosophia6UITests" */;
 			buildPhases = (
+				CE76067515EFA70A52D3D819 /* [CP] Check Pods Manifest.lock */,
 				F3C400C32251128A00131E74 /* Sources */,
 				F3C400C42251128A00131E74 /* Frameworks */,
 				F3C400C52251128A00131E74 /* Resources */,
@@ -231,6 +333,7 @@
 			files = (
 				F3C400B62251128A00131E74 /* LaunchScreen.storyboard in Resources */,
 				F3C400B32251128A00131E74 /* Assets.xcassets in Resources */,
+				F3C400DA225112C800131E74 /* Podfile in Resources */,
 				F3C400B12251128900131E74 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,13 +354,111 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		40DB56769E4A0FF2426512DB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Photosophia6-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7D36477A65D1603BF944F325 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Photosophia6/Pods-Photosophia6-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire-SwiftyJSON/Alamofire_SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/FlickrKit/FlickrKit.framework",
+				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire_SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FlickrKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Photosophia6/Pods-Photosophia6-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		871A84F4DFB2063DC5F3BB59 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Photosophia6Tests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CE76067515EFA70A52D3D819 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Photosophia6UITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F3C400A42251128900131E74 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F313178322540BD600D4ECA5 /* AuthStatusViewModel.swift in Sources */,
+				F3C400E42251859400131E74 /* UIViewControllerUtils.swift in Sources */,
+				F3C400E82251B02100131E74 /* Group+Codable.swift in Sources */,
 				F3C400AE2251128900131E74 /* ViewController.swift in Sources */,
 				F3C400AC2251128900131E74 /* AppDelegate.swift in Sources */,
+				F313178122540B6E00D4ECA5 /* InterestingPhotosViewController.swift in Sources */,
+				F313177F22540B4300D4ECA5 /* InterestingPhotosViewModel.swift in Sources */,
+				F3C400DF2251157300131E74 /* Flickr.swift in Sources */,
+				F3C400EA2252505C00131E74 /* Photo+Codable.swift in Sources */,
+				F3C400E12251850E00131E74 /* AuthWebViewController.swift in Sources */,
+				F3C400DD225114EF00131E74 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,6 +631,7 @@
 		};
 		F3C400D12251128A00131E74 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1EE67629101F39E37435F40E /* Pods-Photosophia6.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -448,6 +650,7 @@
 		};
 		F3C400D22251128A00131E74 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6B4278B6FCE35270316904E4 /* Pods-Photosophia6.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -466,6 +669,7 @@
 		};
 		F3C400D42251128A00131E74 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 60E3E3C8E8505A1E521382FD /* Pods-Photosophia6Tests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -487,6 +691,7 @@
 		};
 		F3C400D52251128A00131E74 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0443B67BA5E679E311182530 /* Pods-Photosophia6Tests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -508,6 +713,7 @@
 		};
 		F3C400D72251128A00131E74 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D248F43DBCA8B52B60904A97 /* Pods-Photosophia6UITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -528,6 +734,7 @@
 		};
 		F3C400D82251128A00131E74 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B952DD5B74B694CCD553EFE8 /* Pods-Photosophia6UITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

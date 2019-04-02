@@ -7,12 +7,26 @@
 //
 
 import UIKit
-
+import RxSwift
 class ViewController: UIViewController {
-
+    let disposeBag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+//
+//        Flickr.shared.checkAuth().subscribe(onNext: { (cred) in
+//            Flickr.shared.getAllUserGroups()
+//                .subscribe(onNext: { (g) in
+//                    print(g)
+//                })
+//                .disposed(by: self.disposeBag)
+//        })
+//            .disposed(by: self.disposeBag)
+        
+        Flickr.shared.getInterestingPhotos(in: "609782@N25").subscribe(onNext: { (photo) in
+            print(photo)
+        }).disposed(by: self.disposeBag)
     }
 
 

@@ -7,16 +7,39 @@
 //
 
 import UIKit
-
+import RxSwift
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var disposeBag = DisposeBag()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        
+        
+        
         return true
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        print(url)
+        if self.handleAuth(withURL: url) {
+            return true
+        }
+        
+        return false
+    }
+    
+    func handleAuth(withURL url: URL) -> Bool {
+        if url.scheme == "photosophia" && url.host == "auth" {
+            Flickr.shared.completeAuth(with: url).subscribe(onNext: { (info) in
+                print(info)
+            }).disposed(by: self.disposeBag)
+            return true
+        }
+        
+        return false
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
