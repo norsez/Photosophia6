@@ -10,6 +10,8 @@ target 'Photosophia6' do
   pod 'Alamofire-SwiftyJSON', '~> 3.0.0'
   pod 'SwiftyJSON'
   pod 'AlamofireImage', '~> 3.5.0'
+  pod 'RxKingfisher', '~> 0.5.0'
+  pod 'Whisper'
   # Pods for Photosophia6
 
   target 'Photosophia6Tests' do

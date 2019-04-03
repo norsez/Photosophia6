@@ -26,6 +26,39 @@
             </objects>
             <point key="canvasLocation" x="1042.0289855072465" y="128.57142857142856"/>
         </scene>
+        <!--Login View Controller-->
+        <scene sceneID="cKM-Je-VBU">
+            <objects>
+                <viewController id="7v6-QH-Lwp" customClass="LoginViewController" customModule="Photosophia6" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uDj-Hj-ZG9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ExB-dn-LAT">
+                                <rect key="frame" x="186" y="433" width="42" height="30"/>
+                                <state key="normal" title="Log In"/>
+                                <connections>
+                                    <action selector="didLogInButton:" destination="7v6-QH-Lwp" eventType="touchUpInside" id="9m1-Kr-ET0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ExB-dn-LAT" firstAttribute="centerX" secondItem="uDj-Hj-ZG9" secondAttribute="centerX" id="kPX-Jg-Tma"/>
+                            <constraint firstItem="ExB-dn-LAT" firstAttribute="centerY" secondItem="uDj-Hj-ZG9" secondAttribute="centerY" id="zxu-zS-AAl"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="kGd-mU-GoN"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="B4B-Yu-HNb"/>
+                    <connections>
+                        <outlet property="logInButton" destination="ExB-dn-LAT" id="dOl-0s-6XJ"/>
+                        <segue destination="jNZ-9B-NlD" kind="show" identifier="interesting photos" id="C5N-Rl-WUJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cld-Fm-oTA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="743" y="779"/>
+        </scene>
         <!--Auth Web View Controller-->
         <scene sceneID="KPJ-Ai-4nL">
             <objects>
@@ -58,7 +91,56 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UCI-zu-YQE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1681" y="129"/>
+            <point key="canvasLocation" x="742" y="1445"/>
+        </scene>
+        <!--Interesting Photos View Controller-->
+        <scene sceneID="EH6-Ex-9IA">
+            <objects>
+                <collectionViewController id="jNZ-9B-NlD" customClass="InterestingPhotosViewController" customModule="Photosophia6" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="QMN-k6-7ag">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="OWI-fS-3oq">
+                            <size key="itemSize" width="217" height="148"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="thumbnail cell" id="bHP-bw-5Xn" customClass="ThumbnailCell" customModule="Photosophia6" customModuleProvider="target">
+                                <rect key="frame" x="98.5" y="0.0" width="217" height="148"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="217" height="148"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JXH-Kq-clz">
+                                            <rect key="frame" x="0.0" y="0.0" width="217" height="148"/>
+                                        </imageView>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="JXH-Kq-clz" firstAttribute="top" secondItem="bHP-bw-5Xn" secondAttribute="top" id="RJD-Lb-EV0"/>
+                                    <constraint firstAttribute="trailing" secondItem="JXH-Kq-clz" secondAttribute="trailing" id="dyk-eO-Ru0"/>
+                                    <constraint firstItem="JXH-Kq-clz" firstAttribute="leading" secondItem="bHP-bw-5Xn" secondAttribute="leading" id="eVC-9F-86L"/>
+                                    <constraint firstAttribute="bottom" secondItem="JXH-Kq-clz" secondAttribute="bottom" id="ejS-yX-W3I"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="imageView" destination="JXH-Kq-clz" id="79d-5o-Nxv"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="jNZ-9B-NlD" id="W7H-mI-s62"/>
+                            <outlet property="delegate" destination="jNZ-9B-NlD" id="7TU-qV-4LN"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="7pC-am-F4A"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oGq-w6-GSx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1426" y="779"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fSX-or-OQh">
@@ -71,12 +153,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="KCf-eW-SUM"/>
+                        <segue destination="7v6-QH-Lwp" kind="relationship" relationship="rootViewController" id="sYq-R8-j26"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="51J-sG-GTi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="128.98550724637681" y="773.4375"/>
+            <point key="canvasLocation" x="29" y="780"/>
         </scene>
     </scenes>
 </document>

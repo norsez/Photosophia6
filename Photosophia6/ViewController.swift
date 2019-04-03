@@ -28,10 +28,20 @@ class ViewController: UIViewController {
 //            print(photo)
 //        }).disposed(by: self.disposeBag)
         
-        AuthStatusViewModel.performAuthIfNeeded(with: self, completion: {
-            login in
-            self.alert(message: login.description)
+//        AuthStatusViewModel.performAuthIfNeeded(with: self, completion: {
+//            login in
+//            self.alert(message: login.description)
+//        })
+        
+        Flickr.shared.checkAuth().subscribe(onNext: { (login) in
+            Flickr.shared.loadInterestingPhotos(withEachGroupLimitTo: 2).subscribe(onNext: { (p) in
+                
+            })
+            .disposed(by: self.disposeBag)
         })
+        .disposed(by: self.disposeBag)
+        
+        
     }
 
 

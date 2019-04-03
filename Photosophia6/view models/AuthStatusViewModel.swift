@@ -45,25 +45,53 @@ class AuthStatusViewModel {
     }
     
     static let classDisposeBag = DisposeBag()
+    //MARK: use this method to initiate login user if needed.
+    func performAuthIfNeeded(with vc: UIViewController) -> Observable<FlickrLogin> {
+        return Observable.create({ (observer) -> Disposable in
+            let disposeBag = DisposeBag()
+            return Flickr.shared.checkAuth().subscribe(onNext: { (login) in
+                if login.userId != nil {
+                    observer.onNext(login)
+                    observer.onCompleted()
+                }else {
+                    Flickr.shared.beginAuth().subscribe(onNext: { (url) in
+                        let ctrl = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "auth webview") as! AuthWebViewController
+                        ctrl.launchURL = url
+                        
+                        ctrl.authViewModel.isLoggedIn.asDriver().drive(onNext: { (login) in
+                            observer.onNext(login)
+                            observer.onCompleted()
+                        }).disposed(by: disposeBag)
+                        
+                        let nav = UINavigationController(rootViewController: ctrl)
+                        vc.present(nav, animated: true, completion: nil)
+                    })
+                    .disposed(by: disposeBag)
+                }
+            })
+        })
+    }
+    
     static func performAuthIfNeeded(with vc: UIViewController, completion: @escaping (FlickrLogin)->Void ) {
         
-        Flickr.shared.checkAuth().subscribe(onNext: { (result) in
+        Flickr.shared.checkAuth()
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { (result) in
             completion(result)
-            
         }, onError: { (error) in
             print(error)
             Flickr.shared.beginAuth()
-                
                 .subscribe(onNext: { (url) in
                     let ctrl = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "auth webview") as! AuthWebViewController
                     ctrl.launchURL = url
                     let nav = UINavigationController(rootViewController: ctrl)
                     vc.present(nav, animated: true, completion: nil)
-                    
+
                 }).disposed(by: classDisposeBag)
-            
+
         })
         .disposed(by: classDisposeBag)
+    
         
     }
     

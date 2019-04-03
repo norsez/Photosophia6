@@ -25,8 +25,6 @@ class AuthWebViewController: UIViewController, WKNavigationDelegate, WKUIDelegat
         
         self.navigationItem.leftBarButtonItem = cancelButton
         
-        
-        
         if let url = launchURL{
             let request = URLRequest(url: url)
             self.webView.load(request)

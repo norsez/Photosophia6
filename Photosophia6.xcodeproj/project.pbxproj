@@ -14,6 +14,13 @@
 		F313178122540B6E00D4ECA5 /* InterestingPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F313178022540B6E00D4ECA5 /* InterestingPhotosViewController.swift */; };
 		F313178322540BD600D4ECA5 /* AuthStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F313178222540BD600D4ECA5 /* AuthStatusViewModel.swift */; };
 		F31317852254124300D4ECA5 /* ViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31317842254124300D4ECA5 /* ViewProtocol.swift */; };
+		F31317872254229E00D4ECA5 /* Flickr+Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31317862254229E00D4ECA5 /* Flickr+Auth.swift */; };
+		F313178922542C6C00D4ECA5 /* ThumbnailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F313178822542C6C00D4ECA5 /* ThumbnailCell.swift */; };
+		F313178B22542DC500D4ECA5 /* ViewModelRxProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F313178A22542DC500D4ECA5 /* ViewModelRxProtocol.swift */; };
+		F313178D22545E7C00D4ECA5 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F313178C22545E7C00D4ECA5 /* LoginViewModel.swift */; };
+		F313178F22545E8800D4ECA5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F313178E22545E8800D4ECA5 /* LoginViewController.swift */; };
+		F31317912254744700D4ECA5 /* Segue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31317902254744700D4ECA5 /* Segue.swift */; };
+		F3131794225489D700D4ECA5 /* Flickr+UserCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3131793225489D700D4ECA5 /* Flickr+UserCases.swift */; };
 		F3C400AC2251128900131E74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C400AB2251128900131E74 /* AppDelegate.swift */; };
 		F3C400AE2251128900131E74 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C400AD2251128900131E74 /* ViewController.swift */; };
 		F3C400B12251128900131E74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3C400AF2251128900131E74 /* Main.storyboard */; };
@@ -62,6 +69,13 @@
 		F313178022540B6E00D4ECA5 /* InterestingPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestingPhotosViewController.swift; sourceTree = "<group>"; };
 		F313178222540BD600D4ECA5 /* AuthStatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStatusViewModel.swift; sourceTree = "<group>"; };
 		F31317842254124300D4ECA5 /* ViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProtocol.swift; sourceTree = "<group>"; };
+		F31317862254229E00D4ECA5 /* Flickr+Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Flickr+Auth.swift"; sourceTree = "<group>"; };
+		F313178822542C6C00D4ECA5 /* ThumbnailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailCell.swift; sourceTree = "<group>"; };
+		F313178A22542DC500D4ECA5 /* ViewModelRxProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelRxProtocol.swift; sourceTree = "<group>"; };
+		F313178C22545E7C00D4ECA5 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		F313178E22545E8800D4ECA5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		F31317902254744700D4ECA5 /* Segue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segue.swift; sourceTree = "<group>"; };
+		F3131793225489D700D4ECA5 /* Flickr+UserCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Flickr+UserCases.swift"; sourceTree = "<group>"; };
 		F3C400A82251128900131E74 /* Photosophia6.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photosophia6.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3C400AB2251128900131E74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3C400AD2251128900131E74 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +157,8 @@
 			children = (
 				F313177E22540B4300D4ECA5 /* InterestingPhotosViewModel.swift */,
 				F313178222540BD600D4ECA5 /* AuthStatusViewModel.swift */,
+				F313178A22542DC500D4ECA5 /* ViewModelRxProtocol.swift */,
+				F313178C22545E7C00D4ECA5 /* LoginViewModel.swift */,
 			);
 			path = "view models";
 			sourceTree = "<group>";
@@ -207,8 +223,10 @@
 		F3C400DB2251149200131E74 /* flickr api */ = {
 			isa = PBXGroup;
 			children = (
-				F3C400DC225114EF00131E74 /* Constants.swift */,
+				F31317862254229E00D4ECA5 /* Flickr+Auth.swift */,
 				F3C400DE2251157300131E74 /* Flickr.swift */,
+				F3131793225489D700D4ECA5 /* Flickr+UserCases.swift */,
+				F3C400DC225114EF00131E74 /* Constants.swift */,
 				F3C400E72251B02100131E74 /* Group+Codable.swift */,
 				F3C400E92252505B00131E74 /* Photo+Codable.swift */,
 			);
@@ -218,10 +236,13 @@
 		F3C400E22251851600131E74 /* view controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F313178E22545E8800D4ECA5 /* LoginViewController.swift */,
 				F3C400E02251850E00131E74 /* AuthWebViewController.swift */,
 				F3C400E32251859400131E74 /* UIViewControllerUtils.swift */,
 				F313178022540B6E00D4ECA5 /* InterestingPhotosViewController.swift */,
 				F31317842254124300D4ECA5 /* ViewProtocol.swift */,
+				F313178822542C6C00D4ECA5 /* ThumbnailCell.swift */,
+				F31317902254744700D4ECA5 /* Segue.swift */,
 			);
 			path = "view controllers";
 			sourceTree = "<group>";
@@ -387,10 +408,13 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire-SwiftyJSON/Alamofire_SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/FlickrKit/FlickrKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxKingfisher/RxKingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/Whisper/Whisper.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -398,10 +422,13 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire_SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FlickrKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxKingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Whisper.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -453,14 +480,21 @@
 			files = (
 				F313178322540BD600D4ECA5 /* AuthStatusViewModel.swift in Sources */,
 				F3C400E42251859400131E74 /* UIViewControllerUtils.swift in Sources */,
+				F313178922542C6C00D4ECA5 /* ThumbnailCell.swift in Sources */,
 				F3C400E82251B02100131E74 /* Group+Codable.swift in Sources */,
+				F313178D22545E7C00D4ECA5 /* LoginViewModel.swift in Sources */,
 				F3C400AE2251128900131E74 /* ViewController.swift in Sources */,
+				F313178B22542DC500D4ECA5 /* ViewModelRxProtocol.swift in Sources */,
+				F31317912254744700D4ECA5 /* Segue.swift in Sources */,
 				F3C400AC2251128900131E74 /* AppDelegate.swift in Sources */,
 				F313178122540B6E00D4ECA5 /* InterestingPhotosViewController.swift in Sources */,
 				F313177F22540B4300D4ECA5 /* InterestingPhotosViewModel.swift in Sources */,
 				F3C400DF2251157300131E74 /* Flickr.swift in Sources */,
 				F3C400EA2252505C00131E74 /* Photo+Codable.swift in Sources */,
+				F3131794225489D700D4ECA5 /* Flickr+UserCases.swift in Sources */,
 				F3C400E12251850E00131E74 /* AuthWebViewController.swift in Sources */,
+				F313178F22545E8800D4ECA5 /* LoginViewController.swift in Sources */,
+				F31317872254229E00D4ECA5 /* Flickr+Auth.swift in Sources */,
 				F31317852254124300D4ECA5 /* ViewProtocol.swift in Sources */,
 				F3C400DD225114EF00131E74 /* Constants.swift in Sources */,
 			);

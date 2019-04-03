@@ -21,6 +21,7 @@ struct FlickrLogin: CustomStringConvertible {
             return "\(userId ?? "not logged in.") (\(self.userName ?? ""))"
         }
     }
+    
 }
 
 //MARK: Flikr api
@@ -36,9 +37,11 @@ class Flickr {
     var login: FlickrLogin?
     let PER_PAGE = 100
     private init() {
-        FlickrKit.shared().initialize(withAPIKey: FlickrKeys.flickr_key.rawValue,
+        self.api.initialize(withAPIKey: FlickrKeys.flickr_key.rawValue,
                                       sharedSecret: FlickrKeys.flickr_secret.rawValue)
-        
+        self.api.checkAuthorization { (userName, userId, userFullname, error) in
+            print("user id: \(userId)")
+        }
     }
     
     //the main api call method
@@ -77,7 +80,7 @@ class Flickr {
     
     
     //MARK: interesting photos
-    func getInterestingPhotos(in group_id: String) -> Observable<Photo> {
+    func getInterestingPhotos(in group_id: String, limit: Int) -> Observable<Photo> {
         return Observable.create({ (observer) -> Disposable in
 
             var timeScope = DateComponents()
@@ -88,7 +91,8 @@ class Flickr {
             let args: [String:Any] = ["max_upload_date": "\(qDate!.timeIntervalSince1970)",
                                       "sort": "date-posted-desc",
                                       "group_id": group_id,
-                                      "extras": "date_upload, url_sq, views, members"
+                                      "extras": "date_upload, url_sq, views, members",
+                                      "per_page": "\(limit)"
                                       ]
 
             self.call(method: "flickr.photos.search", args: args, topJSONKey: "photos")
@@ -96,10 +100,10 @@ class Flickr {
                     photos.photo?.forEach({ (p) in
                         observer.onNext(p)
                     })
-                    observer.onCompleted()
+                    
                 })
                 .disposed(by: self.disposeBag)
-
+            
             return Disposables.create()
         })
     }
@@ -162,64 +166,5 @@ class Flickr {
         
         
     }
-    
-}
-
-
-
-
-//MARK: authentication
-extension Flickr {
-    
-    func beginAuth () -> Observable<URL> {
-        
-        return Observable.create({ (observer) -> Disposable in
-            let url = URL(string: FlickrKeys.flickr_callbackUrl.rawValue)!
-            FlickrKit.shared().beginAuth(withCallbackURL: url, permission: FKPermission.write) { (url, error) in
-                if let error = error {
-                    observer.onError(error)
-                }else if let url = url {
-                    observer.onNext(url)
-                    observer.onCompleted()
-                }
-            }
-            return Disposables.create()
-        })
-    }
-    
-    func completeAuth(with url: URL) -> Observable<FlickrLogin> {
-        return Observable.create({ (observer) -> Disposable in
-            
-            FlickrKit.shared().completeAuth(with: url, completion: { (userName, userId, userFullname, error) in
-                if let error = error {
-                    observer.onError(error)
-                }else {
-                    observer.onNext(FlickrLogin(userId: userId, userName: userName, fullName: userFullname))
-                    self.login = FlickrLogin(userId: userId, userName: userName, fullName: userFullname)
-                    observer.onCompleted()
-                }
-            })
-            
-            return Disposables.create()
-        })
-    }
-    
-    func checkAuth () -> Observable<FlickrLogin> {
-        return Observable.create({ (observer) -> Disposable in
-            
-            FlickrKit.shared().checkAuthorization(onCompletion: { (userName, userId, userFullname, error) in
-                if let error = error {
-                    observer.onError(error)
-                }else {
-                    observer.onNext(FlickrLogin(userId: userId, userName: userName, fullName: userFullname))
-                    observer.onCompleted()
-                }
-            })
-            
-            return Disposables.create()
-        })
-    }
-    
-    
     
 }
