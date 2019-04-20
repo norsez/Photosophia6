@@ -37,7 +37,8 @@ class InterestingPhotosViewController: UICollectionViewController, ViewRxProtoco
         super.viewDidLoad()
         self.createCallbacks()
         self.bindViewToViewModel()
-        self.viewModel.loadPhotos()
+        
+        self.confirmAuth()
     }
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -57,9 +58,16 @@ class InterestingPhotosViewController: UICollectionViewController, ViewRxProtoco
         return cell
     }
     
+    func showFlickrAuthFlow() {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let ctrl = sb.instantiateViewController(withIdentifier: "auth webview") as! AuthWebViewController
+        self.present(ctrl, animated: true, completion: nil)
+    }
     
     //MARK: Rx
     func createCallbacks() {
+        
+        
         self.viewModel.photos
             .asDriver().drive(onNext: { (photos) in
                 self.collectionView.reloadData()

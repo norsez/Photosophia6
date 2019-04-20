@@ -26,39 +26,6 @@
             </objects>
             <point key="canvasLocation" x="1042.0289855072465" y="128.57142857142856"/>
         </scene>
-        <!--Login View Controller-->
-        <scene sceneID="cKM-Je-VBU">
-            <objects>
-                <viewController id="7v6-QH-Lwp" customClass="LoginViewController" customModule="Photosophia6" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="uDj-Hj-ZG9">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ExB-dn-LAT">
-                                <rect key="frame" x="186" y="433" width="42" height="30"/>
-                                <state key="normal" title="Log In"/>
-                                <connections>
-                                    <action selector="didLogInButton:" destination="7v6-QH-Lwp" eventType="touchUpInside" id="9m1-Kr-ET0"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="ExB-dn-LAT" firstAttribute="centerX" secondItem="uDj-Hj-ZG9" secondAttribute="centerX" id="kPX-Jg-Tma"/>
-                            <constraint firstItem="ExB-dn-LAT" firstAttribute="centerY" secondItem="uDj-Hj-ZG9" secondAttribute="centerY" id="zxu-zS-AAl"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="kGd-mU-GoN"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="B4B-Yu-HNb"/>
-                    <connections>
-                        <outlet property="logInButton" destination="ExB-dn-LAT" id="dOl-0s-6XJ"/>
-                        <segue destination="jNZ-9B-NlD" kind="show" identifier="interesting photos" id="C5N-Rl-WUJ"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cld-Fm-oTA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="743" y="779"/>
-        </scene>
         <!--Auth Web View Controller-->
         <scene sceneID="KPJ-Ai-4nL">
             <objects>
@@ -91,7 +58,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UCI-zu-YQE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="742" y="1445"/>
+            <point key="canvasLocation" x="742" y="1523"/>
         </scene>
         <!--Interesting Photos View Controller-->
         <scene sceneID="EH6-Ex-9IA">
@@ -137,6 +104,9 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="7pC-am-F4A"/>
+                    <connections>
+                        <segue destination="GbC-8q-ROP" kind="presentation" identifier="flickr login" id="8HA-LX-9Xn"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oGq-w6-GSx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -153,7 +123,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="7v6-QH-Lwp" kind="relationship" relationship="rootViewController" id="sYq-R8-j26"/>
+                        <segue destination="jNZ-9B-NlD" kind="relationship" relationship="rootViewController" id="AaD-jw-n1r"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="51J-sG-GTi" userLabel="First Responder" sceneMemberID="firstResponder"/>

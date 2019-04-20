@@ -40,7 +40,7 @@ class Flickr {
         self.api.initialize(withAPIKey: FlickrKeys.flickr_key.rawValue,
                                       sharedSecret: FlickrKeys.flickr_secret.rawValue)
         self.api.checkAuthorization { (userName, userId, userFullname, error) in
-            print("user id: \(userId)")
+            Logger.log("init Flickr api. \( userId ?? "<not yet logged in.>" )")
         }
     }
     

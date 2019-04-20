@@ -10,16 +10,21 @@ import UIKit
 import WebKit
 import RxSwift
 import RxCocoa
-class AuthWebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate, ViewRxProtocol {
+class AuthWebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
     
     @IBOutlet var webView: WKWebView!
     let disposeBag = DisposeBag()
+    var loginViewModel: LoginViewModel!
     var launchURL: URL?
-    let authViewModel = AuthStatusViewModel()
     let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismissSelf))
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if loginViewModel == nil {
+            fatalError("set loginViewModel before viewDidLoad()")
+        }
+        
         self.webView.uiDelegate = self
         self.webView.navigationDelegate = self
         
@@ -30,8 +35,6 @@ class AuthWebViewController: UIViewController, WKNavigationDelegate, WKUIDelegat
             self.webView.load(request)
         }
         
-        self.bindViewToViewModel()
-        self.createCallbacks()
     }
     
     @objc func dismissSelf() {
@@ -39,30 +42,13 @@ class AuthWebViewController: UIViewController, WKNavigationDelegate, WKUIDelegat
     }
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        
-        self.authViewModel.processAuth(url: navigationAction.request.url)
+        if let url = navigationAction.request.url {
+            self.loginViewModel.processAuth(url: url)
+        }else {
+            Logger.log("no url to process")
+        }
         decisionHandler(.allow)
    
-    }
-    
-    //MARK: ViewRxProtocol
-    func createCallbacks() {
-        self.authViewModel.isLoggedIn
-            .skip(1)
-            .subscribe(onNext: { [weak self] (login) in
-                
-                if login.userId == nil {
-                    self?.alert(error: "Can't login Flickr", then: {self?.dismissSelf()})
-                }else {
-                    self?.alert(message: "Welcome, \(login.userName ?? "") [\(login.fullName ?? "")]", then: {self?.dismissSelf()})
-                }
-                
-            }).disposed(by: self.disposeBag)
-        
-    }
-    
-    func bindViewToViewModel() {
-        //
     }
     
 }

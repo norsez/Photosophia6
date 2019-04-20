@@ -13,7 +13,7 @@ import RxSwift
 import RxCocoa
 
 class InterestingPhotoViewModel {
-    let authViewModel = AuthStatusViewModel()
+    let loginViewModel = LoginViewModel()
     let photos = BehaviorRelay<[Photo]>(value: [])
     let disposeBag = DisposeBag()
     let api = Flickr.shared
@@ -35,4 +35,6 @@ class InterestingPhotoViewModel {
             })
         .disposed(by: self.disposeBag)
     }
+    
+    
 }

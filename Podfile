@@ -12,6 +12,8 @@ target 'Photosophia6' do
   pod 'AlamofireImage', '~> 3.5.0'
   pod 'RxKingfisher', '~> 0.5.0'
   pod 'Whisper'
+  pod 'RealmSwift'
+  
   # Pods for Photosophia6
 
   target 'Photosophia6Tests' do

@@ -30,4 +30,8 @@ extension UIViewController {
         }))
         self.present(ctrl, animated: true, completion: nil)   
     }
+    
+    func log(_ message: String) {
+        print(message)
+    }
 }

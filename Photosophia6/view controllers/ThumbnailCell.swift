@@ -7,8 +7,9 @@
 //
 
 import UIKit
-
+import QuartzCore
 class ThumbnailCell: UICollectionViewCell {
     
     @IBOutlet var imageView: UIImageView!
+    
 }
