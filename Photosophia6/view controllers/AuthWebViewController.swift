@@ -17,9 +17,14 @@ class AuthWebViewController: UIViewController, WKNavigationDelegate, WKUIDelegat
     var loginViewModel: LoginViewModel!
     var launchURL: URL?
     let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismissSelf))
+    @IBOutlet var progressView: UIProgressView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.webView.addObserver(self,
+                            forKeyPath: #keyPath(WKWebView.estimatedProgress),
+                            options: .new,
+                            context: nil)
         
         if loginViewModel == nil {
             fatalError("set loginViewModel before viewDidLoad()")
@@ -35,6 +40,24 @@ class AuthWebViewController: UIViewController, WKNavigationDelegate, WKUIDelegat
             self.webView.load(request)
         }
         
+        self.loginViewModel.processAuthResult
+            .observeOn(MainScheduler.instance)
+            .skip(1)
+            .subscribe(onNext: { (result) in
+                self.dismissSelf()
+            }, onError: UIErrorHandling,
+               onCompleted: nil, onDisposed: nil)
+        .disposed(by: self.disposeBag)
+        
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?,
+                               change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "estimatedProgress" {
+            self.progressView.progress = Float(webView.estimatedProgress)
+        }
+        
+        self.progressView.isHidden = self.progressView.progress == 0 || self.progressView.progress == 1
     }
     
     @objc func dismissSelf() {

@@ -62,8 +62,13 @@ class LoginViewModel {
             })
             .subscribe(onNext: { (result) in
                 self.checkLoginResult.accept(result)
-            })
-        .disposed(by: self.disposeBag)
+            },
+                       onError: {
+                        error in
+                        self.checkLoginResult.accept(.notLoggedIn)
+            },
+                       onCompleted: nil, onDisposed: nil)
+            .disposed(by: self.disposeBag)
     }
     
     func beginAuth() {
