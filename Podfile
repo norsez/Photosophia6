@@ -13,6 +13,8 @@ target 'Photosophia6' do
   pod 'RxKingfisher', '~> 0.5.0'
   pod 'Whisper'
   pod 'RealmSwift'
+  pod 'SKPhotoBrowser'
+  pod 'SKPhotoBrowser-Kingfisher'
   
   # Pods for Photosophia6
 

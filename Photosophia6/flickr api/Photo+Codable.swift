@@ -20,6 +20,9 @@ struct Photo: Codable, CustomStringConvertible {
     let dateUpload: String?
     let views: String?
     let url_sq: String?
+    let url_c: String?
+    let owner_name: String?
+    
     
     var description: String {
         get {
@@ -40,6 +43,8 @@ struct Photo: Codable, CustomStringConvertible {
         case dateUpload = "dateupload"
         case views
         case url_sq
+        case url_c
+        case owner_name
         
     }
 }

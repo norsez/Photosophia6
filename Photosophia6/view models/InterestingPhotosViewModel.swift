@@ -22,6 +22,7 @@ class InterestingPhotoViewModel {
     let onError = BehaviorRelay<String?>(value:nil)
     let onStatus = BehaviorRelay<String?>(value:nil)
     
+    let dateFormatter = DateFormatter()
     
     func loadPhotos() {
         self.onStatus.accept("loading…")
@@ -36,5 +37,7 @@ class InterestingPhotoViewModel {
         .disposed(by: self.disposeBag)
     }
     
-    
+    func caption(of p: Photo) -> String {
+        return "\(p.title ?? "untitled") by \(p.owner_name ?? "unknown")"
+    }
 }

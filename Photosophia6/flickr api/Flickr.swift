@@ -91,7 +91,7 @@ class Flickr {
             let args: [String:Any] = ["max_upload_date": "\(qDate!.timeIntervalSince1970)",
                                       "sort": "date-posted-desc",
                                       "group_id": group_id,
-                                      "extras": "date_upload, url_sq, views, members",
+                                      "extras": "date_upload, url_sq, views, members, url_c, owner_name, description",
                                       "per_page": "\(limit)"
                                       ]
 

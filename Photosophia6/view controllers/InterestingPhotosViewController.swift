@@ -58,6 +58,10 @@ class InterestingPhotosViewController: UICollectionViewController, ViewRxProtoco
         return cell
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.showPhoto(from: indexPath)
+    }
+    
     func showFlickrAuthFlow() {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let ctrl = sb.instantiateViewController(withIdentifier: "auth webview") as! AuthWebViewController
@@ -67,10 +71,11 @@ class InterestingPhotosViewController: UICollectionViewController, ViewRxProtoco
     //MARK: Rx
     func createCallbacks() {
         
-        
         self.viewModel.photos
-            .asDriver().drive(onNext: { (photos) in
-                self.collectionView.reloadData()
+            .subscribe(onNext: { (photos) in
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
             })
             .disposed(by: self.disposeBag)
     }

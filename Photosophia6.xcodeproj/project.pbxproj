@@ -22,6 +22,7 @@
 		F386DCDD226BD727008B5287 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F386DCDC226BD727008B5287 /* Logger.swift */; };
 		F386DCDF226BD909008B5287 /* InterestingPhotosViewController+Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = F386DCDE226BD909008B5287 /* InterestingPhotosViewController+Auth.swift */; };
 		F386DCE1226BDCA0008B5287 /* UIErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = F386DCE0226BDCA0008B5287 /* UIErrorHandling.swift */; };
+		F39C7829226C31E2003D730A /* InterestingPhotosViewController+PhotoBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39C7828226C31E2003D730A /* InterestingPhotosViewController+PhotoBrowser.swift */; };
 		F3C400AC2251128900131E74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C400AB2251128900131E74 /* AppDelegate.swift */; };
 		F3C400AE2251128900131E74 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C400AD2251128900131E74 /* ViewController.swift */; };
 		F3C400B12251128900131E74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3C400AF2251128900131E74 /* Main.storyboard */; };
@@ -79,6 +80,7 @@
 		F386DCDC226BD727008B5287 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		F386DCDE226BD909008B5287 /* InterestingPhotosViewController+Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InterestingPhotosViewController+Auth.swift"; sourceTree = "<group>"; };
 		F386DCE0226BDCA0008B5287 /* UIErrorHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIErrorHandling.swift; sourceTree = "<group>"; };
+		F39C7828226C31E2003D730A /* InterestingPhotosViewController+PhotoBrowser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InterestingPhotosViewController+PhotoBrowser.swift"; sourceTree = "<group>"; };
 		F3C400A82251128900131E74 /* Photosophia6.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photosophia6.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3C400AB2251128900131E74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3C400AD2251128900131E74 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 				F3C400E02251850E00131E74 /* AuthWebViewController.swift */,
 				F3C400E32251859400131E74 /* UIViewControllerUtils.swift */,
 				F313178022540B6E00D4ECA5 /* InterestingPhotosViewController.swift */,
+				F39C7828226C31E2003D730A /* InterestingPhotosViewController+PhotoBrowser.swift */,
 				F386DCDE226BD909008B5287 /* InterestingPhotosViewController+Auth.swift */,
 				F31317842254124300D4ECA5 /* ViewProtocol.swift */,
 				F313178822542C6C00D4ECA5 /* ThumbnailCell.swift */,
@@ -421,6 +424,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxKingfisher/RxKingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SKPhotoBrowser/SKPhotoBrowser.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/Whisper/Whisper.framework",
 			);
@@ -437,6 +441,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxKingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SKPhotoBrowser.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Whisper.framework",
 			);
@@ -494,6 +499,7 @@
 				F386DCDD226BD727008B5287 /* Logger.swift in Sources */,
 				F313178D22545E7C00D4ECA5 /* LoginViewModel.swift in Sources */,
 				F3C400AE2251128900131E74 /* ViewController.swift in Sources */,
+				F39C7829226C31E2003D730A /* InterestingPhotosViewController+PhotoBrowser.swift in Sources */,
 				F313178B22542DC500D4ECA5 /* ViewModelRxProtocol.swift in Sources */,
 				F386DCE1226BDCA0008B5287 /* UIErrorHandling.swift in Sources */,
 				F31317912254744700D4ECA5 /* Segue.swift in Sources */,
