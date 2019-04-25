@@ -23,7 +23,8 @@ extension InterestingPhotosViewController {
                 case .loggedIn(_):
                     self.viewModel.loadPhotos()
                 case .notLoggedIn:
-                    self.viewModel.loginViewModel.beginAuth()
+                    self.viewModel.loginViewModel.showLoginSection.accept(true)
+                    self.viewModel.loadSamplePhotos()
                 }
             }, onError: UIErrorHandling)
         .disposed(by: self.disposeBag)
@@ -51,7 +52,10 @@ extension InterestingPhotosViewController {
                 case .notLoggedIn:
                     self.alert(message: "Not logged in")
                 case .loggedIn(_):
+                    self.viewModel.photos.accept([])
                     self.viewModel.loadPhotos()
+                    self.viewModel.loginViewModel.showLoginSection.accept(false)
+                    
                 }
             }, onError: UIErrorHandling,
                 onCompleted: nil, onDisposed: nil)

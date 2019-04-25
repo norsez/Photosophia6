@@ -49,6 +49,7 @@ class LoginViewModel {
     let beginAuthResult = BehaviorRelay<URL?>(value:nil)
     let processAuthResult = BehaviorRelay<FlickrLoginResult>(value: .notLoggedIn)
     let onErrorMessage = BehaviorRelay<String?>(value:nil)
+    let showLoginSection = BehaviorRelay<Bool>(value: false)
     
     func checkLogin() {
         

@@ -85,32 +85,104 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="thumbnail cell" id="bHP-bw-5Xn" customClass="ThumbnailCell" customModule="Photosophia6" customModuleProvider="target">
-                                <rect key="frame" x="98.5" y="0.0" width="217" height="148"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="flickr login cell" id="bHP-bw-5Xn" customClass="FlickrLoginCell" customModule="Photosophia6" customModuleProvider="target">
+                                <rect key="frame" x="44" y="0.0" width="326" height="148"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="326" height="148"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xz8-2l-MS1">
+                                            <rect key="frame" x="0.0" y="0.0" width="326" height="148"/>
+                                            <subviews>
+                                                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f6u-di-Rbc">
+                                                    <rect key="frame" x="0.0" y="0.0" width="326" height="148"/>
+                                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ZKx-Nb-022">
+                                                        <rect key="frame" x="0.0" y="0.0" width="326" height="148"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photosophia lets you see interesting photos across multiple groups on Flickr at a time. Connect to your Flickr account now?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S40-du-gEF">
+                                                                <rect key="frame" x="8" y="8" width="310" height="63"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="63" id="eNO-te-zdD"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jJ0-Pw-PmW">
+                                                                <rect key="frame" x="121.5" y="79" width="83" height="30"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="30" id="Kac-Wm-x11"/>
+                                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="83" id="U2a-iI-chT"/>
+                                                                </constraints>
+                                                                <state key="normal" title="Log In Flickr">
+                                                                    <color key="titleColor" red="0.29344490039999999" green="0.82662671229999996" blue="0.60954729839999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="didTapLogInButton:" destination="bHP-bw-5Xn" eventType="touchUpInside" id="RHL-Kj-xpI"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="jJ0-Pw-PmW" firstAttribute="top" secondItem="S40-du-gEF" secondAttribute="bottom" constant="8" id="7Uy-t4-48M"/>
+                                                            <constraint firstAttribute="trailing" secondItem="S40-du-gEF" secondAttribute="trailing" constant="8" id="GSy-Pm-vnE"/>
+                                                            <constraint firstItem="jJ0-Pw-PmW" firstAttribute="centerX" secondItem="ZKx-Nb-022" secondAttribute="centerX" id="LFr-ha-nRi"/>
+                                                            <constraint firstItem="S40-du-gEF" firstAttribute="top" secondItem="ZKx-Nb-022" secondAttribute="top" constant="8" id="bl1-RO-rPV"/>
+                                                            <constraint firstItem="S40-du-gEF" firstAttribute="leading" secondItem="ZKx-Nb-022" secondAttribute="leading" constant="8" id="zbK-8D-Gqy"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <blurEffect style="dark"/>
+                                                </visualEffectView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="f6u-di-Rbc" secondAttribute="bottom" id="A3o-sa-itL"/>
+                                                <constraint firstItem="f6u-di-Rbc" firstAttribute="leading" secondItem="QfV-ni-Z6W" secondAttribute="leading" id="M0K-x3-Yvk"/>
+                                                <constraint firstItem="f6u-di-Rbc" firstAttribute="top" secondItem="xz8-2l-MS1" secondAttribute="top" id="dZq-ov-oKC"/>
+                                                <constraint firstItem="f6u-di-Rbc" firstAttribute="trailing" secondItem="QfV-ni-Z6W" secondAttribute="trailing" id="x94-uk-eUS"/>
+                                            </constraints>
+                                            <viewLayoutGuide key="safeArea" id="QfV-ni-Z6W"/>
+                                        </view>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="xz8-2l-MS1" firstAttribute="top" secondItem="bHP-bw-5Xn" secondAttribute="top" id="7YH-re-rnO"/>
+                                    <constraint firstAttribute="trailing" secondItem="xz8-2l-MS1" secondAttribute="trailing" id="Nd2-cO-1ho"/>
+                                    <constraint firstItem="xz8-2l-MS1" firstAttribute="leading" secondItem="bHP-bw-5Xn" secondAttribute="leading" id="Rei-bh-ybR"/>
+                                    <constraint firstAttribute="bottom" secondItem="xz8-2l-MS1" secondAttribute="bottom" id="YJD-4Y-4tv"/>
+                                </constraints>
+                                <size key="customSize" width="326" height="148"/>
+                                <connections>
+                                    <outlet property="textLabel" destination="S40-du-gEF" id="81x-Yf-9Q1"/>
+                                </connections>
+                            </collectionViewCell>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="thumbnail cell" id="uGW-9C-CAW" customClass="ThumbnailCell" customModule="Photosophia6" customModuleProvider="target">
+                                <rect key="frame" x="98.5" y="158" width="217" height="148"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                     <rect key="frame" x="0.0" y="0.0" width="217" height="148"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JXH-Kq-clz">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eVw-P3-TKe">
                                             <rect key="frame" x="0.0" y="0.0" width="217" height="148"/>
                                         </imageView>
                                     </subviews>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="JXH-Kq-clz" firstAttribute="top" secondItem="bHP-bw-5Xn" secondAttribute="top" id="RJD-Lb-EV0"/>
-                                    <constraint firstAttribute="trailing" secondItem="JXH-Kq-clz" secondAttribute="trailing" id="dyk-eO-Ru0"/>
-                                    <constraint firstItem="JXH-Kq-clz" firstAttribute="leading" secondItem="bHP-bw-5Xn" secondAttribute="leading" id="eVC-9F-86L"/>
-                                    <constraint firstAttribute="bottom" secondItem="JXH-Kq-clz" secondAttribute="bottom" id="ejS-yX-W3I"/>
+                                    <constraint firstItem="eVw-P3-TKe" firstAttribute="leading" secondItem="uGW-9C-CAW" secondAttribute="leading" id="2nh-pW-g28"/>
+                                    <constraint firstAttribute="bottom" secondItem="eVw-P3-TKe" secondAttribute="bottom" id="6Q3-bu-jEr"/>
+                                    <constraint firstItem="eVw-P3-TKe" firstAttribute="top" secondItem="uGW-9C-CAW" secondAttribute="top" id="SJU-N2-Gat"/>
+                                    <constraint firstAttribute="trailing" secondItem="eVw-P3-TKe" secondAttribute="trailing" id="rRG-de-HKN"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="imageView" destination="JXH-Kq-clz" id="79d-5o-Nxv"/>
+                                    <outlet property="imageView" destination="eVw-P3-TKe" id="mgZ-3z-Ai4"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
-                            <outlet property="dataSource" destination="jNZ-9B-NlD" id="W7H-mI-s62"/>
-                            <outlet property="delegate" destination="jNZ-9B-NlD" id="7TU-qV-4LN"/>
+                            <outlet property="dataSource" destination="jNZ-9B-NlD" id="ykD-gk-FSr"/>
+                            <outlet property="delegate" destination="jNZ-9B-NlD" id="KCb-Lc-exZ"/>
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="7pC-am-F4A"/>
@@ -120,7 +192,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oGq-w6-GSx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1426" y="779"/>
+            <point key="canvasLocation" x="1424.6376811594205" y="778.79464285714278"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fSX-or-OQh">

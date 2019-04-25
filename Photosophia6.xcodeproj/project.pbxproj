@@ -19,6 +19,7 @@
 		F313178D22545E7C00D4ECA5 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F313178C22545E7C00D4ECA5 /* LoginViewModel.swift */; };
 		F31317912254744700D4ECA5 /* Segue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31317902254744700D4ECA5 /* Segue.swift */; };
 		F3131794225489D700D4ECA5 /* Flickr+UserCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3131793225489D700D4ECA5 /* Flickr+UserCases.swift */; };
+		F3777F31226E8B1E00F890FF /* FlickrLoginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3777F30226E8B1E00F890FF /* FlickrLoginCell.swift */; };
 		F386DCDD226BD727008B5287 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F386DCDC226BD727008B5287 /* Logger.swift */; };
 		F386DCDF226BD909008B5287 /* InterestingPhotosViewController+Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = F386DCDE226BD909008B5287 /* InterestingPhotosViewController+Auth.swift */; };
 		F386DCE1226BDCA0008B5287 /* UIErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = F386DCE0226BDCA0008B5287 /* UIErrorHandling.swift */; };
@@ -77,6 +78,7 @@
 		F313178C22545E7C00D4ECA5 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		F31317902254744700D4ECA5 /* Segue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segue.swift; sourceTree = "<group>"; };
 		F3131793225489D700D4ECA5 /* Flickr+UserCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Flickr+UserCases.swift"; sourceTree = "<group>"; };
+		F3777F30226E8B1E00F890FF /* FlickrLoginCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrLoginCell.swift; sourceTree = "<group>"; };
 		F386DCDC226BD727008B5287 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		F386DCDE226BD909008B5287 /* InterestingPhotosViewController+Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InterestingPhotosViewController+Auth.swift"; sourceTree = "<group>"; };
 		F386DCE0226BDCA0008B5287 /* UIErrorHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIErrorHandling.swift; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 				F31317842254124300D4ECA5 /* ViewProtocol.swift */,
 				F313178822542C6C00D4ECA5 /* ThumbnailCell.swift */,
 				F31317902254744700D4ECA5 /* Segue.swift */,
+				F3777F30226E8B1E00F890FF /* FlickrLoginCell.swift */,
 			);
 			path = "view controllers";
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3C400E42251859400131E74 /* UIViewControllerUtils.swift in Sources */,
+				F3777F31226E8B1E00F890FF /* FlickrLoginCell.swift in Sources */,
 				F313178922542C6C00D4ECA5 /* ThumbnailCell.swift in Sources */,
 				F3C400E82251B02100131E74 /* Group+Codable.swift in Sources */,
 				F386DCDD226BD727008B5287 /* Logger.swift in Sources */,

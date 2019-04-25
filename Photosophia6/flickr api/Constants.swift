@@ -13,3 +13,7 @@ enum FlickrKeys : String {
     case flickr_secret = "20ee00022585a820"
     case flickr_callbackUrl = "photosophia://auth"
 }
+
+struct Constants {
+    static let USERID_PHOTOSOPHIA = "78944372@N07"
+}

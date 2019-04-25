@@ -37,6 +37,19 @@ class InterestingPhotoViewModel {
         .disposed(by: self.disposeBag)
     }
     
+    func loadSamplePhotos() {
+        self.onStatus.accept("loading…")
+        self.api.loadPhotosophiaInterestingGroupPhotos()
+            .subscribe(onNext: { [weak self] (newPhotos) in
+                if let _self = self,
+                    let photos = newPhotos.photo {
+                    _self.photos.accept(photos)
+                }
+            })
+            .disposed(by: self.disposeBag)
+        
+    }
+    
     func caption(of p: Photo) -> String {
         return "\(p.title ?? "untitled") by \(p.owner_name ?? "unknown")"
     }

@@ -23,20 +23,25 @@ extension Flickr {
                 return self.getInterestingPhotos(in: groupId, limit: limit)
         }
     }
-    func old_loadInterestingPhotos(withEachGroupLimitTo limit: Int) -> Observable<Photo> {
+    
+    
+    //when not logged in, we used photosophia groups
+    func loadPhotosophiaInterestingGroupPhotos() -> Observable<Photos> {
         return Observable.create({ (observer) -> Disposable in
             
-            self.getAllUserGroups().subscribe(onNext: { (group) in
-                
-                if let groupId = group.id {
-                    self.getInterestingPhotos(in: groupId, limit: limit).subscribe(onNext: { (photo) in
-                        print("photo: \(photo.id ?? "") from group: \(groupId)")
-                        observer.onNext(photo)
-                    })
-                        .disposed(by: self.disposeBag)
-                }
-                observer.onCompleted()
-            }).disposed(by: self.disposeBag)
+            self.call(method: "flickr.favorites.getPublicList",
+                             args: ["user_id": Constants.USERID_PHOTOSOPHIA,
+                                "extras": "url_b, url_c"
+                ],
+                             topJSONKey: "photos" )
+                .subscribe(onNext: { (photos: Photos) in
+                    
+                    observer.onNext(photos)
+                    observer.onCompleted()
+                })
+            .disposed(by: self.disposeBag)
+            
+            
             return Disposables.create()
         })
     }

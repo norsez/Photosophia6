@@ -16,11 +16,14 @@ class AuthWebViewController: UIViewController, WKNavigationDelegate, WKUIDelegat
     let disposeBag = DisposeBag()
     var loginViewModel: LoginViewModel!
     var launchURL: URL?
-    let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismissSelf))
+    var cancelButton: UIBarButtonItem!
     @IBOutlet var progressView: UIProgressView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+         self.cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismissSelf))
+        
         self.webView.addObserver(self,
                             forKeyPath: #keyPath(WKWebView.estimatedProgress),
                             options: .new,

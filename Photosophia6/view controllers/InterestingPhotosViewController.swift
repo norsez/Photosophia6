@@ -12,29 +12,26 @@ import RxSwift
 import RxCocoa
 import Kingfisher
 
-//class PhotoLayout:NSObject, UICollectionViewDelegateFlowLayout {
-//
-//
-//
-//    override init() {
-//
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let width = collectionView.bounds.width
-//        let cellWidth = (width - 16) / 5 // compute your cell width
-//        return CGSize(width: cellWidth, height: cellWidth )
-//
-//    }
-//}
 
 class InterestingPhotosViewController: UICollectionViewController, ViewRxProtocol, UICollectionViewDelegateFlowLayout {
    
     let viewModel = InterestingPhotoViewModel()
     let disposeBag = DisposeBag()
-    let CELLID = "thumbnail cell"
+    let CELL_ID_PHOTO = "thumbnail cell"
+    let CELL_LOGIN = "flickr login cell"
+    
+    enum Section: Int {
+        case loginButton = 0
+        case photos = 1
+        static let COUNT = 2
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        let nav = self.navigationController?.navigationBar
+        nav?.barStyle = .blackTranslucent
+        self.view.backgroundColor = self.collectionView.backgroundColor
+        
         self.createCallbacks()
         self.bindViewToViewModel()
         
@@ -42,24 +39,54 @@ class InterestingPhotosViewController: UICollectionViewController, ViewRxProtoco
     }
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        return Section.COUNT
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.viewModel.photos.value.count
+        switch section {
+        case Section.loginButton.rawValue:
+            return self.viewModel.loginViewModel.showLoginSection.value ? 1 : 0
+        default:
+            return self.viewModel.photos.value.count
+        }
+        
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.CELLID, for: indexPath) as! ThumbnailCell
-        if let photoUrl = self.viewModel.photos.value[indexPath.row].photoURL(with:.th100) {
-            cell.imageView.kf.setImage(with: photoUrl, options: [.transition(.fade(0.2))] )
+        let section = Section(rawValue: indexPath.section)!
+        let CELL_ID: String
+        switch section {
+        case .loginButton:
+            CELL_ID = self.CELL_LOGIN
+        default:
+            CELL_ID = self.CELL_ID_PHOTO
         }
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CELL_ID, for: indexPath)
+        
+        switch section {
+        case .loginButton:
+            let lcell = cell as! FlickrLoginCell
+            lcell.actionTapLoginIn = {
+                self.viewModel.loginViewModel.beginAuth()
+            }
+        default:
+            let tcell = cell as! ThumbnailCell
+            if let photoUrl = self.viewModel.photos.value[indexPath.row].photoURL(with:.th100) {
+                tcell.imageView.kf.setImage(with: photoUrl, options: [.transition(.fade(0.2))] )
+            }
+        }
+        
+        
         
         return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.showPhoto(from: indexPath)
+        let section  = Section(rawValue: indexPath.section)!
+        if section == .photos {
+            self.showPhoto(from: indexPath)
+        }
     }
     
     func showFlickrAuthFlow() {
@@ -78,6 +105,13 @@ class InterestingPhotosViewController: UICollectionViewController, ViewRxProtoco
                 }
             })
             .disposed(by: self.disposeBag)
+        
+        self.viewModel.loginViewModel.showLoginSection
+            .skip(1)
+            .subscribe(onNext: { (showing) in
+                self.collectionView.reloadData()
+            })
+        .disposed(by: self.disposeBag)
     }
     
     func bindViewToViewModel() {
@@ -85,9 +119,18 @@ class InterestingPhotosViewController: UICollectionViewController, ViewRxProtoco
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = collectionView.bounds.width
-        let cellWidth = (width - 0) / 5 // compute your cell width
-        return CGSize(width: cellWidth, height: cellWidth )
+        
+        let section = Section(rawValue: indexPath.section)!
+        switch section {
+        case  .loginButton:
+            return CGSize(width: collectionView.frame.width, height: 120)
+        default:
+            let width = collectionView.bounds.width
+            let cellWidth = (width - 0) / 5 // compute your cell width
+            return CGSize(width: cellWidth, height: cellWidth )
+        }
+        
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -101,4 +144,5 @@ class InterestingPhotosViewController: UICollectionViewController, ViewRxProtoco
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
+  
 }
