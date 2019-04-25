@@ -24,6 +24,7 @@
 		F386DCDF226BD909008B5287 /* InterestingPhotosViewController+Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = F386DCDE226BD909008B5287 /* InterestingPhotosViewController+Auth.swift */; };
 		F386DCE1226BDCA0008B5287 /* UIErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = F386DCE0226BDCA0008B5287 /* UIErrorHandling.swift */; };
 		F39C7829226C31E2003D730A /* InterestingPhotosViewController+PhotoBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39C7828226C31E2003D730A /* InterestingPhotosViewController+PhotoBrowser.swift */; };
+		F3A648742271997F005B97CB /* DevTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A648732271997F005B97CB /* DevTool.swift */; };
 		F3C400AC2251128900131E74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C400AB2251128900131E74 /* AppDelegate.swift */; };
 		F3C400AE2251128900131E74 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C400AD2251128900131E74 /* ViewController.swift */; };
 		F3C400B12251128900131E74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3C400AF2251128900131E74 /* Main.storyboard */; };
@@ -83,6 +84,7 @@
 		F386DCDE226BD909008B5287 /* InterestingPhotosViewController+Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InterestingPhotosViewController+Auth.swift"; sourceTree = "<group>"; };
 		F386DCE0226BDCA0008B5287 /* UIErrorHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIErrorHandling.swift; sourceTree = "<group>"; };
 		F39C7828226C31E2003D730A /* InterestingPhotosViewController+PhotoBrowser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InterestingPhotosViewController+PhotoBrowser.swift"; sourceTree = "<group>"; };
+		F3A648732271997F005B97CB /* DevTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DevTool.swift; path = dev/DevTool.swift; sourceTree = "<group>"; };
 		F3C400A82251128900131E74 /* Photosophia6.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photosophia6.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3C400AB2251128900131E74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3C400AD2251128900131E74 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				F3C400B22251128A00131E74 /* Assets.xcassets */,
 				F3C400B42251128A00131E74 /* LaunchScreen.storyboard */,
 				F3C400B72251128A00131E74 /* Info.plist */,
+				F3A648732271997F005B97CB /* DevTool.swift */,
 			);
 			path = Photosophia6;
 			sourceTree = "<group>";
@@ -501,6 +504,7 @@
 				F313178922542C6C00D4ECA5 /* ThumbnailCell.swift in Sources */,
 				F3C400E82251B02100131E74 /* Group+Codable.swift in Sources */,
 				F386DCDD226BD727008B5287 /* Logger.swift in Sources */,
+				F3A648742271997F005B97CB /* DevTool.swift in Sources */,
 				F313178D22545E7C00D4ECA5 /* LoginViewModel.swift in Sources */,
 				F3C400AE2251128900131E74 /* ViewController.swift in Sources */,
 				F39C7829226C31E2003D730A /* InterestingPhotosViewController+PhotoBrowser.swift in Sources */,
