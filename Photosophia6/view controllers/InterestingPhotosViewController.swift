@@ -20,17 +20,30 @@ class InterestingPhotosViewController: UICollectionViewController, ViewRxProtoco
     let CELL_ID_PHOTO = "thumbnail cell"
     let CELL_LOGIN = "flickr login cell"
     
+    let serialScheduler = SerialDispatchQueueScheduler(internalSerialQueueName: "serial scheduler")
+    
+    var selectedPhotoIndex: Int? 
+    
     enum Section: Int {
         case loginButton = 0
         case photos = 1
         static let COUNT = 2
     }
     
+    @IBOutlet var progressView: UIProgressView!
+    @IBOutlet var lightboxLabel: UILabel!
+    @IBOutlet var lightboxCaptionView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
         let nav = self.navigationController?.navigationBar
         nav?.barStyle = .blackTranslucent
         self.view.backgroundColor = self.collectionView.backgroundColor
+        
+        if let navBar = self.navigationController?.navigationBar {
+            self.progressView.frame = CGRect(x: 0, y: navBar.bounds.height - 2, width: navBar.bounds.width, height: 2)
+            navBar.addSubview(self.progressView)
+            self.progressView.isHidden = true
+        }
         
         self.createCallbacks()
         self.bindViewToViewModel()
@@ -99,6 +112,7 @@ class InterestingPhotosViewController: UICollectionViewController, ViewRxProtoco
     func createCallbacks() {
         
         self.viewModel.photos
+            .observeOn(self.serialScheduler)
             .subscribe(onNext: { (photos) in
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
@@ -144,5 +158,5 @@ class InterestingPhotosViewController: UICollectionViewController, ViewRxProtoco
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
-  
+    
 }

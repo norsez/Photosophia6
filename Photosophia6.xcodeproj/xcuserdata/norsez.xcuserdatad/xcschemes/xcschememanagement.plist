@@ -4,10 +4,33 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Photosophia6 TestData.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>18</integer>
+		</dict>
 		<key>Photosophia6.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>17</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>F3C400A72251128900131E74</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F3C400BB2251128A00131E74</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F3C400C62251128A00131E74</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

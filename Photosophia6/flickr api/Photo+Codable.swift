@@ -23,7 +23,7 @@ struct Photo: Codable, CustomStringConvertible {
     let url_c: String?
     let owner_name: String?
     
-    
+    var inGroup: Group?
     var description: String {
         get {
             return "\(title ?? "?") \(id ?? "no id")"

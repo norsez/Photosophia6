@@ -24,18 +24,42 @@ struct FlickrLogin: CustomStringConvertible {
     
 }
 
-//MARK: Flikr api
-class Flickr {
+class NetworkActivityIndicator {
+    static let shared = NetworkActivityIndicator()
+    private init () {}
+    private let serialQ = DispatchQueue(label: "serial queue network activity")
     
-    enum ApiError: Error {
-        case responseError(String)
+    func start() {
+        serialQ.sync {
+            DispatchQueue.main.sync {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = true
+            }
+        }
     }
+    
+    func stop() {
+        serialQ.sync {
+            DispatchQueue.main.sync {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            }
+        }
+    }
+    
+    func configureIfNeeded() {
+        //UIApplication.configureLinearNetworkActivityIndicatorIfNeeded()
+    }
+}
+
+//MARK: Flikr api
+class Flickr: FlickrApiProtocol {
+    
     
     static let shared = Flickr()
     let api = FlickrKit.shared()
     let disposeBag = DisposeBag()
     var login: FlickrLogin?
-    let PER_PAGE = 100
+    let PER_PAGE = 250
+    
     private init() {
         self.api.initialize(withAPIKey: FlickrKeys.flickr_key.rawValue,
                                       sharedSecret: FlickrKeys.flickr_secret.rawValue)
@@ -47,7 +71,9 @@ class Flickr {
     //the main api call method
     func call<T: Decodable>(method: String, args: [String:Any], topJSONKey: String ) -> Observable<T> {
         return Observable.create({ (observer) -> Disposable in
+            
             self.api.call(method, args: args, maxCacheAge: .oneHour, completion: { (response, error) in
+                
                 if let res = response {
                     
                     let responseJSON = JSON(res)
@@ -60,15 +86,17 @@ class Flickr {
                             observer.onNext(result)
                             observer.onCompleted()
                         } catch {
-                            print(error)
+                            Logger.log("json parsing error \(error)")
                             observer.onError(error)
                         }
                     }else {
-                        let error: Error = ApiError.responseError("call api call")
-                        observer.onError(error)
+                        let e = ApiError.responseError("call api call", error ?? nil)
+                        Logger.log("call api error: \(e)")
+                        observer.onError(e)
                     }
                     
                 } else if let error = error {
+                    Logger.log("call response api error: \(error)")
                     observer.onError(error)
                 }
             })
@@ -80,7 +108,7 @@ class Flickr {
     
     
     //MARK: interesting photos
-    func getInterestingPhotos(in group_id: String, limit: Int) -> Observable<Photo> {
+    func getInterestingPhotos(in group:Group, limit: Int) -> Observable<Photo> {
         return Observable.create({ (observer) -> Disposable in
 
             var timeScope = DateComponents()
@@ -89,8 +117,9 @@ class Flickr {
             let qDate = cal.date(byAdding: timeScope, to: Date())
 
             let args: [String:Any] = ["max_upload_date": "\(qDate!.timeIntervalSince1970)",
-                                      "sort": "date-posted-desc",
-                                      "group_id": group_id,
+                                      //"sort": "date-posted-desc",
+                "sort": "interestingness-desc",
+                                      "group_id": group.id!,
                                       "extras": "date_upload, url_sq, views, members, url_c, owner_name, description",
                                       "per_page": "\(limit)"
                                       ]
@@ -98,6 +127,8 @@ class Flickr {
             self.call(method: "flickr.photos.search", args: args, topJSONKey: "photos")
                 .subscribe(onNext: { (photos: Photos) in
                     photos.photo?.forEach({ (p) in
+                        var p = p
+                        p.inGroup = group
                         observer.onNext(p)
                     })
                     

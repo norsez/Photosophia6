@@ -61,6 +61,12 @@ extension InterestingPhotosViewController {
                 onCompleted: nil, onDisposed: nil)
         .disposed(by: self.disposeBag)
         
+        loginVM.onErrorMessage.skip(1)
+            .subscribe(onNext: { (text) in
+                
+            })
+            .disposed(by: self.disposeBag)
+        
         
         loginVM.checkLogin()
     }

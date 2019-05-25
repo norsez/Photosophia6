@@ -13,8 +13,9 @@ target 'Photosophia6' do
   pod 'RxKingfisher', '~> 0.5.0'
   pod 'Whisper'
   pod 'RealmSwift'
-  pod 'SKPhotoBrowser'
-  pod 'SKPhotoBrowser-Kingfisher'
+  #pod 'SKPhotoBrowser'
+  pod 'NYTPhotoViewer', '~> 2.0.0'
+  
   
   # Pods for Photosophia6
 
@@ -28,4 +29,14 @@ target 'Photosophia6' do
     # Pods for testing
   end
 
+  
+  post_install do |installer|
+      installer.pods_project.targets.each do |target|
+          if ['Whisper'].include? target.name
+              target.build_configurations.each do |config|
+                  config.build_settings['SWIFT_VERSION'] = '4.0'
+              end
+          end
+      end
+  end
 end

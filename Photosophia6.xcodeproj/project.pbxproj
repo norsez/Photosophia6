@@ -41,6 +41,10 @@
 		F3C400E82251B02100131E74 /* Group+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C400E72251B02100131E74 /* Group+Codable.swift */; };
 		F3C400EA2252505C00131E74 /* Photo+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C400E92252505B00131E74 /* Photo+Codable.swift */; };
 		F3F792B92254DDF1003D56A5 /* PhotoSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F792B82254DDF1003D56A5 /* PhotoSearchModel.swift */; };
+		F3FBE88E22966C4B00A64B13 /* Flickr+Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FBE88D22966C4B00A64B13 /* Flickr+Protocol.swift */; };
+		F3FBE89022966C6400A64B13 /* FlickrTestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FBE88F22966C6400A64B13 /* FlickrTestData.swift */; };
+		F3FBE89822966FE400A64B13 /* TestRxQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FBE89722966FE400A64B13 /* TestRxQueue.swift */; };
+		F3FBE8A1229670D800A64B13 /* TestRxBehaviors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FBE8A0229670D800A64B13 /* TestRxBehaviors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,18 +62,28 @@
 			remoteGlobalIDString = F3C400A72251128900131E74;
 			remoteInfo = Photosophia6;
 		};
+		F3FBE89A22966FE400A64B13 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F3C400A02251128800131E74 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F3C400A72251128900131E74;
+			remoteInfo = Photosophia6;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0443B67BA5E679E311182530 /* Pods-Photosophia6Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photosophia6Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Photosophia6Tests/Pods-Photosophia6Tests.release.xcconfig"; sourceTree = "<group>"; };
 		1EE67629101F39E37435F40E /* Pods-Photosophia6.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photosophia6.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Photosophia6/Pods-Photosophia6.debug.xcconfig"; sourceTree = "<group>"; };
+		412B0A30FBE7AD4307663F37 /* Pods-Photosophia6Tests.testdata.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photosophia6Tests.testdata.xcconfig"; path = "Pods/Target Support Files/Pods-Photosophia6Tests/Pods-Photosophia6Tests.testdata.xcconfig"; sourceTree = "<group>"; };
 		44117FE502ED3549404AAE5F /* Pods_Photosophia6.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Photosophia6.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		60E3E3C8E8505A1E521382FD /* Pods-Photosophia6Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photosophia6Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Photosophia6Tests/Pods-Photosophia6Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		6B4278B6FCE35270316904E4 /* Pods-Photosophia6.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photosophia6.release.xcconfig"; path = "Pods/Target Support Files/Pods-Photosophia6/Pods-Photosophia6.release.xcconfig"; sourceTree = "<group>"; };
 		ADE425C886CD1DD0EC6195D0 /* Pods_Photosophia6Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Photosophia6Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B66CA72C8CE14F510FC98AA5 /* Pods-Photosophia6UITests.testdata.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photosophia6UITests.testdata.xcconfig"; path = "Pods/Target Support Files/Pods-Photosophia6UITests/Pods-Photosophia6UITests.testdata.xcconfig"; sourceTree = "<group>"; };
 		B952DD5B74B694CCD553EFE8 /* Pods-Photosophia6UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photosophia6UITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Photosophia6UITests/Pods-Photosophia6UITests.release.xcconfig"; sourceTree = "<group>"; };
 		D248F43DBCA8B52B60904A97 /* Pods-Photosophia6UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photosophia6UITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Photosophia6UITests/Pods-Photosophia6UITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E1260625AFDB6AC71FFE65A3 /* Pods_Photosophia6UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Photosophia6UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F296D8CCD5A081315BB42793 /* Pods-Photosophia6.testdata.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photosophia6.testdata.xcconfig"; path = "Pods/Target Support Files/Pods-Photosophia6/Pods-Photosophia6.testdata.xcconfig"; sourceTree = "<group>"; };
 		F313177E22540B4300D4ECA5 /* InterestingPhotosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestingPhotosViewModel.swift; sourceTree = "<group>"; };
 		F313178022540B6E00D4ECA5 /* InterestingPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestingPhotosViewController.swift; sourceTree = "<group>"; };
 		F31317842254124300D4ECA5 /* ViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProtocol.swift; sourceTree = "<group>"; };
@@ -107,6 +121,12 @@
 		F3C400E72251B02100131E74 /* Group+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Group+Codable.swift"; sourceTree = "<group>"; };
 		F3C400E92252505B00131E74 /* Photo+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo+Codable.swift"; sourceTree = "<group>"; };
 		F3F792B82254DDF1003D56A5 /* PhotoSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSearchModel.swift; sourceTree = "<group>"; };
+		F3FBE88D22966C4B00A64B13 /* Flickr+Protocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Flickr+Protocol.swift"; sourceTree = "<group>"; };
+		F3FBE88F22966C6400A64B13 /* FlickrTestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrTestData.swift; sourceTree = "<group>"; };
+		F3FBE89522966FE400A64B13 /* TestRxQueue.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestRxQueue.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3FBE89722966FE400A64B13 /* TestRxQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRxQueue.swift; sourceTree = "<group>"; };
+		F3FBE89922966FE400A64B13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F3FBE8A0229670D800A64B13 /* TestRxBehaviors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRxBehaviors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +155,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F3FBE89222966FE400A64B13 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -147,6 +174,9 @@
 				0443B67BA5E679E311182530 /* Pods-Photosophia6Tests.release.xcconfig */,
 				D248F43DBCA8B52B60904A97 /* Pods-Photosophia6UITests.debug.xcconfig */,
 				B952DD5B74B694CCD553EFE8 /* Pods-Photosophia6UITests.release.xcconfig */,
+				F296D8CCD5A081315BB42793 /* Pods-Photosophia6.testdata.xcconfig */,
+				412B0A30FBE7AD4307663F37 /* Pods-Photosophia6Tests.testdata.xcconfig */,
+				B66CA72C8CE14F510FC98AA5 /* Pods-Photosophia6UITests.testdata.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -180,6 +210,7 @@
 				F3C400AA2251128900131E74 /* Photosophia6 */,
 				F3C400BF2251128A00131E74 /* Photosophia6Tests */,
 				F3C400CA2251128A00131E74 /* Photosophia6UITests */,
+				F3FBE89622966FE400A64B13 /* TestRxQueue */,
 				F3C400A92251128900131E74 /* Products */,
 				F3C400D9225112C800131E74 /* Podfile */,
 				427BC9DE32646AF8378515EE /* Pods */,
@@ -193,6 +224,7 @@
 				F3C400A82251128900131E74 /* Photosophia6.app */,
 				F3C400BC2251128A00131E74 /* Photosophia6Tests.xctest */,
 				F3C400C72251128A00131E74 /* Photosophia6UITests.xctest */,
+				F3FBE89522966FE400A64B13 /* TestRxQueue.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -217,6 +249,7 @@
 		F3C400BF2251128A00131E74 /* Photosophia6Tests */ = {
 			isa = PBXGroup;
 			children = (
+				F3FBE8A0229670D800A64B13 /* TestRxBehaviors.swift */,
 				F3C400C02251128A00131E74 /* Photosophia6Tests.swift */,
 				F3C400C22251128A00131E74 /* Info.plist */,
 			);
@@ -235,6 +268,8 @@
 		F3C400DB2251149200131E74 /* flickr api */ = {
 			isa = PBXGroup;
 			children = (
+				F3FBE88D22966C4B00A64B13 /* Flickr+Protocol.swift */,
+				F3FBE88F22966C6400A64B13 /* FlickrTestData.swift */,
 				F31317862254229E00D4ECA5 /* Flickr+Auth.swift */,
 				F3C400DE2251157300131E74 /* Flickr.swift */,
 				F3131793225489D700D4ECA5 /* Flickr+UserCases.swift */,
@@ -260,6 +295,15 @@
 				F3777F30226E8B1E00F890FF /* FlickrLoginCell.swift */,
 			);
 			path = "view controllers";
+			sourceTree = "<group>";
+		};
+		F3FBE89622966FE400A64B13 /* TestRxQueue */ = {
+			isa = PBXGroup;
+			children = (
+				F3FBE89722966FE400A64B13 /* TestRxQueue.swift */,
+				F3FBE89922966FE400A64B13 /* Info.plist */,
+			);
+			path = TestRxQueue;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -322,6 +366,24 @@
 			productReference = F3C400C72251128A00131E74 /* Photosophia6UITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		F3FBE89422966FE400A64B13 /* TestRxQueue */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F3FBE89C22966FE400A64B13 /* Build configuration list for PBXNativeTarget "TestRxQueue" */;
+			buildPhases = (
+				F3FBE89122966FE400A64B13 /* Sources */,
+				F3FBE89222966FE400A64B13 /* Frameworks */,
+				F3FBE89322966FE400A64B13 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F3FBE89B22966FE400A64B13 /* PBXTargetDependency */,
+			);
+			name = TestRxQueue;
+			productName = TestRxQueue;
+			productReference = F3FBE89522966FE400A64B13 /* TestRxQueue.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -343,6 +405,10 @@
 						CreatedOnToolsVersion = 10.2;
 						TestTargetID = F3C400A72251128900131E74;
 					};
+					F3FBE89422966FE400A64B13 = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = F3C400A72251128900131E74;
+					};
 				};
 			};
 			buildConfigurationList = F3C400A32251128800131E74 /* Build configuration list for PBXProject "Photosophia6" */;
@@ -361,6 +427,7 @@
 				F3C400A72251128900131E74 /* Photosophia6 */,
 				F3C400BB2251128A00131E74 /* Photosophia6Tests */,
 				F3C400C62251128A00131E74 /* Photosophia6UITests */,
+				F3FBE89422966FE400A64B13 /* TestRxQueue */,
 			);
 		};
 /* End PBXProject section */
@@ -385,6 +452,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F3C400C52251128A00131E74 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F3FBE89322966FE400A64B13 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -422,15 +496,16 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire-SwiftyJSON/Alamofire_SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/FLAnimatedImage/FLAnimatedImage.framework",
 				"${BUILT_PRODUCTS_DIR}/FlickrKit/FlickrKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/NYTPhotoViewer/NYTPhotoViewer.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxKingfisher/RxKingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SKPhotoBrowser/SKPhotoBrowser.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/Whisper/Whisper.framework",
 			);
@@ -439,15 +514,16 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire_SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FLAnimatedImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FlickrKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NYTPhotoViewer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxKingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SKPhotoBrowser.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Whisper.framework",
 			);
@@ -503,9 +579,11 @@
 				F3777F31226E8B1E00F890FF /* FlickrLoginCell.swift in Sources */,
 				F313178922542C6C00D4ECA5 /* ThumbnailCell.swift in Sources */,
 				F3C400E82251B02100131E74 /* Group+Codable.swift in Sources */,
+				F3FBE89022966C6400A64B13 /* FlickrTestData.swift in Sources */,
 				F386DCDD226BD727008B5287 /* Logger.swift in Sources */,
 				F3A648742271997F005B97CB /* DevTool.swift in Sources */,
 				F313178D22545E7C00D4ECA5 /* LoginViewModel.swift in Sources */,
+				F3FBE88E22966C4B00A64B13 /* Flickr+Protocol.swift in Sources */,
 				F3C400AE2251128900131E74 /* ViewController.swift in Sources */,
 				F39C7829226C31E2003D730A /* InterestingPhotosViewController+PhotoBrowser.swift in Sources */,
 				F313178B22542DC500D4ECA5 /* ViewModelRxProtocol.swift in Sources */,
@@ -531,6 +609,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3C400C12251128A00131E74 /* Photosophia6Tests.swift in Sources */,
+				F3FBE8A1229670D800A64B13 /* TestRxBehaviors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -539,6 +618,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3C400CC2251128A00131E74 /* Photosophia6UITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F3FBE89122966FE400A64B13 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3FBE89822966FE400A64B13 /* TestRxQueue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -554,6 +641,11 @@
 			isa = PBXTargetDependency;
 			target = F3C400A72251128900131E74 /* Photosophia6 */;
 			targetProxy = F3C400C82251128A00131E74 /* PBXContainerItemProxy */;
+		};
+		F3FBE89B22966FE400A64B13 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F3C400A72251128900131E74 /* Photosophia6 */;
+			targetProxy = F3FBE89A22966FE400A64B13 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -817,6 +909,194 @@
 			};
 			name = Release;
 		};
+		F3FBE8882296661D00A64B13 /* TestData */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = TestData;
+		};
+		F3FBE8892296661D00A64B13 /* TestData */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F296D8CCD5A081315BB42793 /* Pods-Photosophia6.testdata.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M4AJR3AUMW;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"TEST_DATA=1",
+				);
+				INFOPLIST_FILE = Photosophia6/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = th.co.bluedot.Photosophia6;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = TestData;
+		};
+		F3FBE88A2296661D00A64B13 /* TestData */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 412B0A30FBE7AD4307663F37 /* Pods-Photosophia6Tests.testdata.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M4AJR3AUMW;
+				INFOPLIST_FILE = Photosophia6Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = th.co.bluedot.Photosophia6Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Photosophia6.app/Photosophia6";
+			};
+			name = TestData;
+		};
+		F3FBE88B2296661D00A64B13 /* TestData */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B66CA72C8CE14F510FC98AA5 /* Pods-Photosophia6UITests.testdata.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M4AJR3AUMW;
+				INFOPLIST_FILE = Photosophia6UITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = th.co.bluedot.Photosophia6UITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Photosophia6;
+			};
+			name = TestData;
+		};
+		F3FBE89D22966FE400A64B13 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M4AJR3AUMW;
+				INFOPLIST_FILE = TestRxQueue/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = th.co.bluedot.TestRxQueue;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Photosophia6.app/Photosophia6";
+			};
+			name = Debug;
+		};
+		F3FBE89E22966FE400A64B13 /* TestData */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M4AJR3AUMW;
+				INFOPLIST_FILE = TestRxQueue/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = th.co.bluedot.TestRxQueue;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Photosophia6.app/Photosophia6";
+			};
+			name = TestData;
+		};
+		F3FBE89F22966FE400A64B13 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M4AJR3AUMW;
+				INFOPLIST_FILE = TestRxQueue/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = th.co.bluedot.TestRxQueue;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Photosophia6.app/Photosophia6";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -824,6 +1104,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F3C400CE2251128A00131E74 /* Debug */,
+				F3FBE8882296661D00A64B13 /* TestData */,
 				F3C400CF2251128A00131E74 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -833,6 +1114,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F3C400D12251128A00131E74 /* Debug */,
+				F3FBE8892296661D00A64B13 /* TestData */,
 				F3C400D22251128A00131E74 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -842,6 +1124,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F3C400D42251128A00131E74 /* Debug */,
+				F3FBE88A2296661D00A64B13 /* TestData */,
 				F3C400D52251128A00131E74 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -851,7 +1134,18 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F3C400D72251128A00131E74 /* Debug */,
+				F3FBE88B2296661D00A64B13 /* TestData */,
 				F3C400D82251128A00131E74 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F3FBE89C22966FE400A64B13 /* Build configuration list for PBXNativeTarget "TestRxQueue" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F3FBE89D22966FE400A64B13 /* Debug */,
+				F3FBE89E22966FE400A64B13 /* TestData */,
+				F3FBE89F22966FE400A64B13 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -24,7 +24,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1042.0289855072465" y="128.57142857142856"/>
+            <point key="canvasLocation" x="1383" y="-553"/>
         </scene>
         <!--Auth Web View Controller-->
         <scene sceneID="KPJ-Ai-4nL">
@@ -70,10 +70,10 @@
             </objects>
             <point key="canvasLocation" x="742" y="1523"/>
         </scene>
-        <!--Interesting Photos View Controller-->
+        <!--Photosophia-->
         <scene sceneID="EH6-Ex-9IA">
             <objects>
-                <collectionViewController id="jNZ-9B-NlD" customClass="InterestingPhotosViewController" customModule="Photosophia6" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController title="Photosophia" id="jNZ-9B-NlD" customClass="InterestingPhotosViewController" customModule="Photosophia6" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="QMN-k6-7ag">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -187,10 +187,41 @@
                     </collectionView>
                     <navigationItem key="navigationItem" id="7pC-am-F4A"/>
                     <connections>
+                        <outlet property="lightboxCaptionView" destination="gs9-0x-1Oc" id="ICa-4B-jZK"/>
+                        <outlet property="lightboxLabel" destination="SGe-k9-Ofn" id="jj7-2a-o2y"/>
+                        <outlet property="progressView" destination="6qd-HG-oKK" id="aOE-fe-Nte"/>
                         <segue destination="GbC-8q-ROP" kind="presentation" identifier="flickr login" id="8HA-LX-9Xn"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oGq-w6-GSx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" id="6qd-HG-oKK">
+                    <rect key="frame" x="0.0" y="0.0" width="150" height="2"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </progressView>
+                <view contentMode="scaleToFill" id="gs9-0x-1Oc">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="SGe-k9-Ofn">
+                            <rect key="frame" x="8" y="8" width="224" height="24"/>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.46595552884615382" colorSpace="custom" customColorSpace="displayP3"/>
+                            <constraints>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="24" id="Vn2-Sv-5kV"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="SGe-k9-Ofn" firstAttribute="top" secondItem="gs9-0x-1Oc" secondAttribute="top" constant="8" id="RqJ-mW-Kur"/>
+                        <constraint firstAttribute="trailing" secondItem="SGe-k9-Ofn" secondAttribute="trailing" constant="8" id="Xz0-Jo-ct4"/>
+                        <constraint firstItem="cT1-tg-TQS" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="SGe-k9-Ofn" secondAttribute="bottom" constant="8" id="fRd-Yo-47E"/>
+                        <constraint firstItem="SGe-k9-Ofn" firstAttribute="leading" secondItem="gs9-0x-1Oc" secondAttribute="leading" constant="8" id="j0P-zs-C6p"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="cT1-tg-TQS"/>
+                </view>
             </objects>
             <point key="canvasLocation" x="1424.6376811594205" y="778.79464285714278"/>
         </scene>

@@ -17,10 +17,8 @@ extension Flickr {
     
     func loadInterestingPhotos(withEachGroupLimitTo limit: Int) -> Observable<Photo> {
         return self.getAllUserGroups()
-            .map { (g) -> String in
-                g.id!
-            }.flatMap { (groupId) -> Observable<Photo> in
-                return self.getInterestingPhotos(in: groupId, limit: limit)
+            .flatMap { (group) -> Observable<Photo> in
+                return self.getInterestingPhotos(in: group, limit: limit)
         }
     }
     
