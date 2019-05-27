@@ -68,7 +68,7 @@ extension InterestingPhotosViewController: NYTPhotosViewControllerDelegate, NYTP
     func photo(at photoIndex: Int) -> NYTPhoto? {
         let photo = self.viewModel.photos.value[photoIndex]
         let nytPhoto = PhotoToDisplay(with: photo)
-        if let dataURL = photo.photoURL(with: .original) {
+        if let dataURL = photo.photoURL(with: .l1024) {
             do {
                 nytPhoto.imageData = try Data(contentsOf: dataURL)
             }catch {

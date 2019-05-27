@@ -11,6 +11,7 @@ import RxSwift
 import SwiftyJSON
 import FlickrKit
 
+
 struct FlickrLogin: CustomStringConvertible {
     let userId: String?
     let userName: String?
@@ -51,14 +52,17 @@ class NetworkActivityIndicator {
 }
 
 //MARK: Flikr api
-class Flickr: FlickrApiProtocol {
+class Flickr{
     
     
     static let shared = Flickr()
     let api = FlickrKit.shared()
     let disposeBag = DisposeBag()
     var login: FlickrLogin?
-    let PER_PAGE = 250
+    let PER_PAGE = 100
+    
+    let serialSchd = SerialDispatchQueueScheduler(internalSerialQueueName: "serial Flickr scheduler")
+    let progress = PublishSubject<Float>()
     
     private init() {
         self.api.initialize(withAPIKey: FlickrKeys.flickr_key.rawValue,
@@ -108,7 +112,7 @@ class Flickr: FlickrApiProtocol {
     
     
     //MARK: interesting photos
-    func getInterestingPhotos(in group:Group, limit: Int) -> Observable<Photo> {
+    func getInterestingPhotos(in group:Group, limit: Int) -> Observable<[Photo]> {
         return Observable.create({ (observer) -> Disposable in
 
             var timeScope = DateComponents()
@@ -126,12 +130,19 @@ class Flickr: FlickrApiProtocol {
 
             self.call(method: "flickr.photos.search", args: args, topJSONKey: "photos")
                 .subscribe(onNext: { (photos: Photos) in
-                    photos.photo?.forEach({ (p) in
-                        var p = p
-                        p.inGroup = group
-                        observer.onNext(p)
-                    })
                     
+                    if let photo = photos.photo {
+                        photo.forEach({ (p) in
+                            var p = p
+                            p.inGroup = group
+                        })
+                        observer.onNext(photo)
+                    }
+                    
+                    observer.onCompleted()
+                }, onError: {
+                    error in
+                    observer.onError(error)
                 })
                 .disposed(by: self.disposeBag)
             
@@ -141,20 +152,18 @@ class Flickr: FlickrApiProtocol {
     
     //groups
     
-    func getAllUserGroups() -> Observable<Group> {
+    func getAllUserGroups() -> Observable<[Group]> {
         
         return Observable.create({ (observer) -> Disposable in
+            self.progress.onNext(0.1)
             let kickoff = self.getUserGroups(with: 0)
                 .subscribe(onNext: { (firstGroups) in
-                    
-                    //emits first group's resutls
-                    firstGroups.group?.shuffled().forEach({ (g) in
-                        observer.onNext(g)
-                    })
-                    
+                    var totalGroups = [Group]()
+                    if let g = firstGroups.group {
+                        totalGroups.append(contentsOf: g)
+                    }
                     
                     if let totalPages = firstGroups.pages{
-                        
                         
                         var morePagesOperations = [Observable<Groups>]()
                         for page in 2...totalPages {
@@ -163,15 +172,24 @@ class Flickr: FlickrApiProtocol {
                         }
                         
                         Observable.concat(morePagesOperations)
+                            .observeOn(self.serialSchd)
                             .subscribe(onNext: { (groups) in
-                                groups.group?.shuffled().forEach({ (g) in
-                                    observer.onNext(g)
-                                })
+                                if let g = groups.group {
+                                    totalGroups.append(contentsOf: g)
+                                }
+                                self.progress.onNext(Float(groups.page ?? 0)/Float(totalPages))
+                            }
+                                , onError: {
+                                    error in
+                                    observer.onError(error)
+                            }, onCompleted: {
+                                observer.onNext(totalGroups)
+                                observer.onCompleted()
                             })
                             .disposed(by: self.disposeBag)
                     }
                     
-                    observer.onCompleted()
+                    
                 })
             
             kickoff.disposed(by: self.disposeBag)

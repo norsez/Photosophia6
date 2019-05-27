@@ -30,7 +30,7 @@ class InterestingPhotoViewModel {
             .subscribe(onNext: { [weak self] (photo) in
                 if let _self = self {
                     var photos = _self.photos.value
-                    photos.append(photo)
+                    photos.append(contentsOf: photo)
                     _self.photos.accept(photos)
                 }
             })

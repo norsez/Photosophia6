@@ -8,6 +8,8 @@
 
 import UIKit
 import RxSwift
+import Firebase
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -18,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         SearchSettings.registerDefaults()
         NetworkActivityIndicator.shared.configureIfNeeded()
-        
+        FirebaseApp.configure()
         return true
     }
     

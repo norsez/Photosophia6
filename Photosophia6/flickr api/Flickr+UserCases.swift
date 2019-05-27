@@ -15,11 +15,47 @@ import FlickrKit
 //MARK: use cases
 extension Flickr {
     
-    func loadInterestingPhotos(withEachGroupLimitTo limit: Int) -> Observable<Photo> {
-        return self.getAllUserGroups()
-            .flatMap { (group) -> Observable<Photo> in
-                return self.getInterestingPhotos(in: group, limit: limit)
-        }
+    func loadInterestingPhotos(withEachGroupLimitTo limit: Int) -> Observable<[Photo]> {
+        return Observable.create({ (observer) -> Disposable in
+            
+            self.getAllUserGroups()
+//                .debug()
+                .observeOn(self.serialSchd)
+                .subscribe(onNext: { (groups) in
+                    var allGroupOps = [Observable<[Photo]>]()
+                    for e in groups.enumerated() {
+                        allGroupOps.append( self.getInterestingPhotos(in: e.element, limit: limit) )
+                    }
+                    
+                    var progressGroup = Float(0)
+                    let totalGroups = Float(groups.count)
+                    self.progress.onNext(0)
+                    
+                    Observable.concat(allGroupOps)
+//                        .debug()
+                        .observeOn(self.serialSchd)
+                        .subscribe(onNext: { (photos) in
+                            observer.onNext(photos)
+                            
+                            progressGroup = progressGroup.advanced(by: 1)
+                            self.progress.onNext(progressGroup/totalGroups)
+                            
+                        }, onError: { (error) in
+                            observer.onError(error)
+                        }, onCompleted: {
+                            observer.onCompleted()
+                        })
+                        .disposed(by: self.disposeBag)
+                    
+                    
+                }, onError: { (error) in
+                    observer.onError(error)
+                })
+                .disposed(by: self.disposeBag)
+            
+            
+            return Disposables.create()
+        })
     }
     
     

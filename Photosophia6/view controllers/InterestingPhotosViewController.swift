@@ -42,7 +42,7 @@ class InterestingPhotosViewController: UICollectionViewController, ViewRxProtoco
         if let navBar = self.navigationController?.navigationBar {
             self.progressView.frame = CGRect(x: 0, y: navBar.bounds.height - 2, width: navBar.bounds.width, height: 2)
             navBar.addSubview(self.progressView)
-            self.progressView.isHidden = true
+            
         }
         
         self.createCallbacks()
@@ -130,6 +130,9 @@ class InterestingPhotosViewController: UICollectionViewController, ViewRxProtoco
     
     func bindViewToViewModel() {
         //collectionView.rx.setDelegate(self).disposed(by: self.disposeBag)
+        self.viewModel.api.progress
+            .bind(to: self.progressView.rx.progress)
+            .disposed(by: self.disposeBag)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

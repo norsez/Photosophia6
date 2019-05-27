@@ -40,6 +40,10 @@
 		F3C400E6225189C200131E74 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3C400E5225189C200131E74 /* WebKit.framework */; };
 		F3C400E82251B02100131E74 /* Group+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C400E72251B02100131E74 /* Group+Codable.swift */; };
 		F3C400EA2252505C00131E74 /* Photo+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C400E92252505B00131E74 /* Photo+Codable.swift */; };
+		F3E14C182299FA030056249E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3E14C172299FA020056249E /* GoogleService-Info.plist */; };
+		F3E14C192299FA030056249E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3E14C172299FA020056249E /* GoogleService-Info.plist */; };
+		F3E14C1A2299FA030056249E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3E14C172299FA020056249E /* GoogleService-Info.plist */; };
+		F3E14C1D2299FB500056249E /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E14C1C2299FB500056249E /* Analytics.swift */; };
 		F3F792B92254DDF1003D56A5 /* PhotoSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F792B82254DDF1003D56A5 /* PhotoSearchModel.swift */; };
 		F3FBE88E22966C4B00A64B13 /* Flickr+Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FBE88D22966C4B00A64B13 /* Flickr+Protocol.swift */; };
 		F3FBE89022966C6400A64B13 /* FlickrTestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FBE88F22966C6400A64B13 /* FlickrTestData.swift */; };
@@ -120,6 +124,8 @@
 		F3C400E5225189C200131E74 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		F3C400E72251B02100131E74 /* Group+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Group+Codable.swift"; sourceTree = "<group>"; };
 		F3C400E92252505B00131E74 /* Photo+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo+Codable.swift"; sourceTree = "<group>"; };
+		F3E14C172299FA020056249E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		F3E14C1C2299FB500056249E /* Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
 		F3F792B82254DDF1003D56A5 /* PhotoSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSearchModel.swift; sourceTree = "<group>"; };
 		F3FBE88D22966C4B00A64B13 /* Flickr+Protocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Flickr+Protocol.swift"; sourceTree = "<group>"; };
 		F3FBE88F22966C6400A64B13 /* FlickrTestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrTestData.swift; sourceTree = "<group>"; };
@@ -200,6 +206,7 @@
 				F313178A22542DC500D4ECA5 /* ViewModelRxProtocol.swift */,
 				F386DCDC226BD727008B5287 /* Logger.swift */,
 				F386DCE0226BDCA0008B5287 /* UIErrorHandling.swift */,
+				F3E14C1C2299FB500056249E /* Analytics.swift */,
 			);
 			path = "view models";
 			sourceTree = "<group>";
@@ -242,6 +249,7 @@
 				F3C400B42251128A00131E74 /* LaunchScreen.storyboard */,
 				F3C400B72251128A00131E74 /* Info.plist */,
 				F3A648732271997F005B97CB /* DevTool.swift */,
+				F3E14C172299FA020056249E /* GoogleService-Info.plist */,
 			);
 			path = Photosophia6;
 			sourceTree = "<group>";
@@ -439,6 +447,7 @@
 			files = (
 				F3C400B62251128A00131E74 /* LaunchScreen.storyboard in Resources */,
 				F3C400B32251128A00131E74 /* Assets.xcassets in Resources */,
+				F3E14C182299FA030056249E /* GoogleService-Info.plist in Resources */,
 				F3C400DA225112C800131E74 /* Podfile in Resources */,
 				F3C400B12251128900131E74 /* Main.storyboard in Resources */,
 			);
@@ -448,6 +457,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3E14C192299FA030056249E /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,6 +465,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3E14C1A2299FA030056249E /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,6 +509,7 @@
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/FLAnimatedImage/FLAnimatedImage.framework",
 				"${BUILT_PRODUCTS_DIR}/FlickrKit/FlickrKit.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/NYTPhotoViewer/NYTPhotoViewer.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
@@ -508,6 +520,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/Whisper/Whisper.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -516,6 +529,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FLAnimatedImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FlickrKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NYTPhotoViewer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
@@ -526,6 +540,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Whisper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -592,6 +607,7 @@
 				F3C400AC2251128900131E74 /* AppDelegate.swift in Sources */,
 				F313178122540B6E00D4ECA5 /* InterestingPhotosViewController.swift in Sources */,
 				F313177F22540B4300D4ECA5 /* InterestingPhotosViewModel.swift in Sources */,
+				F3E14C1D2299FB500056249E /* Analytics.swift in Sources */,
 				F3C400DF2251157300131E74 /* Flickr.swift in Sources */,
 				F3C400EA2252505C00131E74 /* Photo+Codable.swift in Sources */,
 				F386DCDF226BD909008B5287 /* InterestingPhotosViewController+Auth.swift in Sources */,

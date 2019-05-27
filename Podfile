@@ -15,6 +15,8 @@ target 'Photosophia6' do
   pod 'RealmSwift'
   #pod 'SKPhotoBrowser'
   pod 'NYTPhotoViewer', '~> 2.0.0'
+  pod 'Firebase', '~> 6.1.0'
+  pod 'Firebase/Analytics'
   
   
   # Pods for Photosophia6
