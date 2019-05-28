@@ -23,7 +23,7 @@ extension Flickr {
                 .observeOn(self.serialSchd)
                 .subscribe(onNext: { (groups) in
                     var allGroupOps = [Observable<[Photo]>]()
-                    for e in groups.enumerated() {
+                    for e in groups.shuffled().enumerated() {
                         allGroupOps.append( self.getInterestingPhotos(in: e.element, limit: limit) )
                     }
                     

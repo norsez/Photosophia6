@@ -38,7 +38,6 @@ class InterestingPhotosViewController: UICollectionViewController, ViewRxProtoco
         let nav = self.navigationController?.navigationBar
         nav?.barStyle = .blackTranslucent
         self.view.backgroundColor = self.collectionView.backgroundColor
-        
         if let navBar = self.navigationController?.navigationBar {
             self.progressView.frame = CGRect(x: 0, y: navBar.bounds.height - 2, width: navBar.bounds.width, height: 2)
             navBar.addSubview(self.progressView)
@@ -108,8 +107,39 @@ class InterestingPhotosViewController: UICollectionViewController, ViewRxProtoco
         self.present(ctrl, animated: true, completion: nil)
     }
     
+    let threshold:CGFloat = 100.0 // threshold from bottom of tableView
+    var isLoadingMore = false // flagx
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//
+//        let contentOffset = scrollView.contentOffset.y
+//        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height;
+//
+//        if !isLoadingMore && (maximumOffset - contentOffset <= threshold) {
+//            // Get more data - API call
+//            self.isLoadingMore = true
+//            self.viewModel.loadPhotos()
+//            self.isLoadingMore = false
+//
+//        }
+    }
+    
     //MARK: Rx
     func createCallbacks() {
+        
+        self.collectionView.rx.didScroll
+            .filter({ (e) -> Bool in
+                let contentOffset =  self.collectionView.contentOffset.y
+                let maximumOffset = self.collectionView.contentSize.height - self.collectionView.frame.size.height;
+                return maximumOffset - contentOffset <= self.threshold
+            })
+            //.throttle(8, latest: true, scheduler: self.serialScheduler)
+            .debounce(8, scheduler: self.serialScheduler)
+            .subscribe(onNext: { (_) in
+                self.viewModel.loadPhotos()
+            })
+            .disposed(by: self.disposeBag)
+        
         
         self.viewModel.photos
             .observeOn(self.serialScheduler)
