@@ -40,8 +40,8 @@ class InterestingPhotosViewController: UICollectionViewController, ViewRxProtoco
         self.view.backgroundColor = self.collectionView.backgroundColor
         if let navBar = self.navigationController?.navigationBar {
             self.progressView.frame = CGRect(x: 0, y: navBar.bounds.height - 2, width: navBar.bounds.width, height: 2)
+            self.progressView.alpha = 0.7
             navBar.addSubview(self.progressView)
-            
         }
         
         self.createCallbacks()
@@ -110,20 +110,6 @@ class InterestingPhotosViewController: UICollectionViewController, ViewRxProtoco
     let threshold:CGFloat = 100.0 // threshold from bottom of tableView
     var isLoadingMore = false // flagx
     
-    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//
-//        let contentOffset = scrollView.contentOffset.y
-//        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height;
-//
-//        if !isLoadingMore && (maximumOffset - contentOffset <= threshold) {
-//            // Get more data - API call
-//            self.isLoadingMore = true
-//            self.viewModel.loadPhotos()
-//            self.isLoadingMore = false
-//
-//        }
-    }
-    
     //MARK: Rx
     func createCallbacks() {
         
@@ -133,8 +119,8 @@ class InterestingPhotosViewController: UICollectionViewController, ViewRxProtoco
                 let maximumOffset = self.collectionView.contentSize.height - self.collectionView.frame.size.height;
                 return maximumOffset - contentOffset <= self.threshold
             })
-            //.throttle(8, latest: true, scheduler: self.serialScheduler)
-            .debounce(8, scheduler: self.serialScheduler)
+            .throttle(10, latest: true, scheduler: self.serialScheduler)
+            //.debounce(8, scheduler: self.serialScheduler)
             .subscribe(onNext: { (_) in
                 self.viewModel.loadPhotos()
             })
@@ -163,6 +149,31 @@ class InterestingPhotosViewController: UICollectionViewController, ViewRxProtoco
         self.viewModel.api.progress
             .bind(to: self.progressView.rx.progress)
             .disposed(by: self.disposeBag)
+        
+        self.viewModel.api.progress
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { (pValue) in
+                self.progressView.isHidden = pValue == 0 || pValue > 1
+            })
+            .disposed(by: self.disposeBag)
+        
+        self.viewModel.onError
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { (text) in
+                if let text = text {
+                    self.showStatusError(text: text)
+                }
+            })
+            .disposed(by: self.disposeBag)
+        
+        self.viewModel.onStatus
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { (text) in
+                if let text = text {
+                    self.showStatus(text: text)
+                }
+            })
+        .disposed(by: self.disposeBag)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

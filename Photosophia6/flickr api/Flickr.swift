@@ -185,6 +185,7 @@ class Flickr{
                             }, onCompleted: {
                                 observer.onNext(totalGroups)
                                 observer.onCompleted()
+                                self.progress.onNext(0)
                             })
                             .disposed(by: self.disposeBag)
                     }

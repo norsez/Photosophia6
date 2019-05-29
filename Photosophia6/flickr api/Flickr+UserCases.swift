@@ -43,6 +43,7 @@ extension Flickr {
                         }, onError: { (error) in
                             observer.onError(error)
                         }, onCompleted: {
+                            self.progress.onNext(0)
                             observer.onCompleted()
                         })
                         .disposed(by: self.disposeBag)
