@@ -21,7 +21,7 @@ struct Photo: Codable, CustomStringConvertible {
     let views: String?
     let url_sq: String?
     let url_c: String?
-    let owner_name: String?
+    let ownername: String?
     
     var inGroup: Group?
     var description: String {
@@ -44,7 +44,7 @@ struct Photo: Codable, CustomStringConvertible {
         case views
         case url_sq
         case url_c
-        case owner_name
+        case ownername
         
     }
 }

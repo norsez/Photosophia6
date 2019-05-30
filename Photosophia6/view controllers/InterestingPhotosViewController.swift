@@ -127,16 +127,15 @@ class InterestingPhotosViewController: UICollectionViewController, ViewRxProtoco
         
         
         self.viewModel.photos
-            .observeOn(self.serialScheduler)
+            .observeOn(MainScheduler.instance)
             .subscribe(onNext: { (photos) in
-                DispatchQueue.main.async {
                     self.collectionView.reloadData()
-                }
             })
             .disposed(by: self.disposeBag)
         
         self.viewModel.loginViewModel.showLoginSection
             .skip(1)
+            .observeOn(MainScheduler.instance)
             .subscribe(onNext: { (showing) in
                 self.collectionView.reloadData()
             })

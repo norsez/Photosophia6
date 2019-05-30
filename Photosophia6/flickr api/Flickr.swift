@@ -148,11 +148,14 @@ class Flickr{
                 .subscribe(onNext: { (photos: Photos) in
                     
                     if let photo = photos.photo {
-                        photo.forEach({ (p) in
-                            var p = p
-                            p.inGroup = group
+                        
+                        let result = photo.compactMap({ (p) -> Photo in
+                            var newP = p
+                            newP.inGroup = group
+                            return newP
                         })
-                        observer.onNext(photo)
+                        
+                        observer.onNext(result)
                     }
                     
                     observer.onCompleted()
@@ -215,6 +218,9 @@ class Flickr{
                 })
                 
                 .disposed(by: self.disposeBag)
+            
+            
+            
             return Disposables.create()
         })
         

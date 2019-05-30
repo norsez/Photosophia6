@@ -123,7 +123,7 @@ extension InterestingPhotosViewController: NYTPhotosViewControllerDelegate, NYTP
         if let title = photo.title {
             text = title
         }
-        if let ownerName = photo.owner_name {
+        if let ownerName = photo.ownername {
             text += " by \(ownerName)"
         }
         if let group = photo.inGroup,

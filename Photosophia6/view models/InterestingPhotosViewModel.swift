@@ -36,7 +36,9 @@ class InterestingPhotoViewModel {
         
         self.onStatus.onNext("loading groups…")
         
-        self.api.getAllUserGroups().subscribe(onNext: { (groups) in
+        self.api.getAllUserGroups()
+            .observeOn(self.serialSchd)
+            .subscribe(onNext: { (groups) in
             
             self.groups = groups.shuffled()
             if self.groups.count > 0 {
@@ -107,6 +109,6 @@ class InterestingPhotoViewModel {
     }
     
     func caption(of p: Photo) -> String {
-        return "\(p.title ?? "untitled") by \(p.owner_name ?? "unknown")"
+        return "\(p.title ?? "untitled") by \(p.ownername ?? "unknown")"
     }
 }

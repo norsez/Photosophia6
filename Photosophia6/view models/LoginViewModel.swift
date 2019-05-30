@@ -71,10 +71,10 @@ class LoginViewModel {
                        onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
         
-//        UIStatus.needsLogin.subscribe(onNext: { (_) in
-//            self.showLoginSection.accept(true)
-//        })
-//            .disposed(by: self.disposeBag)
+        UIStatus.needsLogin.subscribe(onNext: { (_) in
+            self.showLoginSection.accept(true)
+        })
+            .disposed(by: self.disposeBag)
     }
     
     func beginAuth() {
