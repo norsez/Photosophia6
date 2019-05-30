@@ -9,9 +9,6 @@
 import Foundation
 import RxSwift
 
-enum ApiError: Error {
-    case responseError(String, Error?)
-}
 
 protocol FlickrApiProtocol {
     

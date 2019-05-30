@@ -26,7 +26,7 @@ extension InterestingPhotosViewController {
                     self.viewModel.loginViewModel.showLoginSection.accept(true)
                     self.viewModel.loadSamplePhotos()
                 }
-            }, onError: UIErrorHandling)
+            }, onError: UIStatus.handleError)
         .disposed(by: self.disposeBag)
         
         loginVM.beginAuthResult
@@ -39,7 +39,7 @@ extension InterestingPhotosViewController {
                 }else {
                     self.alert(error: "Didn't receive flickr login url")
                 }
-            }, onError: UIErrorHandling,
+            }, onError: UIStatus.handleError,
                 onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
         
@@ -57,7 +57,7 @@ extension InterestingPhotosViewController {
                     self.viewModel.loginViewModel.showLoginSection.accept(false)
                     
                 }
-            }, onError: UIErrorHandling,
+            }, onError: UIStatus.handleError,
                 onCompleted: nil, onDisposed: nil)
         .disposed(by: self.disposeBag)
         

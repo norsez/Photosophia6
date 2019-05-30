@@ -48,10 +48,9 @@ class AuthWebViewController: UIViewController, WKNavigationDelegate, WKUIDelegat
             .skip(1)
             .subscribe(onNext: { (result) in
                 self.dismissSelf()
-            }, onError: UIErrorHandling,
+            }, onError: UIStatus.handleError,
                onCompleted: nil, onDisposed: nil)
         .disposed(by: self.disposeBag)
-        
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?,

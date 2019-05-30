@@ -51,6 +51,21 @@ class NetworkActivityIndicator {
     }
 }
 
+enum FlickrError: Error {
+    case insufficientPermission
+    case others
+    
+    static func error(_ e:Error) -> FlickrError{
+        let e = e as NSError
+        switch e.code {
+        case 99:
+            return .insufficientPermission
+        default:
+            return .others
+        }
+    }
+}
+
 //MARK: Flikr api
 class Flickr{
     
@@ -91,17 +106,18 @@ class Flickr{
                             observer.onCompleted()
                         } catch {
                             Logger.log("json parsing error \(error)")
-                            observer.onError(error)
+                            observer.onError(FlickrError.error(error))
                         }
                     }else {
-                        let e = ApiError.responseError("call api call", error ?? nil)
-                        Logger.log("call api error: \(e)")
-                        observer.onError(e)
+                        if let error = error {
+                            Logger.log("call api error: \(error)")
+                            observer.onError(FlickrError.error(error))
+                        }
                     }
                     
                 } else if let error = error {
-                    Logger.log("call response api error: \(error)")
-                    observer.onError(error)
+                    Logger.log("call response api error for \(method) \(args): \(error)")
+                    observer.onError( FlickrError.error(error))
                 }
             })
             return Disposables.create()
@@ -156,7 +172,7 @@ class Flickr{
         
         return Observable.create({ (observer) -> Disposable in
             self.progress.onNext(0.1)
-            let kickoff = self.getUserGroups(with: 0)
+            self.getUserGroups(with: 0)
                 .subscribe(onNext: { (firstGroups) in
                     var totalGroups = [Group]()
                     if let g = firstGroups.group {
@@ -191,9 +207,14 @@ class Flickr{
                     }
                     
                     
+                },
+                           
+                           onError: {
+                            error in
+                            observer.onError(error)
                 })
-            
-            kickoff.disposed(by: self.disposeBag)
+                
+                .disposed(by: self.disposeBag)
             return Disposables.create()
         })
         
@@ -209,6 +230,9 @@ class Flickr{
                     print("number of groups: \(groups.group?.count ?? 0) for page \(page)")
                     observer.onNext(groups)
                     observer.onCompleted()
+                }, onError: {
+                    error in
+                    observer.onError(error)
                 })
                 .disposed(by: self.disposeBag)
             return Disposables.create()

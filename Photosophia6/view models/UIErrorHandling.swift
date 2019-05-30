@@ -9,7 +9,3 @@
 import UIKit
 import RxSwift
 
-let UIErrorHandling = {
-    error in
-    debugPrint(error)
-}

@@ -21,7 +21,6 @@ class InterestingPhotosViewController: UICollectionViewController, ViewRxProtoco
     let CELL_LOGIN = "flickr login cell"
     
     let serialScheduler = SerialDispatchQueueScheduler(internalSerialQueueName: "serial scheduler")
-    
     var selectedPhotoIndex: Int? 
     
     enum Section: Int {
@@ -160,20 +159,19 @@ class InterestingPhotosViewController: UICollectionViewController, ViewRxProtoco
         self.viewModel.onError
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { (text) in
-                if let text = text {
-                    self.showStatusError(text: text)
-                }
+                UIStatus.showStatusError(text: text)
             })
             .disposed(by: self.disposeBag)
         
         self.viewModel.onStatus
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { (text) in
-                if let text = text {
-                    self.showStatus(text: text)
-                }
+                UIStatus.showStatus(text: text)
             })
-        .disposed(by: self.disposeBag)
+            .disposed(by: self.disposeBag)
+        
+    
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

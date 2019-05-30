@@ -8,7 +8,9 @@
 
 import UIKit
 import NYTPhotoViewer
-
+import RxKingfisher
+import Kingfisher
+import RxSwift
 //
 //class PhotoActivityProvider: UIActivityItemProvider {
 //    let photo: Photo
@@ -68,9 +70,18 @@ extension InterestingPhotosViewController: NYTPhotosViewControllerDelegate, NYTP
     func photo(at photoIndex: Int) -> NYTPhoto? {
         let photo = self.viewModel.photos.value[photoIndex]
         let nytPhoto = PhotoToDisplay(with: photo)
+        
+        if let thumbUrl = photo.photoURL(with: .th100) {
+            nytPhoto.placeholderImage = ImageCache.default.retrieveImageInMemoryCache(forKey: thumbUrl.absoluteString )
+        }
+        
         if let dataURL = photo.photoURL(with: .l1024) {
             do {
-                nytPhoto.imageData = try Data(contentsOf: dataURL)
+                if let image = ImageCache.default.retrieveImageInMemoryCache(forKey: dataURL.absoluteString) {
+                    nytPhoto.image = image
+                }else {
+                    nytPhoto.imageData = try Data(contentsOf: dataURL)
+                }
             }catch {
                 Logger.log("\(error)")
             }
@@ -101,7 +112,7 @@ extension InterestingPhotosViewController: NYTPhotosViewControllerDelegate, NYTP
     }
     
     func photosViewController(_ photosViewController: NYTPhotosViewController, maximumZoomScaleFor photo: NYTPhoto) -> CGFloat {
-        return 4
+        return 8
     }
     
     func photosViewController(_ photosViewController: NYTPhotosViewController, captionViewFor photo: NYTPhoto) -> UIView? {
@@ -123,6 +134,31 @@ extension InterestingPhotosViewController: NYTPhotosViewControllerDelegate, NYTP
         self.lightboxLabel.text = text
         
         return self.lightboxCaptionView
+    }
+    
+    func photosViewController(_ photosViewController: NYTPhotosViewController, captionViewRespectsSafeAreaFor photo: NYTPhoto) -> Bool {
+        return true
+    }
+    
+    //MARK: image caching
+    private func _cachgeImage(at index: Int) {
+        if index >= 1 && index < self.viewModel.photos.value.count {
+            let p = self.viewModel.photos.value[index]
+            if let url = p.photoURL(with: .original) {
+                KingfisherManager.shared.rx.retrieveImage(with: url)
+                    .subscribe(onSuccess: { (_) in
+                        Logger.log("cached image \(index)")
+                    }) { (_) in
+                        Logger.log("error caching \(index)")
+                    }.disposed(by: self.disposeBag)
+                
+            }
+        }
+    }
+    
+    func photosViewController(_ photosViewController: NYTPhotosViewController, didNavigateTo photo: NYTPhoto, at photoIndex: UInt) {
+        self._cachgeImage(at: Int(photoIndex) - 1)
+        self._cachgeImage(at: Int(photoIndex) + 1)
     }
     
 }
