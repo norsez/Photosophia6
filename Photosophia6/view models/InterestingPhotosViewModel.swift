@@ -55,7 +55,7 @@ class InterestingPhotoViewModel {
    
     
     func loadPhotos() {
-      
+        
         
         if groups.count == 0 {
             self.loadGroups()
@@ -101,6 +101,7 @@ class InterestingPhotoViewModel {
                     let photos = newPhotos.photo {
                     _self.photos.accept(photos)
                     self?.onStatus.onNext("\(photos.count) photos")
+                    self?.api.progress.onNext(0)
                 }
                 
             }, onError: UIStatus.handleError)

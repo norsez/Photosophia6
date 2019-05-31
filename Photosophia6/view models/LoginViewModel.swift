@@ -48,7 +48,7 @@ class LoginViewModel {
     let checkLoginResult = BehaviorRelay<FlickrLoginResult>(value: .notLoggedIn)
     let beginAuthResult = BehaviorRelay<URL?>(value:nil)
     let processAuthResult = BehaviorRelay<FlickrLoginResult>(value: .notLoggedIn)
-    let onErrorMessage = BehaviorRelay<String?>(value:nil)
+    let onErrorMessage = PublishSubject<String>()
     let showLoginSection = BehaviorRelay<Bool>(value: false)
     
     func checkLogin() {
@@ -81,7 +81,7 @@ class LoginViewModel {
         self.api.beginAuth().subscribe(onNext: { (url) in
             self.beginAuthResult.accept(url)
         }, onError: { (error) in
-            self.onErrorMessage.accept("\(error)")
+            self.onErrorMessage.onNext("\(error)")
         }, onCompleted: nil, onDisposed: nil)
         .disposed(by: self.disposeBag)
     }

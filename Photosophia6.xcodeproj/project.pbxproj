@@ -26,6 +26,8 @@
 		F386DCE1226BDCA0008B5287 /* UIErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = F386DCE0226BDCA0008B5287 /* UIErrorHandling.swift */; };
 		F39C7829226C31E2003D730A /* InterestingPhotosViewController+PhotoBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39C7828226C31E2003D730A /* InterestingPhotosViewController+PhotoBrowser.swift */; };
 		F3A648742271997F005B97CB /* DevTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A648732271997F005B97CB /* DevTool.swift */; };
+		F3AE6FA422A1E6EB009B7CFE /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AE6FA322A1E6EB009B7CFE /* Analytics.swift */; };
+		F3AE6FA622A1EAA6009B7CFE /* AnalyticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AE6FA522A1EAA6009B7CFE /* AnalyticsViewModel.swift */; };
 		F3C400AC2251128900131E74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C400AB2251128900131E74 /* AppDelegate.swift */; };
 		F3C400AE2251128900131E74 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C400AD2251128900131E74 /* ViewController.swift */; };
 		F3C400B12251128900131E74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3C400AF2251128900131E74 /* Main.storyboard */; };
@@ -44,7 +46,6 @@
 		F3E14C182299FA030056249E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3E14C172299FA020056249E /* GoogleService-Info.plist */; };
 		F3E14C192299FA030056249E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3E14C172299FA020056249E /* GoogleService-Info.plist */; };
 		F3E14C1A2299FA030056249E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3E14C172299FA020056249E /* GoogleService-Info.plist */; };
-		F3E14C1D2299FB500056249E /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E14C1C2299FB500056249E /* Analytics.swift */; };
 		F3E14C24229C9E0B0056249E /* ShareActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E14C23229C9E0A0056249E /* ShareActivity.swift */; };
 		F3F792B92254DDF1003D56A5 /* PhotoSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F792B82254DDF1003D56A5 /* PhotoSearchModel.swift */; };
 		F3FBE88E22966C4B00A64B13 /* Flickr+Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FBE88D22966C4B00A64B13 /* Flickr+Protocol.swift */; };
@@ -106,6 +107,8 @@
 		F386DCE0226BDCA0008B5287 /* UIErrorHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIErrorHandling.swift; sourceTree = "<group>"; };
 		F39C7828226C31E2003D730A /* InterestingPhotosViewController+PhotoBrowser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InterestingPhotosViewController+PhotoBrowser.swift"; sourceTree = "<group>"; };
 		F3A648732271997F005B97CB /* DevTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DevTool.swift; path = dev/DevTool.swift; sourceTree = "<group>"; };
+		F3AE6FA322A1E6EB009B7CFE /* Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
+		F3AE6FA522A1EAA6009B7CFE /* AnalyticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewModel.swift; sourceTree = "<group>"; };
 		F3C400A82251128900131E74 /* Photosophia6.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photosophia6.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3C400AB2251128900131E74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3C400AD2251128900131E74 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -128,7 +131,6 @@
 		F3C400E72251B02100131E74 /* Group+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Group+Codable.swift"; sourceTree = "<group>"; };
 		F3C400E92252505B00131E74 /* Photo+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo+Codable.swift"; sourceTree = "<group>"; };
 		F3E14C172299FA020056249E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
-		F3E14C1C2299FB500056249E /* Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
 		F3E14C23229C9E0A0056249E /* ShareActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareActivity.swift; sourceTree = "<group>"; };
 		F3F792B82254DDF1003D56A5 /* PhotoSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSearchModel.swift; sourceTree = "<group>"; };
 		F3FBE88D22966C4B00A64B13 /* Flickr+Protocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Flickr+Protocol.swift"; sourceTree = "<group>"; };
@@ -210,9 +212,17 @@
 				F313178A22542DC500D4ECA5 /* ViewModelRxProtocol.swift */,
 				F386DCDC226BD727008B5287 /* Logger.swift */,
 				F386DCE0226BDCA0008B5287 /* UIErrorHandling.swift */,
-				F3E14C1C2299FB500056249E /* Analytics.swift */,
 			);
 			path = "view models";
+			sourceTree = "<group>";
+		};
+		F3AE6FA222A1E6B8009B7CFE /* analytics */ = {
+			isa = PBXGroup;
+			children = (
+				F3AE6FA322A1E6EB009B7CFE /* Analytics.swift */,
+				F3AE6FA522A1EAA6009B7CFE /* AnalyticsViewModel.swift */,
+			);
+			path = analytics;
 			sourceTree = "<group>";
 		};
 		F3C4009F2251128800131E74 = {
@@ -245,6 +255,7 @@
 			children = (
 				F3C400AB2251128900131E74 /* AppDelegate.swift */,
 				F3C400DB2251149200131E74 /* flickr api */,
+				F3AE6FA222A1E6B8009B7CFE /* analytics */,
 				F313177B2254091400D4ECA5 /* view models */,
 				F3C400E22251851600131E74 /* view controllers */,
 				F3C400AD2251128900131E74 /* ViewController.swift */,
@@ -604,6 +615,7 @@
 				F3FBE89022966C6400A64B13 /* FlickrTestData.swift in Sources */,
 				F386DCDD226BD727008B5287 /* Logger.swift in Sources */,
 				F3A648742271997F005B97CB /* DevTool.swift in Sources */,
+				F3AE6FA422A1E6EB009B7CFE /* Analytics.swift in Sources */,
 				F313178D22545E7C00D4ECA5 /* LoginViewModel.swift in Sources */,
 				F3FBE88E22966C4B00A64B13 /* Flickr+Protocol.swift in Sources */,
 				F3C400AE2251128900131E74 /* ViewController.swift in Sources */,
@@ -615,7 +627,6 @@
 				F313178122540B6E00D4ECA5 /* InterestingPhotosViewController.swift in Sources */,
 				F3823BC8229E4D240031C01E /* Alert+UIViewController.swift in Sources */,
 				F313177F22540B4300D4ECA5 /* InterestingPhotosViewModel.swift in Sources */,
-				F3E14C1D2299FB500056249E /* Analytics.swift in Sources */,
 				F3C400DF2251157300131E74 /* Flickr.swift in Sources */,
 				F3C400EA2252505C00131E74 /* Photo+Codable.swift in Sources */,
 				F386DCDF226BD909008B5287 /* InterestingPhotosViewController+Auth.swift in Sources */,
@@ -625,6 +636,7 @@
 				F31317852254124300D4ECA5 /* ViewProtocol.swift in Sources */,
 				F3F792B92254DDF1003D56A5 /* PhotoSearchModel.swift in Sources */,
 				F3C400DD225114EF00131E74 /* Constants.swift in Sources */,
+				F3AE6FA622A1EAA6009B7CFE /* AnalyticsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -821,7 +833,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = th.co.bluedot.Photosophia6;
+				PRODUCT_BUNDLE_IDENTIFIER = th.co.bluedot.Photosophia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -840,7 +852,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = th.co.bluedot.Photosophia6;
+				PRODUCT_BUNDLE_IDENTIFIER = th.co.bluedot.Photosophia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1011,7 +1023,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = th.co.bluedot.Photosophia6;
+				PRODUCT_BUNDLE_IDENTIFIER = th.co.bluedot.Photosophia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

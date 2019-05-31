@@ -140,13 +140,6 @@ class InterestingPhotosViewController: UICollectionViewController, ViewRxProtoco
                 self.collectionView.reloadData()
             })
         .disposed(by: self.disposeBag)
-    }
-    
-    func bindViewToViewModel() {
-        //collectionView.rx.setDelegate(self).disposed(by: self.disposeBag)
-        self.viewModel.api.progress
-            .bind(to: self.progressView.rx.progress)
-            .disposed(by: self.disposeBag)
         
         self.viewModel.api.progress
             .observeOn(MainScheduler.instance)
@@ -168,6 +161,23 @@ class InterestingPhotosViewController: UICollectionViewController, ViewRxProtoco
                 UIStatus.showStatus(text: text)
             })
             .disposed(by: self.disposeBag)
+        
+        
+        self.viewModel.loginViewModel.onErrorMessage
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { (text) in
+                UIStatus.showStatusError(text: text)
+            })
+            .disposed(by: self.disposeBag)
+        
+    }
+    
+    func bindViewToViewModel() {
+        //collectionView.rx.setDelegate(self).disposed(by: self.disposeBag)
+        self.viewModel.api.progress
+            .bind(to: self.progressView.rx.progress)
+            .disposed(by: self.disposeBag)
+        
         
     
         
