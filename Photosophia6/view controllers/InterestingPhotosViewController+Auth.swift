@@ -22,9 +22,11 @@ extension InterestingPhotosViewController {
                 switch result {
                 case .loggedIn(_):
                     self.viewModel.loadPhotos()
+                    self.logLoadPhotos()
                 case .notLoggedIn:
                     self.viewModel.loginViewModel.showLoginSection.accept(true)
                     self.viewModel.loadSamplePhotos()
+                    self.logLoadSampleGroups()
                 }
             }, onError: UIStatus.handleError)
         .disposed(by: self.disposeBag)

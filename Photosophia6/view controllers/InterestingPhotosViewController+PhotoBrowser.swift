@@ -107,7 +107,7 @@ extension InterestingPhotosViewController: NYTPhotosViewControllerDelegate, NYTP
         }
         
         //ShareActivity.shared.share(photo: photo, on: photosViewController)
-        
+        self.logShare(photo: photo)
         return true
     }
     

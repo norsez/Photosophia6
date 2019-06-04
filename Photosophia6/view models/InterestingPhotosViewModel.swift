@@ -12,10 +12,32 @@ import WebKit
 import RxSwift
 import RxCocoa
 
+class LogInterestPhotosViewModel {
+    
+    func loadSamplePhotos () {
+        
+    }
+    
+    func loadInterestingPhotos() {
+        
+    }
+    
+    func select(photo: Photo){
+        
+    }
+    
+    func share(photo: Photo) {
+        
+    }
+    
+}
+
+
 class InterestingPhotoViewModel {
     private var groups = [Group]()
     
     let loginViewModel = LoginViewModel()
+    let logViewModel = LogInterestPhotosViewModel()
     let photos = BehaviorRelay<[Photo]>(value: [])
     let disposeBag = DisposeBag()
     let api = Flickr.shared

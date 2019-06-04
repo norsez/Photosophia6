@@ -96,7 +96,9 @@ class InterestingPhotosViewController: UICollectionViewController, ViewRxProtoco
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let section  = Section(rawValue: indexPath.section)!
         if section == .photos {
+            let photo = self.viewModel.photos.value[indexPath.row]
             self.showPhoto(from: indexPath)
+            self.logSelect(photo: photo)
         }
     }
     

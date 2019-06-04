@@ -136,13 +136,23 @@ class Flickr{
             let cal = Calendar.autoupdatingCurrent
             let qDate = cal.date(byAdding: timeScope, to: Date())
 
-            let args: [String:Any] = ["max_upload_date": "\(qDate!.timeIntervalSince1970)",
+            var args: [String:Any] = ["max_upload_date": "\(qDate!.timeIntervalSince1970)",
                                       //"sort": "date-posted-desc",
                 "sort": "interestingness-desc",
                                       "group_id": group.id!,
                                       "extras": "date_upload, url_sq, views, members, url_c, owner_name, description",
                                       "per_page": "\(limit)"
                                       ]
+            
+            do {
+                if let ops = try FlickrSearchOptions.load() {
+                    for e in ops.toApiOptions {
+                        args[e.key] = e.value
+                    }
+                }
+            } catch {
+                Logger.log("\(error)")
+            }
 
             self.call(method: "flickr.photos.search", args: args, topJSONKey: "photos")
                 .subscribe(onNext: { (photos: Photos) in
