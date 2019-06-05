@@ -54,6 +54,7 @@
 		F3FBE89822966FE400A64B13 /* TestRxQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FBE89722966FE400A64B13 /* TestRxQueue.swift */; };
 		F3FBE8A1229670D800A64B13 /* TestRxBehaviors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FBE8A0229670D800A64B13 /* TestRxBehaviors.swift */; };
 		F3FEB85D22A73B1F00C8B2BA /* OptionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FEB85C22A73B1F00C8B2BA /* OptionsViewModel.swift */; };
+		F3FEB85F22A7B63C00C8B2BA /* SearchOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FEB85E22A7B63C00C8B2BA /* SearchOptionsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,6 +144,8 @@
 		F3FBE89922966FE400A64B13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3FBE8A0229670D800A64B13 /* TestRxBehaviors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRxBehaviors.swift; sourceTree = "<group>"; };
 		F3FEB85C22A73B1F00C8B2BA /* OptionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewModel.swift; sourceTree = "<group>"; };
+		F3FEB85E22A7B63C00C8B2BA /* SearchOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchOptionsViewController.swift; sourceTree = "<group>"; };
+		F3FEB86022A7BF9600C8B2BA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +235,7 @@
 		F3C4009F2251128800131E74 = {
 			isa = PBXGroup;
 			children = (
+				F3FEB86022A7BF9600C8B2BA /* README.md */,
 				F3C400AA2251128900131E74 /* Photosophia6 */,
 				F3C400BF2251128A00131E74 /* Photosophia6Tests */,
 				F3C400CA2251128A00131E74 /* Photosophia6UITests */,
@@ -324,6 +328,7 @@
 				F3777F30226E8B1E00F890FF /* FlickrLoginCell.swift */,
 				F3E14C23229C9E0A0056249E /* ShareActivity.swift */,
 				F3823BC7229E4D240031C01E /* Alert+UIViewController.swift */,
+				F3FEB85E22A7B63C00C8B2BA /* SearchOptionsViewController.swift */,
 			);
 			path = "view controllers";
 			sourceTree = "<group>";
@@ -634,6 +639,7 @@
 				F3C400AC2251128900131E74 /* AppDelegate.swift in Sources */,
 				F313178122540B6E00D4ECA5 /* InterestingPhotosViewController.swift in Sources */,
 				F3823BC8229E4D240031C01E /* Alert+UIViewController.swift in Sources */,
+				F3FEB85F22A7B63C00C8B2BA /* SearchOptionsViewController.swift in Sources */,
 				F313177F22540B4300D4ECA5 /* InterestingPhotosViewModel.swift in Sources */,
 				F3C400DF2251157300131E74 /* Flickr.swift in Sources */,
 				F3C400EA2252505C00131E74 /* Photo+Codable.swift in Sources */,

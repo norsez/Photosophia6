@@ -9,7 +9,7 @@
 import Foundation
 import RxSwift
 
-class OptionsViewModel {
+class SearchOptionsViewModel {
     
     enum OptionType {
         case multipleChoices
@@ -18,13 +18,28 @@ class OptionsViewModel {
     enum OptionItem: Int {
         case dateRange, safeSearch
         static let ALL: [OptionItem] = [.dateRange, .safeSearch]
-        var displayLabels : String {
+        var displayLabel : String {
             get {
                 switch self {
                 case .dateRange:
                     return "Interval"
                 case .safeSearch:
                     return "Safe Search"
+                }
+            }
+        }
+        
+        var multipleChoices: [String] {
+            get{
+                switch self {
+                case .dateRange:
+                    return FlickrSearchOptions.DateRange.ALL.compactMap({ (d) -> String? in
+                        return d.parameterName
+                    })
+                case .safeSearch:
+                    return FlickrSearchOptions.SafeSearch.ALL.compactMap({ (d) -> String? in
+                        return d.parameterName
+                    })
                 }
             }
         }
@@ -48,18 +63,7 @@ class OptionsViewModel {
         return [OptionType.multipleChoices, OptionType.multipleChoices]
     }
     
-    func multipleChoices(at optionIndex: OptionItem) -> [String] {
-        switch optionIndex {
-        case .dateRange:
-            return FlickrSearchOptions.DateRange.ALL.compactMap({ (d) -> String? in
-                return d.parameterName
-            })
-        case .safeSearch:
-            return FlickrSearchOptions.SafeSearch.ALL.compactMap({ (d) -> String? in
-                return d.parameterName
-            })
-        }
-    }
+    
     
     func selectChoice(for optionIndex:OptionItem, at index: Int) {
         var o = self.options.value

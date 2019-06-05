@@ -95,7 +95,7 @@ struct FlickrSearchOptions: Codable {
     }
     
     var safeSearch: SafeSearch = .safe
-    var groupId: String? = nil
+    //var groupId: String? = nil
     var dateRange: DateRange = .oneWeek
     
     init() {
@@ -112,7 +112,7 @@ struct FlickrSearchOptions: Codable {
         
         let con = try decoder.container(keyedBy: CodingKeys.self)
 
-        self.groupId = try con.decode(String.self, forKey: .groupId)
+        //self.groupId = try con.decode(String.self, forKey: .groupId)
         
         let _safeSearch = try con.decode(Int.self, forKey: .safeSearch)
         self.safeSearch = SafeSearch(rawValue: _safeSearch) ?? .safe
@@ -123,9 +123,9 @@ struct FlickrSearchOptions: Codable {
     
     func encode(to encoder: Encoder) throws {
         var con = encoder.container(keyedBy: CodingKeys.self)
-        if let g = groupId {
-          try con.encode(g, forKey: .groupId)
-        }
+//        if let g = groupId {
+//          try con.encode(g, forKey: .groupId)
+//        }
         try con.encode(self.dateRange.rawValue, forKey: .dateRange)
         try con.encode(self.safeSearch.rawValue, forKey: .safeSearch)
     }
@@ -137,9 +137,9 @@ struct FlickrSearchOptions: Codable {
             let range = self.dateRange.toDates()
             result["max_upload_date"] = "\(Int(range.end.timeIntervalSince1970))"
             result["min_upload_date"] = "\(Int(range.start.timeIntervalSince1970))"
-            if let g = self.groupId {
-                result["group_id"] = g
-            }
+//            if let g = self.groupId {
+//                result["group_id"] = g
+//            }
             return result
         }
     }
