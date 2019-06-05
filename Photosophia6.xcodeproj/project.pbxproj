@@ -53,6 +53,7 @@
 		F3FBE89022966C6400A64B13 /* FlickrTestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FBE88F22966C6400A64B13 /* FlickrTestData.swift */; };
 		F3FBE89822966FE400A64B13 /* TestRxQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FBE89722966FE400A64B13 /* TestRxQueue.swift */; };
 		F3FBE8A1229670D800A64B13 /* TestRxBehaviors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FBE8A0229670D800A64B13 /* TestRxBehaviors.swift */; };
+		F3FEB85D22A73B1F00C8B2BA /* OptionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FEB85C22A73B1F00C8B2BA /* OptionsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,6 +142,7 @@
 		F3FBE89722966FE400A64B13 /* TestRxQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRxQueue.swift; sourceTree = "<group>"; };
 		F3FBE89922966FE400A64B13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3FBE8A0229670D800A64B13 /* TestRxBehaviors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRxBehaviors.swift; sourceTree = "<group>"; };
+		F3FEB85C22A73B1F00C8B2BA /* OptionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +216,7 @@
 				F313178A22542DC500D4ECA5 /* ViewModelRxProtocol.swift */,
 				F386DCDC226BD727008B5287 /* Logger.swift */,
 				F386DCE0226BDCA0008B5287 /* UIErrorHandling.swift */,
+				F3FEB85C22A73B1F00C8B2BA /* OptionsViewModel.swift */,
 			);
 			path = "view models";
 			sourceTree = "<group>";
@@ -619,6 +622,7 @@
 				F386DCDD226BD727008B5287 /* Logger.swift in Sources */,
 				F3A648742271997F005B97CB /* DevTool.swift in Sources */,
 				F3AE6FA422A1E6EB009B7CFE /* Analytics.swift in Sources */,
+				F3FEB85D22A73B1F00C8B2BA /* OptionsViewModel.swift in Sources */,
 				F313178D22545E7C00D4ECA5 /* LoginViewModel.swift in Sources */,
 				F3FBE88E22966C4B00A64B13 /* Flickr+Protocol.swift in Sources */,
 				F3C400AE2251128900131E74 /* ViewController.swift in Sources */,

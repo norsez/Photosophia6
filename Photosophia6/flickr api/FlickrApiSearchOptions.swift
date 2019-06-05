@@ -14,9 +14,22 @@ protocol Parameter {
 }
 struct FlickrSearchOptions: Codable {
     
-    enum DateRange: Int, CustomStringConvertible {
+    enum DateRange: Int, CustomStringConvertible, Parameter {
         case oneDay, oneWeek, oneMonth, threeMonths, sixMonths
         static let ALL: [DateRange] = [.oneDay, .oneWeek, .oneMonth, .threeMonths, .sixMonths]
+        
+        var parameterName: String {
+            get {
+                return self.description
+            }
+        }
+        
+        var parameterKey: String {
+            get {
+                return "" //not used
+            }
+        }
+        
         var description: String{
             get {
                 switch self {
