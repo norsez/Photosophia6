@@ -47,7 +47,7 @@ class SearchOptionsViewModel {
     
     let onStatus = PublishSubject<String>()
     let onError = PublishSubject<String>()
-    
+    let onOptionsDidSave = PublishSubject<()>()
     var options = Variable<FlickrSearchOptions>(FlickrSearchOptions())
     
     func displayValue(at optionIndex: OptionItem) -> String{
@@ -80,6 +80,7 @@ class SearchOptionsViewModel {
         do {
             try FlickrSearchOptions.save(options: self.options.value) {
                 self.onStatus.onNext("Options saved.")
+                self.onOptionsDidSave.onNext(())
             }
         } catch {
             self.onError.onNext("\(error)")

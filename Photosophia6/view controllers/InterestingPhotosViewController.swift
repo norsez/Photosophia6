@@ -212,4 +212,17 @@ class InterestingPhotosViewController: UICollectionViewController, ViewRxProtoco
         return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
     
+    //MARK: segue
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "search options" {
+            if let ctrl = segue.destination as? SearchOptionsViewController {
+                ctrl.viewModel.onOptionsDidSave.subscribe(onNext: { [weak self] (_) in
+                    self?.viewModel.reloadPhotos()
+                })
+                    .disposed(by: self.disposeBag)
+            }
+        }
+    }
+    
 }

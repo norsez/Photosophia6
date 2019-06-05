@@ -72,7 +72,7 @@ struct FlickrSearchOptions: Codable {
         static let ALL: [SafeSearch] = [.safe, .moderate, .restricted]
         var parameterName: String {
             get {
-                return "Safe Search"
+                return self.description
             }
         }
         var parameterKey: String {
@@ -153,6 +153,9 @@ extension FlickrSearchOptions {
         let df = UserDefaults.standard
         df.set(dataString, forKey: FlickrSearchOptions.PREF_KEY)
         df.synchronize()
+        if let c = completion {
+            c()
+        }
     }
     
     static func load() throws -> FlickrSearchOptions?  {

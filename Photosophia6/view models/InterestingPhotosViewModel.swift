@@ -115,6 +115,11 @@ class InterestingPhotoViewModel {
         }
     }
     
+    func reloadPhotos() {
+        self.photos.accept([])
+        self.loadPhotos()
+    }
+    
     func loadSamplePhotos() {
         self.onStatus.onNext("loading…")
         self.api.loadPhotosophiaInterestingGroupPhotos()

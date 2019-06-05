@@ -188,7 +188,7 @@
                     <navigationItem key="navigationItem" id="7pC-am-F4A">
                         <barButtonItem key="rightBarButtonItem" title="Options" id="f7I-o2-lyo">
                             <connections>
-                                <segue destination="2Jx-dC-4tK" kind="show" id="va1-hU-3on"/>
+                                <segue destination="2Jx-dC-4tK" kind="show" identifier="search options" id="va1-hU-3on"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

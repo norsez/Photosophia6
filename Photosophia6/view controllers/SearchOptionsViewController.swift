@@ -93,6 +93,7 @@ class SearchOptionsViewController: UITableViewController {
                 self?.viewModel.saveOptions()
                 self?.navigationController?.popViewController(animated: true)
                 self?.tableView.reloadData()
+                
             })
             .disposed(by: self.disposeBag)
             
@@ -100,4 +101,6 @@ class SearchOptionsViewController: UITableViewController {
         }
         
     }
+    
+    
 }
