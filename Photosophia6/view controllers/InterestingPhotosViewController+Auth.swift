@@ -17,7 +17,6 @@ extension InterestingPhotosViewController {
         
         loginVM.checkLoginResult
             .observeOn(MainScheduler.instance)
-            .skip(1)
             .subscribe(onNext: { (result) in
                 switch result {
                 case .loggedIn(_):
@@ -34,13 +33,8 @@ extension InterestingPhotosViewController {
         loginVM.beginAuthResult
             .observeOn(MainScheduler.instance)
             .share()
-            .skip(1)
             .subscribe(onNext: { (url) in
-                if let url = url {
-                    self.startFlickrAuth(with: url)
-                }else {
-                    self.alert(error: "Didn't receive flickr login url")
-                }
+                self.startFlickrAuth(with: url)
             }, onError: UIStatus.handleError,
                 onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
@@ -48,7 +42,6 @@ extension InterestingPhotosViewController {
         loginVM.processAuthResult
             .observeOn(MainScheduler.instance)
             .share()
-            .skip(1)
             .subscribe(onNext: { (result) in
                 switch result {
                 case .notLoggedIn:
@@ -63,7 +56,7 @@ extension InterestingPhotosViewController {
                 onCompleted: nil, onDisposed: nil)
         .disposed(by: self.disposeBag)
         
-        loginVM.onErrorMessage.skip(1)
+        loginVM.onErrorMessage
             .subscribe(onNext: { (text) in
                 
             })

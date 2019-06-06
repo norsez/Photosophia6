@@ -45,9 +45,9 @@ enum FlickrLoginResult {
 class LoginViewModel {
     let api = Flickr.shared
     let disposeBag = DisposeBag()
-    let checkLoginResult = BehaviorRelay<FlickrLoginResult>(value: .notLoggedIn)
-    let beginAuthResult = BehaviorRelay<URL?>(value:nil)
-    let processAuthResult = BehaviorRelay<FlickrLoginResult>(value: .notLoggedIn)
+    let checkLoginResult = PublishSubject<FlickrLoginResult>()
+    let beginAuthResult = PublishSubject<URL>()
+    let processAuthResult = PublishSubject<FlickrLoginResult>()
     let onErrorMessage = PublishSubject<String>()
     let showLoginSection = BehaviorRelay<Bool>(value: false)
     
@@ -61,12 +61,13 @@ class LoginViewModel {
                     return FlickrLoginResult.notLoggedIn
                 }
             })
+            .debug()
             .subscribe(onNext: { (result) in
-                self.checkLoginResult.accept(result)
+                self.checkLoginResult.onNext(result)
             },
-                       onError: {
+                onError: {
                         error in
-                        self.checkLoginResult.accept(.notLoggedIn)
+                        self.checkLoginResult.onNext(.notLoggedIn)
             },
                        onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
@@ -79,7 +80,7 @@ class LoginViewModel {
     
     func beginAuth() {
         self.api.beginAuth().subscribe(onNext: { (url) in
-            self.beginAuthResult.accept(url)
+            self.beginAuthResult.onNext(url)
         }, onError: { (error) in
             self.onErrorMessage.onNext("\(error)")
         }, onCompleted: nil, onDisposed: nil)
@@ -97,7 +98,7 @@ class LoginViewModel {
                 .subscribe(onNext: { (credentials) in
                     Logger.log("\(credentials)")
                     let result = credentials.userId != nil ? FlickrLoginResult.loggedIn(credentials.userId!) : FlickrLoginResult.notLoggedIn
-                    self.processAuthResult.accept(result)
+                    self.processAuthResult.onNext(result)
                 })
                 .disposed(by: self.disposeBag)
             

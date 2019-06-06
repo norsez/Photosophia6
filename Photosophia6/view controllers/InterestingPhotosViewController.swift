@@ -136,7 +136,6 @@ class InterestingPhotosViewController: UICollectionViewController, ViewRxProtoco
             .disposed(by: self.disposeBag)
         
         self.viewModel.loginViewModel.showLoginSection
-            .skip(1)
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { (showing) in
                 self.collectionView.reloadData()

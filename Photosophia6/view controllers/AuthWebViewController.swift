@@ -45,7 +45,6 @@ class AuthWebViewController: UIViewController, WKNavigationDelegate, WKUIDelegat
         
         self.loginViewModel.processAuthResult
             .observeOn(MainScheduler.instance)
-            .skip(1)
             .subscribe(onNext: { (result) in
                 self.dismissSelf()
             }, onError: UIStatus.handleError,
