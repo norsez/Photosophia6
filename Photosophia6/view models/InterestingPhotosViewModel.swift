@@ -53,7 +53,6 @@ class InterestingPhotoViewModel {
     let dateFormatter = DateFormatter()
     
     
-    
     private func loadGroups() {
         
         self.onStatus.onNext("loading groups…")
@@ -75,7 +74,6 @@ class InterestingPhotoViewModel {
             .disposed(by: self.disposeBag)
     }
    
-    
     func loadPhotos() {
         
         
@@ -99,7 +97,12 @@ class InterestingPhotoViewModel {
                 .observeOn(self.serialSchd)
                 .subscribe(onNext: { (photos) in
                     var existing = self.photos.value
-                    existing.append(contentsOf: photos)
+                    let newPhotos = photos.filter({ (p) -> Bool in
+                        return !self.photos.value.contains(where: { (aP) -> Bool in
+                            return p.id == aP.id
+                        })
+                    })
+                    existing.append(contentsOf: newPhotos)
                     self.photos.accept(existing)
                     
                     loadedGroups = loadedGroups.advanced(by: 1)
