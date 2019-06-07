@@ -105,19 +105,8 @@ extension InterestingPhotosViewController: NYTPhotosViewControllerDelegate, NYTP
         let index = self.index(of: photo)
         let photo = self.viewModel.photos.value[index]
         
-        var text = ""
-        if let title = photo.title {
-            text = title
-        }
-        if let ownerName = photo.ownername {
-            text += " by \(ownerName)"
-        }
-        if let group = photo.inGroup,
-            let groupName = group.name {
-            text += " in \(groupName)"
-        }
         
-        self.lightboxLabel.text = text
+        self.lightboxLabel.attributedText = photo.attributedStringCaption
         
         return self.lightboxCaptionView
     }
@@ -148,9 +137,23 @@ extension InterestingPhotosViewController: NYTPhotosViewControllerDelegate, NYTP
     }
     
 }
-
-//extension Photo {
-//    func attributedStringCaption() -> NSAttributedString {
-//        return
-//    }
-//}
+//MARK: styled texts
+extension Photo {
+    var attributedStringCaption: NSAttributedString {
+        get {
+            let atr = StyledTextBuilder(text: " ")
+            if let group = self.inGroup,
+                let name = group.name {
+                atr.add(text: "\(name)\n", traits: [.traitCondensed])
+            }
+            
+            atr.add(text: self.title ?? "untitled", traits: [.traitItalic], attributes: nil)
+            if let ownerName = self.ownername {
+                atr.add(text: " by ", traits: [.traitCondensed])
+                atr.add(text: ownerName, traits: [.traitBold])
+            }
+            
+            return atr.build().render(contentSizeCategory: .medium)
+        }
+    }
+}
