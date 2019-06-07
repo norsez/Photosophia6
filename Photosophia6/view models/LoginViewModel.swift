@@ -94,8 +94,8 @@ class LoginViewModel {
         }else if url.scheme == "photosophia" && (url.query ?? "") .contains("oauth_token") {
             
             self.api.completeAuth(with: url)
-                .observeOn(MainScheduler.instance)
-                .subscribe(onNext: { (credentials) in
+                .asDriver(onErrorJustReturn: FlickrLogin.invalidLogin)
+                .drive(onNext: { (credentials) in
                     Logger.log("\(credentials)")
                     let result = credentials.userId != nil ? FlickrLoginResult.loggedIn(credentials.userId!) : FlickrLoginResult.notLoggedIn
                     self.processAuthResult.onNext(result)

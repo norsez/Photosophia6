@@ -44,12 +44,11 @@ class AuthWebViewController: UIViewController, WKNavigationDelegate, WKUIDelegat
         }
         
         self.loginViewModel.processAuthResult
-            .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { (result) in
-                self.dismissSelf()
-            }, onError: UIStatus.handleError,
-               onCompleted: nil, onDisposed: nil)
-        .disposed(by: self.disposeBag)
+            .asDriver(onErrorJustReturn: FlickrLoginResult.notLoggedIn)
+            .drive(onNext: { [weak self](result) in
+                self?.dismissSelf()
+            })
+            .disposed(by: self.disposeBag)
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?,

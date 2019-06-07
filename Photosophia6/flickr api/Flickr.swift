@@ -23,6 +23,10 @@ struct FlickrLogin: CustomStringConvertible {
         }
     }
     
+    static var invalidLogin: FlickrLogin {
+        return FlickrLogin(userId: nil, userName: nil, fullName: nil)
+    }
+    
 }
 
 class NetworkActivityIndicator {

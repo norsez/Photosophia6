@@ -129,44 +129,44 @@ class InterestingPhotosViewController: UICollectionViewController, ViewRxProtoco
         
         
         self.viewModel.photos
-            .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { (photos) in
+            .asDriver(onErrorJustReturn: [])
+            .drive(onNext: { (photos) in
                     self.collectionView.reloadData()
             })
             .disposed(by: self.disposeBag)
         
         self.viewModel.loginViewModel.showLoginSection
-            .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { (showing) in
+            .asDriver(onErrorJustReturn: false)
+            .drive(onNext: { (showing) in
                 self.collectionView.reloadData()
             })
         .disposed(by: self.disposeBag)
         
         self.viewModel.api.progress
-            .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { (pValue) in
+            .asDriver(onErrorJustReturn: 0)
+            .drive(onNext: { (pValue) in
                 self.progressView.isHidden = pValue == 0 || pValue > 1
             })
             .disposed(by: self.disposeBag)
         
         self.viewModel.onError
-            .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { (text) in
+            .asDriver(onErrorJustReturn: "")
+            .drive(onNext: { (text) in
                 UIStatus.showStatusError(text: text)
             })
             .disposed(by: self.disposeBag)
         
         self.viewModel.onStatus
-            .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { (text) in
+            .asDriver(onErrorJustReturn: "")
+            .drive(onNext: { (text) in
                 UIStatus.showStatus(text: text)
             })
             .disposed(by: self.disposeBag)
         
         
         self.viewModel.loginViewModel.onErrorMessage
-            .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { (text) in
+            .asDriver(onErrorJustReturn: "")
+            .drive(onNext: { (text) in
                 UIStatus.showStatusError(text: text)
             })
             .disposed(by: self.disposeBag)

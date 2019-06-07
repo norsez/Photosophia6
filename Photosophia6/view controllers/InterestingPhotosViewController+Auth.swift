@@ -16,8 +16,8 @@ extension InterestingPhotosViewController {
         let loginVM = self.viewModel.loginViewModel
         
         loginVM.checkLoginResult
-            .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { (result) in
+            .asDriver(onErrorJustReturn: FlickrLoginResult.notLoggedIn)
+            .drive(onNext: { (result) in
                 switch result {
                 case .loggedIn(_):
                     self.viewModel.loadPhotos()
@@ -27,22 +27,19 @@ extension InterestingPhotosViewController {
                     self.viewModel.loadSamplePhotos()
                     self.logLoadSampleGroups()
                 }
-            }, onError: UIStatus.handleError)
+            })
         .disposed(by: self.disposeBag)
         
         loginVM.beginAuthResult
-            .observeOn(MainScheduler.instance)
-            .share()
-            .subscribe(onNext: { (url) in
+            .asDriver(onErrorJustReturn: URL(fileURLWithPath: "?"))
+            .drive(onNext: { (url) in
                 self.startFlickrAuth(with: url)
-            }, onError: UIStatus.handleError,
-                onCompleted: nil, onDisposed: nil)
+            })
             .disposed(by: self.disposeBag)
         
         loginVM.processAuthResult
-            .observeOn(MainScheduler.instance)
-            .share()
-            .subscribe(onNext: { (result) in
+            .asDriver(onErrorJustReturn: FlickrLoginResult.notLoggedIn)
+            .drive(onNext: { (result) in
                 switch result {
                 case .notLoggedIn:
                     self.alert(message: "Not logged in")
@@ -52,8 +49,7 @@ extension InterestingPhotosViewController {
                     self.viewModel.loginViewModel.showLoginSection.accept(false)
                     
                 }
-            }, onError: UIStatus.handleError,
-                onCompleted: nil, onDisposed: nil)
+            })
         .disposed(by: self.disposeBag)
         
         loginVM.onErrorMessage

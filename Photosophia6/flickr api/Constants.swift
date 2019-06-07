@@ -12,6 +12,7 @@ enum FlickrKeys : String {
     case flickr_key = "1e9d052c9ddb37139eab6021a666c0e1"
     case flickr_secret = "20ee00022585a820"
     case flickr_callbackUrl = "photosophia://auth"
+    case flickr_status_page = "https://status.flickr.net"
 }
 
 struct Constants {
