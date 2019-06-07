@@ -43,8 +43,11 @@ enum FlickrLoginResult {
  */
 
 class LoginViewModel {
+    
     let api = Flickr.shared
     let disposeBag = DisposeBag()
+    let loginStatus = BehaviorRelay<FlickrLoginResult>(value: .notLoggedIn)
+    
     let checkLoginResult = PublishSubject<FlickrLoginResult>()
     let beginAuthResult = PublishSubject<URL>()
     let processAuthResult = PublishSubject<FlickrLoginResult>()
@@ -52,7 +55,6 @@ class LoginViewModel {
     let showLoginSection = BehaviorRelay<Bool>(value: false)
     
     func checkLogin() {
-        
         self.api.checkAuth()
             .map({ (login) -> FlickrLoginResult in
                 if let userId = login.userId {
@@ -73,7 +75,7 @@ class LoginViewModel {
             .disposed(by: self.disposeBag)
         
 //        UIStatus.needsLogin.subscribe(onNext: { (_) in
-//            self.showLoginSection.accept(true)
+//               self.showLoginSection.accept(true)
 //        })
 //            .disposed(by: self.disposeBag)
     }

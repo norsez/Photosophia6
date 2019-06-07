@@ -11,21 +11,7 @@ import NYTPhotoViewer
 import RxKingfisher
 import Kingfisher
 import RxSwift
-//
-//class PhotoActivityProvider: UIActivityItemProvider {
-//    let photo: Photo
-//    init(with photo: Photo) {
-//        self.photo = photo
-//        super.init(placeholderItem: photo)
-//    }
-//
-//    override var item: Any {
-//        get {
-//            return self.photo.photoWebURL as Any
-//        }
-//    }
-//}
-//
+import StyledTextKit
 class PhotoToDisplay: NSObject, NYTPhoto {
 
 
@@ -162,3 +148,9 @@ extension InterestingPhotosViewController: NYTPhotosViewControllerDelegate, NYTP
     }
     
 }
+
+//extension Photo {
+//    func attributedStringCaption() -> NSAttributedString {
+//        return
+//    }
+//}

@@ -13,7 +13,7 @@ target 'Photosophia6' do
   pod 'RxKingfisher', '~> 0.5.0'
   pod 'Whisper'
   pod 'RealmSwift'
-  #pod 'SKPhotoBrowser'
+  pod 'StyledTextKit'
   pod 'NYTPhotoViewer', '~> 2.0.0'
   pod 'Firebase', '~> 6.1.0'
   pod 'Firebase/Analytics'
