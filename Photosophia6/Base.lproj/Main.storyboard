@@ -186,11 +186,18 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="7pC-am-F4A">
-                        <barButtonItem key="rightBarButtonItem" title="Options" id="f7I-o2-lyo">
-                            <connections>
-                                <segue destination="2Jx-dC-4tK" kind="show" identifier="search options" id="va1-hU-3on"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Options" id="f7I-o2-lyo">
+                                <connections>
+                                    <segue destination="2Jx-dC-4tK" kind="show" identifier="search options" id="va1-hU-3on"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Groups" id="dcG-jx-ZQ6">
+                                <connections>
+                                    <segue destination="sfx-9u-3cI" kind="show" identifier="Group Select" id="yEl-fD-KZE"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="lightboxCaptionView" destination="gs9-0x-1Oc" id="ICa-4B-jZK"/>
@@ -292,6 +299,43 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Glw-8u-DzL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2232" y="779"/>
+        </scene>
+        <!--Group Select View Controller-->
+        <scene sceneID="wWk-Hc-Sno">
+            <objects>
+                <tableViewController id="sfx-9u-3cI" customClass="GroupSelectViewController" customModule="Photosophia6" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="mxy-18-2DK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CELLID" textLabel="P1X-Ry-py1" style="IBUITableViewCellStyleDefault" id="P7N-8O-5Sg" customClass="I">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="P7N-8O-5Sg" id="UTY-wn-Tef">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="P1X-Ry-py1">
+                                            <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="sfx-9u-3cI" id="cMc-ju-9yn"/>
+                            <outlet property="delegate" destination="sfx-9u-3cI" id="dn7-OZ-ea6"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eCP-sR-eJS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2169.5652173913045" y="-24.107142857142858"/>
         </scene>
     </scenes>
 </document>

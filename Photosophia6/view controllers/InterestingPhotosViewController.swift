@@ -212,14 +212,30 @@ class InterestingPhotosViewController: UICollectionViewController, ViewRxProtoco
     }
     
     //MARK: segue
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "search options" {
             if let ctrl = segue.destination as? SearchOptionsViewController {
-                ctrl.viewModel.onOptionsDidSave.subscribe(onNext: { [weak self] (_) in
+                ctrl.viewModel.onOptionsDidSave
+                .asDriver(onErrorJustReturn: ())
+                .drive(onNext: { [weak self] (_) in
                     self?.viewModel.reloadPhotos()
                 })
                     .disposed(by: self.disposeBag)
+            }
+        }else if segue.identifier == "Group Select" {
+            if let ctrl = segue.destination as? GroupSelectViewController {
+                
+                //display groups in alphabetical order
+                ctrl.viewModel.allGroups.value = self.viewModel.allGroups.sorted(by: { (g1, g2) -> Bool in
+                    return g1.name ?? "" < g2.name ?? ""
+                })
+                
+                ctrl.viewModel.onSelected.asDriver(onErrorJustReturn: [])
+                    .drive(onNext: { [weak self] (selectedGroups) in
+                        self?.viewModel.reloadPhotos()
+                    }).disposed(by: self.disposeBag)
+                
+                
             }
         }
     }

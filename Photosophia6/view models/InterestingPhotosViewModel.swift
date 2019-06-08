@@ -34,7 +34,9 @@ class LogInterestPhotosViewModel {
 
 
 class InterestingPhotoViewModel {
-    private var groups = [Group]()
+    var allGroups = [Group]()
+    private var allPhotos = [Photo]()
+    private var selectedGroups = [Group]()
     
     let loginViewModel = LoginViewModel()
     let logViewModel = LogInterestPhotosViewModel()
@@ -52,6 +54,46 @@ class InterestingPhotoViewModel {
     
     let dateFormatter = DateFormatter()
     
+    init() {
+        self.initlialize()
+    }
+    
+    func initlialize() {
+         ModelService.shared.selectedGroups()
+            .asSingle()
+            .subscribe(onSuccess: { (groups) in
+                self.selectedGroups = groups
+            })
+        .disposed(by: self.disposeBag)
+        
+        ModelService.shared.onUpdateSelectedGroups
+            .subscribe(onNext: { (newSelectedGroups) in
+                self.selectedGroups = newSelectedGroups
+                self.updatePhotos()
+            })
+        .disposed(by: self.disposeBag)
+    }
+    
+    private func updatePhotos() {
+        
+        if self.selectedGroups.count == 0 {
+            self.photos.accept(self.allPhotos)
+            return 
+        }
+        
+        
+        let visiblePhotos = self.allPhotos.filter { (p) -> Bool in
+            if let g = p.inGroup {
+                return self.selectedGroups.contains(where: { (sg) -> Bool in
+                    return sg.nsid == g.nsid
+                })
+            }else {
+                return false
+            }
+        }
+        
+        self.photos.accept( visiblePhotos )
+    }
     
     private func loadGroups() {
         
@@ -61,15 +103,15 @@ class InterestingPhotoViewModel {
             .observeOn(self.serialSchd)
             .subscribe(onNext: { (groups) in
             
-            self.groups = groups.shuffled()
-            if self.groups.count > 0 {
-                self.onStatus.onNext("received \(self.groups.count) groups")
+            self.allGroups = groups.shuffled()
+            if self.allGroups.count > 0 {
+                self.onStatus.onNext("received \(self.allGroups.count) groups")
                 self.loadPhotos()
             }
         }, onError: UIStatus.handleError,
            onCompleted: {
             () in
-            self.onStatus.onNext("You have \(self.groups.count) groups.")
+            self.onStatus.onNext("You have \(self.allGroups.count) groups.")
         })
             .disposed(by: self.disposeBag)
     }
@@ -77,14 +119,14 @@ class InterestingPhotoViewModel {
     func loadPhotos() {
         
         
-        if groups.count == 0 {
+        if allGroups.count == 0 {
             self.loadGroups()
         }else {
             self.onStatus.onNext("loading photos…")
             var groupstoLoad = [Observable<[Photo]>]()
             let offset = Int(Float(self.PHOTOS_PER_PAGE) / Float(self.MAX_PER_GROUP))
             for i in lastGroupIndex..<lastGroupIndex + offset  {
-                let g = self.groups[i]
+                let g = self.allGroups[i]
                 groupstoLoad.append(self.api.getInterestingPhotos(in: g, limit: self.MAX_PER_GROUP))
             }
             lastGroupIndex = lastGroupIndex + offset
@@ -96,14 +138,15 @@ class InterestingPhotoViewModel {
             Observable<[Photo]>.concat(groupstoLoad)
                 .observeOn(self.serialSchd)
                 .subscribe(onNext: { (photos) in
-                    var existing = self.photos.value
+                    var existing = self.allPhotos
                     let newPhotos = photos.filter({ (p) -> Bool in
-                        return !self.photos.value.contains(where: { (aP) -> Bool in
+                        return !self.allPhotos.contains(where: { (aP) -> Bool in
                             return p.id == aP.id
                         })
                     })
                     existing.append(contentsOf: newPhotos)
-                    self.photos.accept(existing)
+                    self.allPhotos = existing
+                    self.updatePhotos()
                     
                     loadedGroups = loadedGroups.advanced(by: 1)
                     self.api.progress.onNext(Float(loadedGroups)/Float(totalGroups-1))
@@ -119,7 +162,8 @@ class InterestingPhotoViewModel {
     }
     
     func reloadPhotos() {
-        self.photos.accept([])
+        self.allPhotos = []
+        self.updatePhotos()
         self.loadPhotos()
     }
     
@@ -127,9 +171,8 @@ class InterestingPhotoViewModel {
         self.onStatus.onNext("loading…")
         self.api.loadPhotosophiaInterestingGroupPhotos()
             .subscribe(onNext: { [weak self] (newPhotos) in
-                if let _self = self,
-                    let photos = newPhotos.photo {
-                    _self.photos.accept(photos)
+                if  let photos = newPhotos.photo {
+                    self?.photos.accept(photos)
                     self?.onStatus.onNext("\(photos.count) photos")
                     self?.api.progress.onNext(0)
                 }
@@ -142,4 +185,5 @@ class InterestingPhotoViewModel {
     func caption(of p: Photo) -> String {
         return "\(p.title ?? "untitled") by \(p.ownername ?? "unknown")"
     }
+    
 }
