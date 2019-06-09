@@ -19,6 +19,7 @@
 		F313178D22545E7C00D4ECA5 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F313178C22545E7C00D4ECA5 /* LoginViewModel.swift */; };
 		F31317912254744700D4ECA5 /* Segue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31317902254744700D4ECA5 /* Segue.swift */; };
 		F3131794225489D700D4ECA5 /* Flickr+UserCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3131793225489D700D4ECA5 /* Flickr+UserCases.swift */; };
+		F33A86CE22AD198C00204929 /* SharingActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33A86CD22AD198C00204929 /* SharingActivity.swift */; };
 		F3777F31226E8B1E00F890FF /* FlickrLoginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3777F30226E8B1E00F890FF /* FlickrLoginCell.swift */; };
 		F3823BC8229E4D240031C01E /* Alert+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3823BC7229E4D240031C01E /* Alert+UIViewController.swift */; };
 		F386DCDD226BD727008B5287 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F386DCDC226BD727008B5287 /* Logger.swift */; };
@@ -106,6 +107,7 @@
 		F313178C22545E7C00D4ECA5 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		F31317902254744700D4ECA5 /* Segue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segue.swift; sourceTree = "<group>"; };
 		F3131793225489D700D4ECA5 /* Flickr+UserCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Flickr+UserCases.swift"; sourceTree = "<group>"; };
+		F33A86CD22AD198C00204929 /* SharingActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharingActivity.swift; sourceTree = "<group>"; };
 		F3777F30226E8B1E00F890FF /* FlickrLoginCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrLoginCell.swift; sourceTree = "<group>"; };
 		F3823BC7229E4D240031C01E /* Alert+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert+UIViewController.swift"; sourceTree = "<group>"; };
 		F386DCDC226BD727008B5287 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 				F3F792B82254DDF1003D56A5 /* PhotoSearchModel.swift */,
 				F3F4319E22A66F5000EC554E /* FlickrApiSearchOptions.swift */,
 				F39583AB22ABB13800A717F0 /* ModelService.swift */,
+				F33A86CD22AD198C00204929 /* SharingActivity.swift */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -640,6 +643,7 @@
 				F3C400E42251859400131E74 /* UIViewControllerUtils.swift in Sources */,
 				F3777F31226E8B1E00F890FF /* FlickrLoginCell.swift in Sources */,
 				F3E14C24229C9E0B0056249E /* ShareActivity.swift in Sources */,
+				F33A86CE22AD198C00204929 /* SharingActivity.swift in Sources */,
 				F313178922542C6C00D4ECA5 /* ThumbnailCell.swift in Sources */,
 				F3C400E82251B02100131E74 /* Group+Codable.swift in Sources */,
 				F3FBE89022966C6400A64B13 /* FlickrTestData.swift in Sources */,

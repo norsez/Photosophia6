@@ -21,7 +21,8 @@ class InterestingPhotosViewController: UICollectionViewController, ViewRxProtoco
     let CELL_LOGIN = "flickr login cell"
     
     let serialScheduler = SerialDispatchQueueScheduler(internalSerialQueueName: "serial scheduler")
-    var selectedPhotoIndex: Int? 
+    var selectedPhotoIndex: Int?
+    var photoViewer: UIViewController? = nil
     
     enum Section: Int {
         case loginButton = 0

@@ -79,8 +79,10 @@ extension InterestingPhotosViewController: NYTPhotosViewControllerDelegate, NYTP
     
     func showPhoto(from indexPath: IndexPath) {
         self.selectedPhotoIndex = indexPath.item
-        let ctrl = NYTPhotosViewController(dataSource: self, initialPhotoIndex: self.selectedPhotoIndex ?? 0, delegate: self)
-        self.present(ctrl, animated: true, completion: nil)
+        self.photoViewer = NYTPhotosViewController(dataSource: self, initialPhotoIndex: self.selectedPhotoIndex ?? 0, delegate: self)
+        if let ctrl = self.photoViewer {
+            self.present(ctrl, animated: true, completion: nil)
+        }
 
     }
     
@@ -88,11 +90,17 @@ extension InterestingPhotosViewController: NYTPhotosViewControllerDelegate, NYTP
     func photosViewController(_ photosViewController: NYTPhotosViewController, handleActionButtonTappedFor photo: NYTPhoto) -> Bool {
         
         let photo = self.viewModel.photos.value[self.selectedPhotoIndex ?? 0]
-        if let url = photo.photoWebURL {
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-        }
+//        if let url = photo.photoWebURL {
+//            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+//        }
         
         //ShareActivity.shared.share(photo: photo, on: photosViewController)
+        
+        
+        let ctrl = self.share(photo: photo)
+        
+        self.photoViewer?.present(ctrl, animated: true, completion: nil)
+        
         self.logShare(photo: photo)
         return true
     }
