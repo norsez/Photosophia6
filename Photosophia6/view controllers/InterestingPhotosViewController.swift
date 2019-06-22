@@ -121,7 +121,7 @@ class InterestingPhotosViewController: UICollectionViewController, ViewRxProtoco
                 let maximumOffset = self.collectionView.contentSize.height - self.collectionView.frame.size.height;
                 return maximumOffset - contentOffset <= self.threshold
             })
-            .throttle(20, latest: true, scheduler: self.serialScheduler)
+            .throttle(10, latest: false, scheduler: self.serialScheduler)
             //.debounce(8, scheduler: self.serialScheduler)
             .subscribe(onNext: { (_) in
                 self.viewModel.loadPhotos()
