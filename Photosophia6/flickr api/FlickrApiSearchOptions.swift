@@ -14,6 +14,46 @@ protocol Parameter {
 }
 struct FlickrSearchOptions: Codable {
     
+    enum Sorting: Int, Parameter, CustomStringConvertible {
+        case interestingness, uploadDate, takenDate, relevance
+        static let ALL: [Sorting] = [.interestingness, .uploadDate, .takenDate, .relevance]
+        
+        var description: String {
+            get {
+                switch self {
+                case .interestingness:
+                    return "Interestingness"
+                case .uploadDate:
+                    return "Upload Date"
+                case .takenDate:
+                    return "Taken Date"
+                case .relevance:
+                    return "Relevance"
+                }
+            }
+        }
+        var parameterName: String {
+            get {
+                return self.description
+            }
+        }
+        
+        var parameterKey: String {
+            get {
+                switch self {
+                case .interestingness:
+                    return "interestingness-desc"
+                case .uploadDate:
+                    return "date-posted-desc"
+                case .takenDate:
+                    return "date-taken-desc"
+                case .relevance:
+                    return "relevance"
+                }
+            }
+        }
+    }
+    
     enum DateRange: Int, CustomStringConvertible, Parameter {
         case oneDay, oneWeek, oneMonth, threeMonths, sixMonths
         static let ALL: [DateRange] = [.oneDay, .oneWeek, .oneMonth, .threeMonths, .sixMonths]
@@ -98,6 +138,8 @@ struct FlickrSearchOptions: Codable {
     //var groupId: String? = nil
     var dateRange: DateRange = .oneWeek
     
+    var sort: Sorting = .interestingness
+    
     init() {
         
     }
@@ -106,6 +148,7 @@ struct FlickrSearchOptions: Codable {
         case safeSearch
         case dateRange
         case groupId
+        case sort
     }
     
     init(from decoder: Decoder) throws {
@@ -119,6 +162,9 @@ struct FlickrSearchOptions: Codable {
         
         let _dateRange = try con.decode(Int.self, forKey: .dateRange)
         self.dateRange = DateRange(rawValue: _dateRange) ?? .oneWeek
+        
+        let _sort = try con.decode(Int.self, forKey: .sort)
+        self.sort = Sorting(rawValue: _sort) ?? .interestingness
     }
     
     func encode(to encoder: Encoder) throws {
@@ -128,6 +174,7 @@ struct FlickrSearchOptions: Codable {
 //        }
         try con.encode(self.dateRange.rawValue, forKey: .dateRange)
         try con.encode(self.safeSearch.rawValue, forKey: .safeSearch)
+        try con.encode(self.sort.rawValue, forKey: .sort)
     }
     
     var toApiOptions: [String:Any] {
@@ -137,9 +184,7 @@ struct FlickrSearchOptions: Codable {
             let range = self.dateRange.toDates()
             result["max_upload_date"] = "\(Int(range.end.timeIntervalSince1970))"
             result["min_upload_date"] = "\(Int(range.start.timeIntervalSince1970))"
-//            if let g = self.groupId {
-//                result["group_id"] = g
-//            }
+            result["sort"] = "\(Int(self.sort.rawValue))"
             return result
         }
     }

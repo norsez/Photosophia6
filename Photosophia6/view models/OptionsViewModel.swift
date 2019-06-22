@@ -16,8 +16,8 @@ class SearchOptionsViewModel {
     }
     
     enum OptionItem: Int {
-        case dateRange, safeSearch
-        static let ALL: [OptionItem] = [.dateRange, .safeSearch]
+        case dateRange, safeSearch, sort
+        static let ALL: [OptionItem] = [.dateRange, .safeSearch, .sort]
         var displayLabel : String {
             get {
                 switch self {
@@ -25,6 +25,8 @@ class SearchOptionsViewModel {
                     return "Interval"
                 case .safeSearch:
                     return "Safe Search"
+                case .sort:
+                    return "Sorting"
                 }
             }
         }
@@ -39,6 +41,10 @@ class SearchOptionsViewModel {
                 case .safeSearch:
                     return FlickrSearchOptions.SafeSearch.ALL.compactMap({ (d) -> String? in
                         return d.parameterName
+                    })
+                case .sort:
+                    return FlickrSearchOptions.Sorting.ALL.compactMap({ (s) -> String? in
+                        return s.parameterName
                     })
                 }
             }
@@ -56,6 +62,8 @@ class SearchOptionsViewModel {
             return self.options.value.dateRange.parameterName
         case .safeSearch:
             return self.options.value.safeSearch.parameterName
+        case .sort:
+            return self.options.value.sort.parameterName
         }
     }
     
@@ -72,6 +80,8 @@ class SearchOptionsViewModel {
             o.dateRange = FlickrSearchOptions.DateRange.ALL[index]
         case .safeSearch:
             o.safeSearch = FlickrSearchOptions.SafeSearch.ALL[index]
+        case .sort:
+            o.sort = FlickrSearchOptions.Sorting.ALL[index]
         }
         self.options.value = o
     }

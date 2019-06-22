@@ -90,6 +90,7 @@ extension InterestingPhotosViewController: NYTPhotosViewControllerDelegate, NYTP
     func photosViewController(_ photosViewController: NYTPhotosViewController, handleActionButtonTappedFor photo: NYTPhoto) -> Bool {
         
         let photo = self.viewModel.photos.value[self.selectedPhotoIndex ?? 0]
+        
 //        if let url = photo.photoWebURL {
 //            UIApplication.shared.open(url, options: [:], completionHandler: nil)
 //        }

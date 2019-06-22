@@ -186,18 +186,11 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="7pC-am-F4A">
-                        <rightBarButtonItems>
-                            <barButtonItem title="Options" id="f7I-o2-lyo">
-                                <connections>
-                                    <segue destination="2Jx-dC-4tK" kind="show" identifier="search options" id="va1-hU-3on"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem title="Groups" id="dcG-jx-ZQ6">
-                                <connections>
-                                    <segue destination="sfx-9u-3cI" kind="show" identifier="Group Select" id="yEl-fD-KZE"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" title="Options" id="f7I-o2-lyo">
+                            <connections>
+                                <segue destination="2Jx-dC-4tK" kind="show" identifier="search options" id="va1-hU-3on"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="lightboxCaptionView" destination="gs9-0x-1Oc" id="ICa-4B-jZK"/>
