@@ -121,7 +121,7 @@ class InterestingPhotosViewController: UICollectionViewController, ViewRxProtoco
                 let maximumOffset = self.collectionView.contentSize.height - self.collectionView.frame.size.height;
                 return maximumOffset - contentOffset <= self.threshold
             })
-            .throttle(10, latest: true, scheduler: self.serialScheduler)
+            .throttle(20, latest: true, scheduler: self.serialScheduler)
             //.debounce(8, scheduler: self.serialScheduler)
             .subscribe(onNext: { (_) in
                 self.viewModel.loadPhotos()
@@ -227,9 +227,10 @@ class InterestingPhotosViewController: UICollectionViewController, ViewRxProtoco
             if let ctrl = segue.destination as? GroupSelectViewController {
                 
                 //display groups in alphabetical order
-                ctrl.viewModel.allGroups.value = self.viewModel.allGroups.sorted(by: { (g1, g2) -> Bool in
+                let v = self.viewModel.allGroups.sorted(by: { (g1, g2) -> Bool in
                     return g1.name ?? "" < g2.name ?? ""
                 })
+                ctrl.viewModel.allGroups.accept(v)
                 
                 ctrl.viewModel.onSelected.asDriver(onErrorJustReturn: [])
                     .drive(onNext: { [weak self] (selectedGroups) in

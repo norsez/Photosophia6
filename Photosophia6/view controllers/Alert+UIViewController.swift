@@ -26,8 +26,12 @@ struct UIStatus {
     }
     
     static func showStatus(text: String) {
-        let m = Murmur(title: text, backgroundColor: UIColor.black.withAlphaComponent(0.25), titleColor: UIColor.lightText, font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), action: nil)
-        Whisper.show(whistle: m)
+        //let m = Murmur(title: text, backgroundColor: UIColor.black.withAlphaComponent(0.25), titleColor: UIColor.lightText, font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), action: nil)
+        let m = Message(title: text, textColor: UIColor.lightText, backgroundColor: UIColor.black.withAlphaComponent(0.25), images: nil)
+        if let app = UIApplication.shared.delegate as? AppDelegate,
+            let nav = app.window?.rootViewController as? UINavigationController {
+        Whisper.show(whisper: m, to: nav, action: .show)
+        }
     }
     
     static func showStatusError(text: String) {

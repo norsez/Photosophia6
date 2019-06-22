@@ -8,6 +8,7 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 
 class SearchOptionsViewModel {
     
@@ -54,7 +55,7 @@ class SearchOptionsViewModel {
     let onStatus = PublishSubject<String>()
     let onError = PublishSubject<String>()
     let onOptionsDidSave = PublishSubject<()>()
-    var options = Variable<FlickrSearchOptions>(FlickrSearchOptions())
+    var options = BehaviorRelay<FlickrSearchOptions>(value: FlickrSearchOptions())
     
     func displayValue(at optionIndex: OptionItem) -> String{
         switch optionIndex {
@@ -83,7 +84,7 @@ class SearchOptionsViewModel {
         case .sort:
             o.sort = FlickrSearchOptions.Sorting.ALL[index]
         }
-        self.options.value = o
+        self.options.accept(o)
     }
     
     func saveOptions() {

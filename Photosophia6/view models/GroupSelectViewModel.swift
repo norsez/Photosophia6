@@ -8,13 +8,13 @@
 
 import Foundation
 import RxSwift
-
+import RxCocoa
 
 //MARK: view model
 class GroupSelectViewModel {
     
-    let allGroups = Variable<[Group]>([])
-    let selectedGroups = Variable<[Group]>([])
+    let allGroups = BehaviorRelay<[Group]>(value: [])
+    let selectedGroups = BehaviorRelay<[Group]>(value: [])
     
     let onSelected = PublishSubject<[Group]>()
     let onUpdateSelectionIndex = PublishSubject<[Int]>()
@@ -28,9 +28,9 @@ class GroupSelectViewModel {
             .asSingle()
             .subscribe(onSuccess: { (groups) in
                 if groups.count > 0 {
-                    self.selectedGroups.value = groups
+                    self.selectedGroups.accept(groups)
                 }else {
-                    self.selectedGroups.value = self.allGroups.value
+                    self.selectedGroups.accept(self.allGroups.value)
                 }
                 completion()
             }, onError: UIStatus.handleError)
@@ -51,11 +51,15 @@ class GroupSelectViewModel {
         let group = self.allGroups.value[index]
         
         if self.isSelected(group) {
-            self.selectedGroups.value.removeAll { (g) -> Bool in
+            var v = self.selectedGroups.value
+            v.removeAll { (g) -> Bool in
                 return g.nsid == group.nsid
             }
+            self.selectedGroups.accept(v)
         }else {
-            self.selectedGroups.value.append(group)
+            var v = self.selectedGroups.value
+            v.append(group)
+            self.selectedGroups.accept(v)
         }
         
         self.onUpdateSelectionIndex.onNext([index])

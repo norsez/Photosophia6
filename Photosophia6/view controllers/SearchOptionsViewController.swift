@@ -54,7 +54,7 @@ class SearchOptionsViewController: UITableViewController {
         super.viewDidLoad()
         do {
             if let options = try FlickrSearchOptions.load() {
-                self.viewModel.options.value = options
+                self.viewModel.options.accept(options)
                 self.tableView.reloadData()
             }
         } catch {
@@ -90,7 +90,6 @@ class SearchOptionsViewController: UITableViewController {
             ctrl.selectedValue.subscribe(onNext: { [weak self] (index) in
                 
                 self?.viewModel.selectChoice(for: option, at: index)
-                self?.viewModel.saveOptions()
                 self?.navigationController?.popViewController(animated: true)
                 self?.tableView.reloadData()
                 
@@ -100,6 +99,11 @@ class SearchOptionsViewController: UITableViewController {
             self.navigationController?.pushViewController(ctrl, animated: true)
         }
         
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.viewModel.saveOptions()
     }
     
     

@@ -162,6 +162,7 @@ class InterestingPhotoViewModel {
     }
     
     func reloadPhotos() {
+        self.onStatus.onNext("Reload photos…")
         self.allPhotos = []
         self.updatePhotos()
         self.loadPhotos()
