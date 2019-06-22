@@ -20,6 +20,7 @@
 		F31317912254744700D4ECA5 /* Segue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31317902254744700D4ECA5 /* Segue.swift */; };
 		F3131794225489D700D4ECA5 /* Flickr+UserCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3131793225489D700D4ECA5 /* Flickr+UserCases.swift */; };
 		F33A86CE22AD198C00204929 /* SharingActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33A86CD22AD198C00204929 /* SharingActivity.swift */; };
+		F373B59022BE1DA00082B44F /* DevMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F373B58F22BE1DA00082B44F /* DevMode.swift */; };
 		F3777F31226E8B1E00F890FF /* FlickrLoginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3777F30226E8B1E00F890FF /* FlickrLoginCell.swift */; };
 		F3823BC8229E4D240031C01E /* Alert+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3823BC7229E4D240031C01E /* Alert+UIViewController.swift */; };
 		F386DCDD226BD727008B5287 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F386DCDC226BD727008B5287 /* Logger.swift */; };
@@ -108,6 +109,7 @@
 		F31317902254744700D4ECA5 /* Segue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segue.swift; sourceTree = "<group>"; };
 		F3131793225489D700D4ECA5 /* Flickr+UserCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Flickr+UserCases.swift"; sourceTree = "<group>"; };
 		F33A86CD22AD198C00204929 /* SharingActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharingActivity.swift; sourceTree = "<group>"; };
+		F373B58F22BE1DA00082B44F /* DevMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevMode.swift; sourceTree = "<group>"; };
 		F3777F30226E8B1E00F890FF /* FlickrLoginCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrLoginCell.swift; sourceTree = "<group>"; };
 		F3823BC7229E4D240031C01E /* Alert+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert+UIViewController.swift"; sourceTree = "<group>"; };
 		F386DCDC226BD727008B5287 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
@@ -296,6 +298,7 @@
 				F3C400B72251128A00131E74 /* Info.plist */,
 				F3A648732271997F005B97CB /* DevTool.swift */,
 				F3E14C172299FA020056249E /* GoogleService-Info.plist */,
+				F373B58F22BE1DA00082B44F /* DevMode.swift */,
 			);
 			path = Photosophia6;
 			sourceTree = "<group>";
@@ -658,6 +661,7 @@
 				F39C7829226C31E2003D730A /* InterestingPhotosViewController+PhotoBrowser.swift in Sources */,
 				F313178B22542DC500D4ECA5 /* ViewModelRxProtocol.swift in Sources */,
 				F386DCE1226BDCA0008B5287 /* UIErrorHandling.swift in Sources */,
+				F373B59022BE1DA00082B44F /* DevMode.swift in Sources */,
 				F3AE6FA822A20AEB009B7CFE /* InterestingPhotosViewController+Analytics.swift in Sources */,
 				F31317912254744700D4ECA5 /* Segue.swift in Sources */,
 				F3C400AC2251128900131E74 /* AppDelegate.swift in Sources */,

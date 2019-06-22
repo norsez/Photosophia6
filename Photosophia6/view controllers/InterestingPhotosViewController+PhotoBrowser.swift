@@ -14,7 +14,6 @@ import RxSwift
 import StyledTextKit
 class PhotoToDisplay: NSObject, NYTPhoto {
 
-
     let originalPhoto: Photo
     init(with originalPhoto: Photo) {
         self.originalPhoto = originalPhoto
@@ -61,7 +60,7 @@ extension InterestingPhotosViewController: NYTPhotosViewControllerDelegate, NYTP
             nytPhoto.placeholderImage = ImageCache.default.retrieveImageInMemoryCache(forKey: thumbUrl.absoluteString )
         }
         
-        if let dataURL = photo.photoURL(with: .l1024) {
+        if let dataURL = photo.photoURL(with: self.PHOTO_SIZE) {
             do {
                 if let image = ImageCache.default.retrieveImageInMemoryCache(forKey: dataURL.absoluteString) {
                     nytPhoto.image = image
@@ -107,7 +106,7 @@ extension InterestingPhotosViewController: NYTPhotosViewControllerDelegate, NYTP
     }
     
     func photosViewController(_ photosViewController: NYTPhotosViewController, maximumZoomScaleFor photo: NYTPhoto) -> CGFloat {
-        return 8
+        return self.PHOTO_MAX_ZOOM
     }
     
     func photosViewController(_ photosViewController: NYTPhotosViewController, captionViewFor photo: NYTPhoto) -> UIView? {

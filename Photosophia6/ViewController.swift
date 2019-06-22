@@ -14,34 +14,35 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//
-//        Flickr.shared.checkAuth().subscribe(onNext: { (cred) in
-//            Flickr.shared.getAllUserGroups()
-//                .subscribe(onNext: { (g) in
-//                    print(g)
-//                })
-//                .disposed(by: self.disposeBag)
-//        })
-//            .disposed(by: self.disposeBag)
+        let doIt = UIBarButtonItem(title: "do it", style: .done, target: self, action: #selector(test))
+        self.navigationItem.rightBarButtonItem = doIt
         
-//        Flickr.shared.getInterestingPhotos(in: "609782@N25").subscribe(onNext: { (photo) in
-//            print(photo)
-//        }).disposed(by: self.disposeBag)
         
-//        AuthStatusViewModel.performAuthIfNeeded(with: self, completion: {
-//            login in
-//            self.alert(message: login.description)
-//        })
-        
-        Flickr.shared.checkAuth().subscribe(onNext: { (login) in
-            Flickr.shared.loadInterestingPhotos(withEachGroupLimitTo: 2).subscribe(onNext: { (p) in
+    }
+    
+    @objc func test() {
+        Observable.repeatElement(testOnce(), scheduler: MainScheduler.instance)
+            .subscribe(onNext: { (obs) in
                 
             })
             .disposed(by: self.disposeBag)
+    }
+    
+    func testOnce () -> Observable<Void> {
+        return Observable.create({ (obs) -> Disposable in
+            
+            self.longProcess()
+            obs.onNext(())
+            obs.onCompleted()
+            
+            return Disposables.create()
         })
-        .disposed(by: self.disposeBag)
-        
-        
+    }
+    
+    func longProcess() {
+        for i in 0..<1000 {
+            print("\(i)")
+        }
     }
 
 

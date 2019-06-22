@@ -19,6 +19,9 @@ class InterestingPhotosViewController: UICollectionViewController, ViewRxProtoco
     let disposeBag = DisposeBag()
     let CELL_ID_PHOTO = "thumbnail cell"
     let CELL_LOGIN = "flickr login cell"
+    let PHOTO_SIZE = Photo.Size.l1024
+    let PHOTO_MAX_ZOOM: CGFloat = 4
+    
     
     let serialScheduler = SerialDispatchQueueScheduler(internalSerialQueueName: "serial scheduler")
     var selectedPhotoIndex: Int?

@@ -44,7 +44,7 @@ class InterestingPhotoViewModel {
     let disposeBag = DisposeBag()
     let api = Flickr.shared
     
-    let MAX_PER_GROUP = 5
+    let MAX_PER_GROUP = 15
     let PHOTOS_PER_PAGE = 100
     var lastGroupIndex = 0
     

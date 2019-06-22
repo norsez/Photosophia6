@@ -92,7 +92,7 @@ extension Photo {
     }
     
     func photoURL(with size: Size) -> URL? {
-        return URL(string: "https://farm\(self.farm ?? 0).staticflickr.com/\(self.server ?? "0")/\(self.id ?? "0")_\(self.secret ?? "0").jpg")
+        return URL(string: "https://farm\(self.farm ?? 0).staticflickr.com/\(self.server ?? "0")/\(self.id ?? "0")_\(self.secret ?? "0")_\(size.rawValue).jpg")
     }
     
 //
